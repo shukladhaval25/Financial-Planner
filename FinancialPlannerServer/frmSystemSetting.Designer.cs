@@ -35,7 +35,7 @@
             this.tabpageSMTPSetting = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFromEmail = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveSMTPSetting = new System.Windows.Forms.Button();
             this.chkIsSSL = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.lblFromEmail = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSMTPPort = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
+            this.tbtnEmailOutgoingSetting = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.folderBrowserDiallog = new System.Windows.Forms.FolderBrowserDialog();
-            this.tbtnEmailOutgoingSetting = new System.Windows.Forms.TabPage();
             this.grpEmailSetting.SuspendLayout();
             this.tabEmailSetting.SuspendLayout();
             this.tabpageSMTPSetting.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             this.tabpageSMTPSetting.Controls.Add(this.label3);
             this.tabpageSMTPSetting.Controls.Add(this.txtFromEmail);
-            this.tabpageSMTPSetting.Controls.Add(this.button1);
+            this.tabpageSMTPSetting.Controls.Add(this.btnSaveSMTPSetting);
             this.tabpageSMTPSetting.Controls.Add(this.chkIsSSL);
             this.tabpageSMTPSetting.Controls.Add(this.button4);
             this.tabpageSMTPSetting.Controls.Add(this.lblFromEmail);
@@ -129,15 +129,16 @@
             this.txtFromEmail.Size = new System.Drawing.Size(467, 21);
             this.txtFromEmail.TabIndex = 5;
             // 
-            // button1
+            // btnSaveSMTPSetting
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(99, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Save Change";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveSMTPSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSMTPSetting.Location = new System.Drawing.Point(99, 202);
+            this.btnSaveSMTPSetting.Name = "btnSaveSMTPSetting";
+            this.btnSaveSMTPSetting.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveSMTPSetting.TabIndex = 10;
+            this.btnSaveSMTPSetting.Text = "Save Change";
+            this.btnSaveSMTPSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSMTPSetting.Click += new System.EventHandler(this.btnSaveSMTPSetting_Click);
             // 
             // chkIsSSL
             // 
@@ -243,6 +244,16 @@
             this.txtPort.Size = new System.Drawing.Size(67, 21);
             this.txtPort.TabIndex = 3;
             // 
+            // tbtnEmailOutgoingSetting
+            // 
+            this.tbtnEmailOutgoingSetting.Location = new System.Drawing.Point(4, 27);
+            this.tbtnEmailOutgoingSetting.Name = "tbtnEmailOutgoingSetting";
+            this.tbtnEmailOutgoingSetting.Size = new System.Drawing.Size(848, 246);
+            this.tbtnEmailOutgoingSetting.TabIndex = 1;
+            this.tbtnEmailOutgoingSetting.Text = "Email Outgoing";
+            this.tbtnEmailOutgoingSetting.ToolTipText = "Setting for email send to customer by system.";
+            this.tbtnEmailOutgoingSetting.UseVisualStyleBackColor = true;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -305,16 +316,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Application Path";
             // 
-            // tbtnEmailOutgoingSetting
-            // 
-            this.tbtnEmailOutgoingSetting.Location = new System.Drawing.Point(4, 27);
-            this.tbtnEmailOutgoingSetting.Name = "tbtnEmailOutgoingSetting";
-            this.tbtnEmailOutgoingSetting.Size = new System.Drawing.Size(848, 246);
-            this.tbtnEmailOutgoingSetting.TabIndex = 1;
-            this.tbtnEmailOutgoingSetting.Text = "Email Outgoing";
-            this.tbtnEmailOutgoingSetting.ToolTipText = "Setting for email send to customer by system.";
-            this.tbtnEmailOutgoingSetting.UseVisualStyleBackColor = true;
-            // 
             // frmSystemSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +341,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpEmailSetting;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveSMTPSetting;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox4;

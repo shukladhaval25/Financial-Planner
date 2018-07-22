@@ -22,5 +22,10 @@ namespace FinancialPlannerServer
         {
             this.Parent.Controls.Remove(this);
         }
+
+        private void btnSaveSMTPSetting_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
