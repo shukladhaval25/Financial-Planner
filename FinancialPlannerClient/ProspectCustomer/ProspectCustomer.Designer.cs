@@ -297,9 +297,9 @@
             this.grpConverstion.Controls.Add(this.grpActionControls);
             this.grpConverstion.Controls.Add(this.dataGridConversation);
             this.grpConverstion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpConverstion.Location = new System.Drawing.Point(17, 317);
+            this.grpConverstion.Location = new System.Drawing.Point(12, 317);
             this.grpConverstion.Name = "grpConverstion";
-            this.grpConverstion.Size = new System.Drawing.Size(702, 189);
+            this.grpConverstion.Size = new System.Drawing.Size(707, 189);
             this.grpConverstion.TabIndex = 6;
             this.grpConverstion.TabStop = false;
             this.grpConverstion.Text = "Conversation Details";
@@ -311,7 +311,7 @@
             this.grpActionControls.Controls.Add(this.btnDelete);
             this.grpActionControls.Controls.Add(this.btnAdd);
             this.grpActionControls.Controls.Add(this.btnEditConversation);
-            this.grpActionControls.Location = new System.Drawing.Point(588, 151);
+            this.grpActionControls.Location = new System.Drawing.Point(593, 151);
             this.grpActionControls.Name = "grpActionControls";
             this.grpActionControls.Size = new System.Drawing.Size(111, 38);
             this.grpActionControls.TabIndex = 7;
@@ -366,7 +366,7 @@
             this.dataGridConversation.Name = "dataGridConversation";
             this.dataGridConversation.ReadOnly = true;
             this.dataGridConversation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridConversation.Size = new System.Drawing.Size(696, 131);
+            this.dataGridConversation.Size = new System.Drawing.Size(701, 131);
             this.dataGridConversation.TabIndex = 0;
             // 
             // imgLstProspectCustomer

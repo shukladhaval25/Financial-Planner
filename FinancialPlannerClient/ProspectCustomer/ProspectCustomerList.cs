@@ -139,16 +139,19 @@ namespace FinancialPlannerClient.ProspectCustomer
             if (trvList.SelectedNode.Tag != null)
             {
                 DataRow dr = getSelectedDataRow(int.Parse(trvList.SelectedNode.Tag.ToString()));
-                prospectCustomer.ID = int.Parse(dr.Field<string>("ID"));
-                prospectCustomer.Name = dr.Field<string>("Name");
-                prospectCustomer.PhoneNo = dr.Field<string>("PhoneNo");
-                prospectCustomer.Occupation = dr.Field<string>("Occupation");
-                prospectCustomer.ReferedBy = dr.Field<string>("ReferedBy");
-                prospectCustomer.Email = dr.Field<string>("Email");
-                prospectCustomer.Remarks = dr.Field<string>("Remarks");
-                prospectCustomer.Event = dr.Field<string>("Event");
-                prospectCustomer.EventDate = DateTime.Parse(dr.Field<string>("EventDate").ToString());
-                prospectCustomer.UpdatedByUserName = Program.CurrentUser.UserName;
+                if (dr != null)
+                {
+                    prospectCustomer.ID = int.Parse(dr.Field<string>("ID"));
+                    prospectCustomer.Name = dr.Field<string>("Name");
+                    prospectCustomer.PhoneNo = dr.Field<string>("PhoneNo");
+                    prospectCustomer.Occupation = dr.Field<string>("Occupation");
+                    prospectCustomer.ReferedBy = dr.Field<string>("ReferedBy");
+                    prospectCustomer.Email = dr.Field<string>("Email");
+                    prospectCustomer.Remarks = dr.Field<string>("Remarks");
+                    prospectCustomer.Event = dr.Field<string>("Event");
+                    prospectCustomer.EventDate = DateTime.Parse(dr.Field<string>("EventDate").ToString());
+                    prospectCustomer.UpdatedByUserName = Program.CurrentUser.UserName;
+                }
             }
             return prospectCustomer;
         }
@@ -174,8 +177,7 @@ namespace FinancialPlannerClient.ProspectCustomer
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (trvList.SelectedNode != null)
-            {
-                ProspectClient prospClient = convertSelectedRowDataToProspectCustomer();
+            {                
                 if (MessageBox.Show(
                     string.Format("Are you sure you want to remove {0}'s record? If you select 'Yes' then all associated conversation gets deleted.",trvList.SelectedNode.Text), 
                     "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

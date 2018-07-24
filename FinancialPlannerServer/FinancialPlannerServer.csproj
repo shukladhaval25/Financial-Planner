@@ -209,6 +209,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="EmailJob\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-send-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_run_45545.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

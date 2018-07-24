@@ -51,27 +51,27 @@ namespace FinancialPlannerServer
         {
             try
             {
-                FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
-                string apiurl = Program.WebServiceUrl +"/"+ AUDITLOGCONTROLLER;
+                //FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
+                //string apiurl = Program.WebServiceUrl +"/"+ AUDITLOGCONTROLLER;
 
-                Activities activity = new Activities();
-                activity.ActivityTypeValue = ActivityType.Logout;
-                activity.EntryType = EntryStatus.Success;
-                activity.SourceType = Source.Server;
-                activity.HostName = Environment.MachineName;
-                activity.UserName = Program.CurrentUser.UserName;
+                //Activities activity = new Activities();
+                //activity.ActivityTypeValue = ActivityType.Logout;
+                //activity.EntryType = EntryStatus.Success;
+                //activity.SourceType = Source.Server;
+                //activity.HostName = Environment.MachineName;
+                //activity.UserName = Program.CurrentUser.UserName;
 
-                string DATA =  jsonSerialization.SerializeToString<Activities>(activity);
+                //string DATA =  jsonSerialization.SerializeToString<Activities>(activity);
 
-                WebClient client = new WebClient();
-                client.Headers["Content-type"] = "application/json";
-                client.Encoding = Encoding.UTF8;
-                string json = client.UploadString(apiurl, DATA);
+                //WebClient client = new WebClient();
+                //client.Headers["Content-type"] = "application/json";
+                //client.Encoding = Encoding.UTF8;
+                //string json = client.UploadString(apiurl, DATA);
 
-                if (json != null)
-                {
-                    var resultObject = jsonSerialization.DeserializeFromString<Result>(json);
-                }
+                //if (json != null)
+                //{
+                //    var resultObject = jsonSerialization.DeserializeFromString<Result>(json);
+                //}
             }
             catch (Exception ex)
             {

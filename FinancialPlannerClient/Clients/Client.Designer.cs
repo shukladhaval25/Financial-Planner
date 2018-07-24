@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
+            this.tabControl3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.tabControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -62,6 +62,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client Details";
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Location = new System.Drawing.Point(7, 13);
+            this.tabControl3.Multiline = true;
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(481, 230);
+            this.tabControl3.TabIndex = 1;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(473, 204);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "Client Information";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(473, 197);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Review Details";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(473, 197);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "Email Information";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -104,6 +145,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Common Documents";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(473, 197);
+            this.tabPage8.TabIndex = 2;
+            this.tabPage8.Text = "Other inforamtion";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -149,56 +199,6 @@
             this.tabPage4.Text = "Income";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabControl3
-            // 
-            this.tabControl3.Controls.Add(this.tabPage5);
-            this.tabControl3.Controls.Add(this.tabPage6);
-            this.tabControl3.Controls.Add(this.tabPage7);
-            this.tabControl3.Location = new System.Drawing.Point(7, 13);
-            this.tabControl3.Multiline = true;
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(481, 223);
-            this.tabControl3.TabIndex = 1;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(473, 197);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Client Information";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(473, 197);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Review Details";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(473, 197);
-            this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "Email Information";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(473, 197);
-            this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "Other inforamtion";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
             // tabPage9
             // 
             this.tabPage9.Location = new System.Drawing.Point(4, 4);
@@ -237,11 +237,11 @@
             this.Name = "Client";
             this.Text = "Client";
             this.groupBox1.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
-            this.tabControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
