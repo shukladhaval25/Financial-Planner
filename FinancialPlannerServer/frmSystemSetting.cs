@@ -60,9 +60,9 @@ namespace FinancialPlannerServer
 
         private bool validateAllRequireField()
         {
-          return  (!string.IsNullOrEmpty(txtHost.Text) || !string.IsNullOrEmpty(txtPort.Text) ||
-                !string.IsNullOrEmpty(txtFromEmail.Text) || !string.IsNullOrEmpty(txtUserName.Text) ||
-                !string.IsNullOrEmpty(txtPassword.Text));
+            return (!string.IsNullOrEmpty(txtHost.Text) || !string.IsNullOrEmpty(txtPort.Text) ||
+                  !string.IsNullOrEmpty(txtFromEmail.Text) || !string.IsNullOrEmpty(txtUserName.Text) ||
+                  !string.IsNullOrEmpty(txtPassword.Text));
         }
 
         private void saveSMTPConfiguration()
@@ -335,7 +335,7 @@ namespace FinancialPlannerServer
         {
             foreach (DataRow dr in dtEmailArticle.Rows)
             {
-                TreeNode[] searchResultNodes = trvArticle.Nodes[0].Nodes.Find(dr.Field<string>("Group"), true);
+                TreeNode[] searchResultNodes = trvArticle.Nodes[0].Nodes.Find(dr.Field<string>("GroupName"), true);
                 TreeNode node = new TreeNode();
                 node.Tag = dr.Field<string>("ID");
                 node.Text = dr.Field<string>("Title");
@@ -349,10 +349,9 @@ namespace FinancialPlannerServer
         private void addDistinceGroupNode(DataTable dtEmailArticle)
         {
             var distinctRows = (from DataRow dRow in dtEmailArticle.Rows
-                                select dRow["Group"] ).Distinct();
+                                select dRow["GroupName"] ).Distinct();
             foreach (string rowValue in distinctRows)
             {
-
                 trvArticle.Nodes[0].Nodes.Add(rowValue, rowValue, 9);
             }
         }
@@ -407,6 +406,7 @@ namespace FinancialPlannerServer
         private void btnEditArticleInfo_Click(object sender, EventArgs e)
         {
             grpArticleInfo.Enabled = true;
+            btnSaveArticleInfo.Enabled = true;
             fillGroupCombo();
 
             if (trvArticle.SelectedNode != null && trvArticle.SelectedNode.Tag != null)
@@ -414,8 +414,9 @@ namespace FinancialPlannerServer
                 DataRow dr = getSelectedDataRow(int.Parse(trvArticle.SelectedNode.Tag.ToString()));
                 if (dr != null)
                 {
-                    cmbGroup.Tag = int.Parse(dr.Field<string>("ID"));
-                    cmbGroup.Text = dr.Field<string>("Group");
+                    cmbGroup.Tag = int.Parse(dr.Field<string>("GroupID"));
+                    cmbGroup.Text = dr.Field<string>("GroupName");
+                    txtArticleTitle.Tag = int.Parse(dr.Field<string>("ID"));
                     txtArticleTitle.Text = dr.Field<string>("Title");
                     txtArticleContentPath.Text = dr.Field<string>("ContentFilePath");
                     txtArticleDesc.Text = dr.Field<string>("Description");
@@ -437,7 +438,7 @@ namespace FinancialPlannerServer
         {
             cmbGroup.Items.Clear();
             var distinctRows = (from DataRow dRow in _dtArticle.Rows
-                                select dRow["Group"] ).Distinct();
+                                select dRow["GroupName"] ).Distinct();
             foreach (string rowValue in distinctRows)
             {
                 cmbGroup.Items.Add(rowValue);
@@ -464,15 +465,19 @@ namespace FinancialPlannerServer
         private void btnAddArticleInfo_Click(object sender, EventArgs e)
         {
             clearArticleData();
+            fillGroupCombo();
             grpArticleInfo.Enabled = true;
+            btnSaveArticleInfo.Enabled = true;
+
         }
         private void clearArticleData()
         {
             cmbGroup.Tag = null;
             cmbGroup.Text = "";
+            txtArticleTitle.Tag = null;
             txtArticleTitle.Text = "";
             txtArticleContentPath.Text = "";
-            txtArticleDesc.Text = "";
+            txtArticleDesc.Text = "";            
         }
 
         private void btnArticleContentFile_Click(object sender, EventArgs e)
@@ -493,12 +498,12 @@ namespace FinancialPlannerServer
             else
             {
                 MessageBox.Show("Please enter all require data.", "Data Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }            
+            }
         }
 
         private bool validateArticleField()
         {
-            throw new NotImplementedException();
+            return (!string.IsNullOrEmpty(cmbGroup.Name) || !string.IsNullOrEmpty(txtArticleTitle.Text));
         }
 
         private void updateEmailArticleInfo()
@@ -510,7 +515,7 @@ namespace FinancialPlannerServer
 
                 EmailArticle article = new EmailArticle()
                 {
-                    Group = cmbGroup.Text,
+                    GroupName = cmbGroup.Text,
                     Title = txtArticleTitle.Text,
                     ContentFilePath = txtArticleContentPath.Text,
                     Description = txtArticleDesc.Text,
@@ -522,14 +527,14 @@ namespace FinancialPlannerServer
                     MachineName = System.Environment.MachineName
                 };
 
-                if (cmbGroup.Tag == null)
+                if (txtArticleTitle.Tag == null)
                 {
                     apiurl = Program.WebServiceUrl + "/" + ADD_EMAILARTICLE_API;
                 }
                 else
                 {
                     apiurl = Program.WebServiceUrl + "/" + UPDATE_EMAILARTICLE_API;
-                    article.ID = int.Parse(cmbGroup.Tag.ToString());
+                    article.ID = int.Parse(txtArticleTitle.Tag.ToString());
                 }
 
                 string DATA =  jsonSerialization.SerializeToString<EmailArticle>(article);
@@ -546,6 +551,7 @@ namespace FinancialPlannerServer
                     {
                         MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadArticleFormWithData();
+                        btnSaveArticleInfo.Enabled = false;
                         displayArtilceTreeView(_dtArticle);
                     }
                 }
@@ -558,7 +564,7 @@ namespace FinancialPlannerServer
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable dtsearchResult =  _dtArticle.Select(string.Format("Group like '%{0}%' or Title like '%{0}%'", txtSearchEmailArticle.Text)).CopyToDataTable();
+            DataTable dtsearchResult =  _dtArticle.Select(string.Format("GroupName like '%{0}%' or Title like '%{0}%'", txtSearchEmailArticle.Text)).CopyToDataTable();
             displayArtilceTreeView(dtsearchResult);
         }
 
@@ -622,7 +628,8 @@ namespace FinancialPlannerServer
                 if (dr != null)
                 {
                     article.ID = int.Parse(dr.Field<string>("ID"));
-                    article.Group = dr.Field<string>("Group");
+                    article.GroupId = int.Parse(dr.Field<string>("GroupID"));
+                    article.GroupName = dr.Field<string>("GroupName");
                     article.Title = dr.Field<string>("Title");
                     article.ContentFilePath = dr.Field<string>("ContentFilePath");
                     article.Description = dr.Field<string>("Description");
@@ -636,6 +643,17 @@ namespace FinancialPlannerServer
         private void btnRestoreDefault_Click(object sender, EventArgs e)
         {
             txtPort.Text = "587";
+        }
+
+        private void cmbGroup_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbGroup.Text))
+                cmbGroup.Tag = "0";           
+        }
+
+        private void trvArticle_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            btnEditArticleInfo_Click(sender,e);
         }
     }
 }

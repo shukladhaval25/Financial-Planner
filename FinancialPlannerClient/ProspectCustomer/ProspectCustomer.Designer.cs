@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProspectCustomer));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpProspectCustomer = new System.Windows.Forms.GroupBox();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkIsConvertedToCustomer = new System.Windows.Forms.CheckBox();
@@ -58,49 +58,58 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEditConversation = new System.Windows.Forms.Button();
             this.dataGridConversation = new System.Windows.Forms.DataGridView();
-            this.imgLstProspectCustomer = new System.Windows.Forms.ImageList(this.components);
             this.btnAddConversation = new System.Windows.Forms.Button();
             this.btnShowConversation = new System.Windows.Forms.Button();
             this.btnHideConversation = new System.Windows.Forms.Button();
             this.toolTipProspeectClient = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
+            this.tbProspCustomer = new System.Windows.Forms.TabControl();
+            this.tbpageProspectCustomer = new System.Windows.Forms.TabPage();
+            this.tpageEmailSendHistory = new System.Windows.Forms.TabPage();
+            this.imageList30x30 = new System.Windows.Forms.ImageList(this.components);
+            this.grpProspectCustomer.SuspendLayout();
             this.grpConverstion.SuspendLayout();
             this.grpActionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConversation)).BeginInit();
+            this.tbProspCustomer.SuspendLayout();
+            this.tbpageProspectCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpProspectCustomer
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpProspectCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.txtRemark);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.chkIsConvertedToCustomer);
-            this.groupBox1.Controls.Add(this.chkStopSendingEmail);
-            this.groupBox1.Controls.Add(this.txtRefBy);
-            this.groupBox1.Controls.Add(this.lblRefBy);
-            this.groupBox1.Controls.Add(this.dtEventDate);
-            this.groupBox1.Controls.Add(this.lblEventDate);
-            this.groupBox1.Controls.Add(this.txtEvent);
-            this.groupBox1.Controls.Add(this.lblEvent);
-            this.groupBox1.Controls.Add(this.txtOccupation);
-            this.groupBox1.Controls.Add(this.lblOccupation);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtPhoneNo);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.lblLastName);
-            this.groupBox1.Controls.Add(this.lblPhoneNo);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(708, 263);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Propsect Customer Information";
+            this.grpProspectCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.grpProspectCustomer.Controls.Add(this.txtRemark);
+            this.grpProspectCustomer.Controls.Add(this.label1);
+            this.grpProspectCustomer.Controls.Add(this.chkIsConvertedToCustomer);
+            this.grpProspectCustomer.Controls.Add(this.chkStopSendingEmail);
+            this.grpProspectCustomer.Controls.Add(this.txtRefBy);
+            this.grpProspectCustomer.Controls.Add(this.lblRefBy);
+            this.grpProspectCustomer.Controls.Add(this.dtEventDate);
+            this.grpProspectCustomer.Controls.Add(this.lblEventDate);
+            this.grpProspectCustomer.Controls.Add(this.txtEvent);
+            this.grpProspectCustomer.Controls.Add(this.lblEvent);
+            this.grpProspectCustomer.Controls.Add(this.txtOccupation);
+            this.grpProspectCustomer.Controls.Add(this.lblOccupation);
+            this.grpProspectCustomer.Controls.Add(this.txtEmail);
+            this.grpProspectCustomer.Controls.Add(this.txtPhoneNo);
+            this.grpProspectCustomer.Controls.Add(this.txtName);
+            this.grpProspectCustomer.Controls.Add(this.lblLastName);
+            this.grpProspectCustomer.Controls.Add(this.lblPhoneNo);
+            this.grpProspectCustomer.Controls.Add(this.lblName);
+            this.grpProspectCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpProspectCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.grpProspectCustomer.Location = new System.Drawing.Point(3, 10);
+            this.grpProspectCustomer.Name = "grpProspectCustomer";
+            this.grpProspectCustomer.Size = new System.Drawing.Size(707, 204);
+            this.grpProspectCustomer.TabIndex = 0;
+            this.grpProspectCustomer.TabStop = false;
+            this.grpProspectCustomer.Text = "Propsect Customer Information";
+            this.toolTipProspeectClient.SetToolTip(this.grpProspectCustomer, "Information about propsect customer");
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(443, 161);
+            this.txtRemark.Location = new System.Drawing.Point(441, 113);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(251, 75);
@@ -109,18 +118,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 145);
+            this.label1.Location = new System.Drawing.Point(438, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 23;
             this.label1.Text = "Remark:";
             // 
             // chkIsConvertedToCustomer
             // 
             this.chkIsConvertedToCustomer.AutoSize = true;
-            this.chkIsConvertedToCustomer.Location = new System.Drawing.Point(527, 115);
+            this.chkIsConvertedToCustomer.Location = new System.Drawing.Point(504, 81);
             this.chkIsConvertedToCustomer.Name = "chkIsConvertedToCustomer";
-            this.chkIsConvertedToCustomer.Size = new System.Drawing.Size(115, 17);
+            this.chkIsConvertedToCustomer.Size = new System.Drawing.Size(126, 19);
             this.chkIsConvertedToCustomer.TabIndex = 22;
             this.chkIsConvertedToCustomer.Text = "Converted to client";
             this.chkIsConvertedToCustomer.UseVisualStyleBackColor = true;
@@ -128,122 +137,124 @@
             // chkStopSendingEmail
             // 
             this.chkStopSendingEmail.AutoSize = true;
-            this.chkStopSendingEmail.Location = new System.Drawing.Point(527, 79);
+            this.chkStopSendingEmail.Location = new System.Drawing.Point(504, 58);
             this.chkStopSendingEmail.Name = "chkStopSendingEmail";
-            this.chkStopSendingEmail.Size = new System.Drawing.Size(164, 17);
+            this.chkStopSendingEmail.Size = new System.Drawing.Size(188, 19);
             this.chkStopSendingEmail.TabIndex = 21;
             this.chkStopSendingEmail.Text = "Stop sending email by system";
             this.chkStopSendingEmail.UseVisualStyleBackColor = true;
             // 
             // txtRefBy
             // 
-            this.txtRefBy.Location = new System.Drawing.Point(527, 37);
+            this.txtRefBy.Location = new System.Drawing.Point(534, 29);
             this.txtRefBy.Name = "txtRefBy";
-            this.txtRefBy.Size = new System.Drawing.Size(167, 20);
+            this.txtRefBy.Size = new System.Drawing.Size(158, 21);
             this.txtRefBy.TabIndex = 20;
             // 
             // lblRefBy
             // 
             this.lblRefBy.AutoSize = true;
-            this.lblRefBy.Location = new System.Drawing.Point(440, 40);
+            this.lblRefBy.Location = new System.Drawing.Point(438, 32);
             this.lblRefBy.Name = "lblRefBy";
-            this.lblRefBy.Size = new System.Drawing.Size(81, 13);
+            this.lblRefBy.Size = new System.Drawing.Size(90, 15);
             this.lblRefBy.TabIndex = 19;
             this.lblRefBy.Text = "Referenced By:";
             // 
             // dtEventDate
             // 
-            this.dtEventDate.Location = new System.Drawing.Point(158, 215);
+            this.dtEventDate.Location = new System.Drawing.Point(120, 163);
             this.dtEventDate.Name = "dtEventDate";
-            this.dtEventDate.Size = new System.Drawing.Size(268, 20);
+            this.dtEventDate.Size = new System.Drawing.Size(268, 21);
             this.dtEventDate.TabIndex = 18;
             // 
             // lblEventDate
             // 
             this.lblEventDate.AutoSize = true;
-            this.lblEventDate.Location = new System.Drawing.Point(30, 223);
+            this.lblEventDate.Location = new System.Drawing.Point(16, 169);
             this.lblEventDate.Name = "lblEventDate";
-            this.lblEventDate.Size = new System.Drawing.Size(64, 13);
+            this.lblEventDate.Size = new System.Drawing.Size(69, 15);
             this.lblEventDate.TabIndex = 17;
             this.lblEventDate.Text = "Event Date:";
             // 
             // txtEvent
             // 
-            this.txtEvent.Location = new System.Drawing.Point(158, 183);
+            this.txtEvent.Location = new System.Drawing.Point(120, 137);
             this.txtEvent.Name = "txtEvent";
-            this.txtEvent.Size = new System.Drawing.Size(268, 20);
+            this.txtEvent.Size = new System.Drawing.Size(268, 21);
             this.txtEvent.TabIndex = 16;
             // 
             // lblEvent
             // 
             this.lblEvent.AutoSize = true;
-            this.lblEvent.Location = new System.Drawing.Point(30, 186);
+            this.lblEvent.Location = new System.Drawing.Point(16, 140);
             this.lblEvent.Name = "lblEvent";
-            this.lblEvent.Size = new System.Drawing.Size(93, 13);
+            this.lblEvent.Size = new System.Drawing.Size(105, 15);
             this.lblEvent.TabIndex = 15;
             this.lblEvent.Text = "Event Information:";
             // 
             // txtOccupation
             // 
-            this.txtOccupation.Location = new System.Drawing.Point(158, 148);
+            this.txtOccupation.Location = new System.Drawing.Point(120, 110);
             this.txtOccupation.Name = "txtOccupation";
-            this.txtOccupation.Size = new System.Drawing.Size(268, 20);
+            this.txtOccupation.Size = new System.Drawing.Size(268, 21);
             this.txtOccupation.TabIndex = 14;
             // 
             // lblOccupation
             // 
             this.lblOccupation.AutoSize = true;
-            this.lblOccupation.Location = new System.Drawing.Point(30, 151);
+            this.lblOccupation.Location = new System.Drawing.Point(16, 113);
             this.lblOccupation.Name = "lblOccupation";
-            this.lblOccupation.Size = new System.Drawing.Size(65, 13);
+            this.lblOccupation.Size = new System.Drawing.Size(72, 15);
             this.lblOccupation.TabIndex = 13;
             this.lblOccupation.Text = "Occupation:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(158, 112);
+            this.txtEmail.Location = new System.Drawing.Point(120, 84);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(268, 20);
+            this.txtEmail.Size = new System.Drawing.Size(268, 21);
             this.txtEmail.TabIndex = 12;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(158, 76);
+            this.txtPhoneNo.Location = new System.Drawing.Point(120, 58);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(268, 20);
+            this.txtPhoneNo.Size = new System.Drawing.Size(268, 21);
             this.txtPhoneNo.TabIndex = 11;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(158, 40);
+            this.txtName.Location = new System.Drawing.Point(120, 32);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 20);
+            this.txtName.Size = new System.Drawing.Size(268, 21);
             this.txtName.TabIndex = 10;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(27, 112);
+            this.lblLastName.Location = new System.Drawing.Point(16, 84);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(35, 13);
+            this.lblLastName.Size = new System.Drawing.Size(42, 15);
             this.lblLastName.TabIndex = 9;
             this.lblLastName.Text = "Email:";
             // 
             // lblPhoneNo
             // 
             this.lblPhoneNo.AutoSize = true;
-            this.lblPhoneNo.Location = new System.Drawing.Point(27, 76);
+            this.lblPhoneNo.Location = new System.Drawing.Point(16, 58);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(58, 13);
+            this.lblPhoneNo.Size = new System.Drawing.Size(65, 15);
             this.lblPhoneNo.TabIndex = 8;
             this.lblPhoneNo.Text = "Phone No:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(27, 40);
+            this.lblName.Location = new System.Drawing.Point(16, 32);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.Size = new System.Drawing.Size(44, 15);
             this.lblName.TabIndex = 7;
             this.lblName.Text = "Name:";
             // 
@@ -253,7 +264,7 @@
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.ImageKey = "icons8-cancel-16.png";
             this.btnCancel.ImageList = this.imgCollection;
-            this.btnCancel.Location = new System.Drawing.Point(645, 284);
+            this.btnCancel.Location = new System.Drawing.Point(650, 279);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 26);
             this.btnCancel.TabIndex = 4;
@@ -280,7 +291,7 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.ImageKey = "icons8-save-close-16.png";
             this.btnSave.ImageList = this.imgCollection;
-            this.btnSave.Location = new System.Drawing.Point(564, 284);
+            this.btnSave.Location = new System.Drawing.Point(569, 279);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 26);
             this.btnSave.TabIndex = 3;
@@ -297,9 +308,9 @@
             this.grpConverstion.Controls.Add(this.grpActionControls);
             this.grpConverstion.Controls.Add(this.dataGridConversation);
             this.grpConverstion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpConverstion.Location = new System.Drawing.Point(12, 317);
+            this.grpConverstion.Location = new System.Drawing.Point(8, 311);
             this.grpConverstion.Name = "grpConverstion";
-            this.grpConverstion.Size = new System.Drawing.Size(707, 189);
+            this.grpConverstion.Size = new System.Drawing.Size(720, 291);
             this.grpConverstion.TabIndex = 6;
             this.grpConverstion.TabStop = false;
             this.grpConverstion.Text = "Conversation Details";
@@ -311,7 +322,7 @@
             this.grpActionControls.Controls.Add(this.btnDelete);
             this.grpActionControls.Controls.Add(this.btnAdd);
             this.grpActionControls.Controls.Add(this.btnEditConversation);
-            this.grpActionControls.Location = new System.Drawing.Point(593, 151);
+            this.grpActionControls.Location = new System.Drawing.Point(606, 253);
             this.grpActionControls.Name = "grpActionControls";
             this.grpActionControls.Size = new System.Drawing.Size(111, 38);
             this.grpActionControls.TabIndex = 7;
@@ -366,23 +377,14 @@
             this.dataGridConversation.Name = "dataGridConversation";
             this.dataGridConversation.ReadOnly = true;
             this.dataGridConversation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridConversation.Size = new System.Drawing.Size(701, 131);
+            this.dataGridConversation.Size = new System.Drawing.Size(714, 233);
             this.dataGridConversation.TabIndex = 0;
-            // 
-            // imgLstProspectCustomer
-            // 
-            this.imgLstProspectCustomer.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgLstProspectCustomer.ImageStream")));
-            this.imgLstProspectCustomer.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgLstProspectCustomer.Images.SetKeyName(0, "icons8-double-down-16.png");
-            this.imgLstProspectCustomer.Images.SetKeyName(1, "icons8-double-up-16.png");
-            this.imgLstProspectCustomer.Images.SetKeyName(2, "icons8-chat-16.png");
             // 
             // btnAddConversation
             // 
             this.btnAddConversation.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddConversation.ImageKey = "icons8-chat-16.png";
-            this.btnAddConversation.ImageList = this.imgLstProspectCustomer;
-            this.btnAddConversation.Location = new System.Drawing.Point(166, 284);
+            this.btnAddConversation.Location = new System.Drawing.Point(162, 279);
             this.btnAddConversation.Name = "btnAddConversation";
             this.btnAddConversation.Size = new System.Drawing.Size(147, 26);
             this.btnAddConversation.TabIndex = 8;
@@ -395,8 +397,7 @@
             // 
             this.btnShowConversation.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnShowConversation.ImageKey = "icons8-double-down-16.png";
-            this.btnShowConversation.ImageList = this.imgLstProspectCustomer;
-            this.btnShowConversation.Location = new System.Drawing.Point(13, 284);
+            this.btnShowConversation.Location = new System.Drawing.Point(9, 279);
             this.btnShowConversation.Name = "btnShowConversation";
             this.btnShowConversation.Size = new System.Drawing.Size(147, 26);
             this.btnShowConversation.TabIndex = 5;
@@ -409,8 +410,7 @@
             // 
             this.btnHideConversation.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHideConversation.ImageKey = "icons8-double-up-16.png";
-            this.btnHideConversation.ImageList = this.imgLstProspectCustomer;
-            this.btnHideConversation.Location = new System.Drawing.Point(14, 284);
+            this.btnHideConversation.Location = new System.Drawing.Point(9, 279);
             this.btnHideConversation.Name = "btnHideConversation";
             this.btnHideConversation.Size = new System.Drawing.Size(147, 26);
             this.btnHideConversation.TabIndex = 7;
@@ -422,34 +422,81 @@
             // 
             this.toolTipProspeectClient.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // tbProspCustomer
+            // 
+            this.tbProspCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbProspCustomer.Controls.Add(this.tbpageProspectCustomer);
+            this.tbProspCustomer.Controls.Add(this.tpageEmailSendHistory);
+            this.tbProspCustomer.ImageList = this.imageList30x30;
+            this.tbProspCustomer.Location = new System.Drawing.Point(8, 11);
+            this.tbProspCustomer.Name = "tbProspCustomer";
+            this.tbProspCustomer.SelectedIndex = 0;
+            this.tbProspCustomer.Size = new System.Drawing.Size(724, 262);
+            this.tbProspCustomer.TabIndex = 9;
+            // 
+            // tbpageProspectCustomer
+            // 
+            this.tbpageProspectCustomer.Controls.Add(this.grpProspectCustomer);
+            this.tbpageProspectCustomer.ImageKey = "icons8-reception-30.png";
+            this.tbpageProspectCustomer.Location = new System.Drawing.Point(4, 37);
+            this.tbpageProspectCustomer.Name = "tbpageProspectCustomer";
+            this.tbpageProspectCustomer.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpageProspectCustomer.Size = new System.Drawing.Size(716, 221);
+            this.tbpageProspectCustomer.TabIndex = 0;
+            this.tbpageProspectCustomer.Text = "Prospect Customer";
+            this.tbpageProspectCustomer.ToolTipText = "Prospect Customer";
+            this.tbpageProspectCustomer.UseVisualStyleBackColor = true;
+            // 
+            // tpageEmailSendHistory
+            // 
+            this.tpageEmailSendHistory.ImageKey = "icons8-group-message-30.png";
+            this.tpageEmailSendHistory.Location = new System.Drawing.Point(4, 37);
+            this.tpageEmailSendHistory.Name = "tpageEmailSendHistory";
+            this.tpageEmailSendHistory.Padding = new System.Windows.Forms.Padding(3);
+            this.tpageEmailSendHistory.Size = new System.Drawing.Size(716, 221);
+            this.tpageEmailSendHistory.TabIndex = 1;
+            this.tpageEmailSendHistory.Text = "Email Send History";
+            this.tpageEmailSendHistory.ToolTipText = "List of emails send to customer.";
+            this.tpageEmailSendHistory.UseVisualStyleBackColor = true;
+            // 
+            // imageList30x30
+            // 
+            this.imageList30x30.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList30x30.ImageStream")));
+            this.imageList30x30.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList30x30.Images.SetKeyName(0, "icons8-reception-30.png");
+            this.imageList30x30.Images.SetKeyName(1, "icons8-group-message-30.png");
+            // 
             // ProspectCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 509);
+            this.ClientSize = new System.Drawing.Size(736, 606);
+            this.Controls.Add(this.tbProspCustomer);
             this.Controls.Add(this.btnAddConversation);
             this.Controls.Add(this.grpConverstion);
             this.Controls.Add(this.btnShowConversation);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnHideConversation);
             this.Name = "ProspectCustomer";
             this.Text = "Prospect Customer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProspectCustomer_FormClosing);
             this.Load += new System.EventHandler(this.ProspectCustomer_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpProspectCustomer.ResumeLayout(false);
+            this.grpProspectCustomer.PerformLayout();
             this.grpConverstion.ResumeLayout(false);
             this.grpActionControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridConversation)).EndInit();
+            this.tbProspCustomer.ResumeLayout(false);
+            this.tbpageProspectCustomer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpProspectCustomer;
         private System.Windows.Forms.DateTimePicker dtEventDate;
         private System.Windows.Forms.Label lblEventDate;
         private System.Windows.Forms.TextBox txtEvent;
@@ -474,7 +521,6 @@
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkIsConvertedToCustomer;
-        private System.Windows.Forms.ImageList imgLstProspectCustomer;
         private System.Windows.Forms.Button btnAddConversation;
         private System.Windows.Forms.GroupBox grpActionControls;
         private System.Windows.Forms.Button btnDelete;
@@ -482,5 +528,9 @@
         private System.Windows.Forms.Button btnEditConversation;
         private System.Windows.Forms.ImageList imgCollection;
         private System.Windows.Forms.ToolTip toolTipProspeectClient;
+        private System.Windows.Forms.TabControl tbProspCustomer;
+        private System.Windows.Forms.TabPage tbpageProspectCustomer;
+        private System.Windows.Forms.TabPage tpageEmailSendHistory;
+        private System.Windows.Forms.ImageList imageList30x30;
     }
 }

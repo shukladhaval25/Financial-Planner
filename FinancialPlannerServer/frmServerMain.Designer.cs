@@ -198,6 +198,7 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.tbtnEmail_Click);
             // 
             // button3
             // 
@@ -363,6 +364,7 @@
             this.tbtnEmail.Text = "Email Setting";
             this.tbtnEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbtnEmail.ToolTipText = "Email";
+            this.tbtnEmail.Click += new System.EventHandler(this.tbtnEmail_Click);
             // 
             // tbtnAuditTrail
             // 

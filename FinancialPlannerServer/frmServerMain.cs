@@ -19,6 +19,7 @@ namespace FinancialPlannerServer
         private UserInfo.frmUseList _userlst;
         private frmSystemSetting _systemSetting;
         private AuditTrail.AuditTrail _auditTrail;
+        private EmailJob.EmailScheduleList _emailScheduleList;
         public frmServerMain()
         {
             InitializeComponent();          
@@ -134,6 +135,24 @@ namespace FinancialPlannerServer
                 pnlContainer.Controls.Add(_systemSetting);
                 _systemSetting.Dock = DockStyle.Fill;
                 _systemSetting.Show();
+            }
+        }
+
+        private void tbtnEmail_Click(object sender, EventArgs e)
+        {
+            if (pnlContainer.Controls.Contains(_emailScheduleList))
+            {
+                pnlContainer.Controls[pnlContainer.Controls.GetChildIndex(_emailScheduleList)].Show();
+            }
+            else
+            {
+                if (_emailScheduleList == null || _emailScheduleList.IsDisposed)
+                    _emailScheduleList = new EmailJob.EmailScheduleList();
+
+                _emailScheduleList.TopLevel = false;
+                pnlContainer.Controls.Add(_emailScheduleList);
+                _emailScheduleList.Dock = DockStyle.Fill;
+                _emailScheduleList.Show();
             }
         }
     }

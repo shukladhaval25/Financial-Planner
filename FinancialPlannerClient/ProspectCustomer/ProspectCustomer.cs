@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -120,7 +121,7 @@ namespace FinancialPlannerClient.ProspectCustomer
         private void btnHideConversation_Click(object sender, EventArgs e)
         {
             grpConverstion.Visible = false;
-            this.Height = 360;
+            this.Height = 350;
             btnHideConversation.Visible = false;
             btnShowConversation.Visible = !btnHideConversation.Visible;
             this.dataGridConversation.Visible = false;
@@ -271,8 +272,9 @@ namespace FinancialPlannerClient.ProspectCustomer
                     Email = txtEmail.Text,
                     Event = txtEvent.Text,
                     EventDate = dtEventDate.Value,
+                    ReferedBy = txtRefBy.Text,
                     IsConvertedToClient  = chkIsConvertedToCustomer.Checked,
-                    StopSendingEmail =  chkStopSendingEmail.Checked,                   
+                    StopSendingEmail =  chkStopSendingEmail.Checked,
                     Remarks = txtRemark.Text,
                     CreatedOn = DateTime.Parse( DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")),
                     CreatedBy = Program.CurrentUser.Id,
@@ -324,6 +326,36 @@ namespace FinancialPlannerClient.ProspectCustomer
         private void ProspectCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+        }
+        private bool isValidEmail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtEmail.Text))
+            {
+                MessageBox.Show("Please enter valid email address.", "Email Address", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = !isValidEmail(txtEmail.Text);
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                MessageBox.Show("Please enter name of customer.", "Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
         }
     }
 }

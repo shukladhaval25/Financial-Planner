@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.prospectedCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +38,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.picClientMain = new System.Windows.Forms.PictureBox();
+            this.imglist16x16 = new System.Windows.Forms.ImageList(this.components);
             this.menuMain.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClientMain)).BeginInit();
@@ -57,8 +60,9 @@
             // 
             // prospectedCustomerToolStripMenuItem
             // 
+            this.prospectedCustomerToolStripMenuItem.Image = global::FinancialPlannerClient.Properties.Resources.icons8_reception_30;
             this.prospectedCustomerToolStripMenuItem.Name = "prospectedCustomerToolStripMenuItem";
-            this.prospectedCustomerToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.prospectedCustomerToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
             this.prospectedCustomerToolStripMenuItem.Text = "Prospect Customer";
             this.prospectedCustomerToolStripMenuItem.Click += new System.EventHandler(this.prospectedCustomerToolStripMenuItem_Click);
             // 
@@ -111,6 +115,13 @@
             this.picClientMain.TabIndex = 0;
             this.picClientMain.TabStop = false;
             // 
+            // imglist16x16
+            // 
+            this.imglist16x16.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglist16x16.ImageStream")));
+            this.imglist16x16.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglist16x16.Images.SetKeyName(0, "icons8-customer-16.png");
+            this.imglist16x16.Images.SetKeyName(1, "icons8-reception-16 - Copy.png");
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +154,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.PictureBox picClientMain;
+        private System.Windows.Forms.ImageList imglist16x16;
     }
 }

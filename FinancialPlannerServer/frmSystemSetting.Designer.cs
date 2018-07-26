@@ -323,7 +323,7 @@
             this.trvArticle.Size = new System.Drawing.Size(264, 184);
             this.trvArticle.StateImageList = this.imgCollection16x16;
             this.trvArticle.TabIndex = 10;
-            this.trvArticle.DoubleClick += new System.EventHandler(this.btnEditArticleInfo_Click);
+            this.trvArticle.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvArticle_NodeMouseDoubleClick);
             // 
             // grpArticleInfo
             // 
@@ -356,6 +356,7 @@
             this.cmbGroup.Name = "cmbGroup";
             this.cmbGroup.Size = new System.Drawing.Size(403, 23);
             this.cmbGroup.TabIndex = 4;
+            this.cmbGroup.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGroup_Validating);
             // 
             // label7
             // 

@@ -28,6 +28,11 @@ namespace FinancialPlannerClient.ProspectCustomer
 
         private void ProspectCustomerList_Load(object sender, EventArgs e)
         {
+            loadProspectCustomerData();
+        }
+
+        private void loadProspectCustomerData()
+        {
             FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
             string apiurl = Program.WebServiceUrl +"/"+ PROSPECT_CLIENTS_GETALL;
 
@@ -63,7 +68,8 @@ namespace FinancialPlannerClient.ProspectCustomer
                 TreeNode node = new TreeNode();
                 node.Tag = dr.Field<string>("ID");
                 node.Text = dr.Field<string>("Name");
-                node.ImageIndex = 6;
+                node.ImageIndex = 10;
+                node.ToolTipText = dr.Field<string>("Name");
                 trvList.Nodes[0].Nodes.Add(node);
             }
             trvList.ExpandAll();
@@ -121,7 +127,8 @@ namespace FinancialPlannerClient.ProspectCustomer
                 frmProspectCustomer.TopLevel = false;
                 TabPage prospectCustomerpage = new TabPage();
                 prospectCustomerpage.Name = trvList.SelectedNode.Tag.ToString();
-                prospectCustomerpage.Text = trvList.SelectedNode.Text;          
+                prospectCustomerpage.Text = trvList.SelectedNode.Text;
+                prospectCustomerpage.ImageKey = "icons8-reception-16 - Copy.png";
                 prospectCustomerpage.Controls.Add(frmProspectCustomer);
                 tabControl1.TabPages.Add(prospectCustomerpage);
                 tabControl1.SelectTab(tabControl1.TabPages.Count - 1);
@@ -168,10 +175,19 @@ namespace FinancialPlannerClient.ProspectCustomer
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            DataTable queryResultTable = new DataTable();
             string query = string.Format("Name like '%{0}%' or PhoneNo like '%{0}%' or Email like '%{0}%' " +
                 "or ReferedBy ='%{0}' or Event like '%{0}%' or EventDate like '%{0}%'",txtSearch.Text);
-            DataTable queryResultTable =  _dtProspClients.Select(query).CopyToDataTable();
-            fillTreeviewData(queryResultTable);
+            try
+            {
+                queryResultTable = _dtProspClients.Select(query).CopyToDataTable();
+                fillTreeviewData(queryResultTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No matching records found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -229,6 +245,11 @@ namespace FinancialPlannerClient.ProspectCustomer
         private void trvList_DoubleClick(object sender, EventArgs e)
         {
             btnEdit_Click(sender,e);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadProspectCustomerData();
         }
     }
 }

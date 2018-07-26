@@ -56,6 +56,18 @@
     <Compile Include="AuditTrail\AuditTrail.Designer.cs">
       <DependentUpon>AuditTrail.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmailJob\EmailScheduleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailJob\EmailScheduleInfo.Designer.cs">
+      <DependentUpon>EmailScheduleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmailJob\EmailScheduleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailJob\EmailScheduleList.Designer.cs">
+      <DependentUpon>EmailScheduleList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </Compile>
     <EmbeddedResource Include="AuditTrail\AuditTrail.resx">
       <DependentUpon>AuditTrail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailJob\EmailScheduleInfo.resx">
+      <DependentUpon>EmailScheduleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailJob\EmailScheduleList.resx">
+      <DependentUpon>EmailScheduleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -209,13 +227,48 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="EmailJob\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-send-30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_run_45545.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-calendar-plus-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-week-view-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-date-span-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ok-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-padlock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-group-message-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reception-16 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-customer-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-select-users-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrative-tools-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
