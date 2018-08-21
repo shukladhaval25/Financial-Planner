@@ -53,20 +53,39 @@ namespace FinancialPlannerServer.UserInfo
 
         private void gridDisplaySetting()
         {
+            hideGridColumns();
+            setGridColumnsHeader();
+            setGridColumnsWidth();
+        }
+
+        private void setGridColumnsWidth()
+        {
+            dtGridUser.Columns["UserName"].Width = 150;
+            dtGridUser.Columns["FirstName"].Width = 200;
+            dtGridUser.Columns["LastName"].Width = 200;
+            dtGridUser.Columns["UpdatedOn"].Width = 200;
+            dtGridUser.Columns["UpdatedByUserName"].Width = 200;
+        }
+
+        private void setGridColumnsHeader()
+        {
+            dtGridUser.Columns["UserName"].HeaderText = "User Name";
+            dtGridUser.Columns["FirstName"].HeaderText = "First Name";
+            dtGridUser.Columns["LastName"].HeaderText = "Last Name";
+            dtGridUser.Columns["UpdatedOn"].HeaderText = "Updated On";
+            dtGridUser.Columns["UpdatedByUserName"].HeaderText = "Updated By";
+        }
+
+        private void hideGridColumns()
+        {
             dtGridUser.Columns["ID"].Visible = false;
             dtGridUser.Columns["Password"].Visible = false;
             dtGridUser.Columns["CreatedOn"].Visible = false;
             dtGridUser.Columns["CreatedBy"].Visible = false;
             dtGridUser.Columns["CreatedByUserName"].Visible = false;
             dtGridUser.Columns["UpdatedBy"].Visible = false;
-            dtGridUser.Columns["UpdatedByUserName"].Visible = false;
+            //dtGridUser.Columns["UpdatedByUserName"].Visible = false;
             dtGridUser.Columns["MachineName"].Visible = false;
-
-            dtGridUser.Columns["UserName"].HeaderText = "User Name";
-            dtGridUser.Columns["FirstName"].HeaderText = "First Name";
-            dtGridUser.Columns["LastName"].HeaderText = "Last Name";
-            dtGridUser.Columns["UpdatedOn"].HeaderText = "Updated On";
-            dtGridUser.Columns["UpdatedByUserName"].HeaderText = "Updated By";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

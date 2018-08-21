@@ -78,6 +78,7 @@ namespace FinancialPlannerServer.EmailJob
         private void setGridColumnsHeader()
         {
             dataGridEmailScheduler.Columns["ScheduleTitle"].HeaderText = "Title";
+            dataGridEmailScheduler.Columns["ArticleGroupName"].HeaderText = "Article Group";
             dataGridEmailScheduler.Columns["ScheduleType"].HeaderText = "Recurrence";
             dataGridEmailScheduler.Columns["ScheduleDetail"].HeaderText = "Details";
             dataGridEmailScheduler.Columns["StartDateTime"].HeaderText = "Start Date";

@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\Client.cs">
+    <Compile Include="Clients\ClientWithPlanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clients\Client.Designer.cs">
-      <DependentUpon>Client.cs</DependentUpon>
+    <Compile Include="Clients\ClientWithPlanner.Designer.cs">
+      <DependentUpon>ClientWithPlanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clients\ClientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients\ClientInfo.Designer.cs">
+      <DependentUpon>ClientInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Clients\ClientList.cs">
       <SubType>Form</SubType>
@@ -73,6 +80,9 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlannerInfo\ClientContactInfo.cs" />
+    <Compile Include="PlannerInfo\ClientPersonalInfo.cs" />
+    <Compile Include="PlannerInfo\EmploymentInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProspectCustomer\ProspectCustomer.cs">
@@ -93,8 +103,11 @@
     <Compile Include="ProspectCustomer\ProspectCustomerList.Designer.cs">
       <DependentUpon>ProspectCustomerList.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Clients\Client.resx">
-      <DependentUpon>Client.cs</DependentUpon>
+    <EmbeddedResource Include="Clients\ClientWithPlanner.resx">
+      <DependentUpon>ClientWithPlanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients\ClientInfo.resx">
+      <DependentUpon>ClientInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients\ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>

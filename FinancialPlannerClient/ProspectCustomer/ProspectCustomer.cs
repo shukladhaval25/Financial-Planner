@@ -1,4 +1,5 @@
-﻿using FinancialPlanner.Common.DataConversion;
+﻿using FinancialPlanner.Common;
+using FinancialPlanner.Common.DataConversion;
 using FinancialPlanner.Common.Model;
 using System;
 using System.Collections.Generic;
@@ -159,15 +160,22 @@ namespace FinancialPlannerClient.ProspectCustomer
 
         private void btnEditConversation_Click(object sender, EventArgs e)
         {
-            int selectedRowIndex = dataGridConversation.SelectedRows[0].Index;
-            int selectedId = int.Parse(dataGridConversation.SelectedRows[0].Cells["ID"].Value.ToString());
+            try
+            {
+                int selectedRowIndex = dataGridConversation.SelectedRows[0].Index;
+                int selectedId = int.Parse(dataGridConversation.SelectedRows[0].Cells["ID"].Value.ToString());
 
-            frmProspectCustomerConversation frmProspCustomerConversation =
+                frmProspectCustomerConversation frmProspCustomerConversation =
                 new frmProspectCustomerConversation(_prospectClient,selectedId);
 
-            if (frmProspCustomerConversation.ShowDialog() == DialogResult.OK && btnHideConversation.Visible)
+                if (frmProspCustomerConversation.ShowDialog() == DialogResult.OK && btnHideConversation.Visible)
+                {
+                    getConversationDetails();
+                }
+            }
+            catch(Exception ex)
             {
-                getConversationDetails();
+                Logger.LogDebug(ex.ToString());
             }
         }
         private ProspectClientConversation convertSelectedRowDataToConversation()

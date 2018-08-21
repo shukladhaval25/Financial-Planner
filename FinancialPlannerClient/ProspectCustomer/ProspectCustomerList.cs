@@ -1,4 +1,5 @@
-﻿using FinancialPlanner.Common.DataConversion;
+﻿using FinancialPlanner.Common;
+using FinancialPlanner.Common.DataConversion;
 using FinancialPlanner.Common.Model;
 using System;
 using System.Collections.Generic;
@@ -33,30 +34,52 @@ namespace FinancialPlannerClient.ProspectCustomer
 
         private void loadProspectCustomerData()
         {
-            FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
-            string apiurl = Program.WebServiceUrl +"/"+ PROSPECT_CLIENTS_GETALL;
-
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(apiurl);
-            request.Method = "GET";
-            String prospClientResultJosn = String.Empty;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            try
             {
-                Stream dataStream = response.GetResponseStream();
+                FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
+                string apiurl = Program.WebServiceUrl +"/"+ PROSPECT_CLIENTS_GETALL;
 
-                StreamReader reader = new StreamReader(dataStream);
-                prospClientResultJosn = reader.ReadToEnd();
-                reader.Close();
-                dataStream.Close();
+                RestAPIExecutor restApiExecutor = new RestAPIExecutor();
+
+                var restResult = restApiExecutor.Execute<List<ProspectClient>>(apiurl, null, "GET");
+
+                if (jsonSerialization.IsValidJson(restResult.ToString()))
+                {
+                    var prospClientCollection = jsonSerialization.DeserializeFromString<List<ProspectClient>>(restResult.ToString());
+                    _dtProspClients = ListtoDataTable.ToDataTable(prospClientCollection);
+                    fillTreeviewData(_dtProspClients);
+                }
+                else
+                    MessageBox.Show(restResult.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            var prospClientCollection = jsonSerialization.DeserializeFromString<Result<List<ProspectClient>>>(prospClientResultJosn);
-
-            if (prospClientCollection.Value != null)
+            catch(Exception ex)
             {
-                _dtProspClients = ListtoDataTable.ToDataTable(prospClientCollection.Value);
-                //dataGridProspClients.DataSource = _dtProspClients;
-                fillTreeviewData(_dtProspClients);
-                //gridDisplaySetting();
+                Logger.LogDebug(ex);
             }
+
+
+            //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(apiurl);
+            //request.Method = "GET";
+            //String prospClientResultJosn = String.Empty;
+            //using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            //{
+            //    Stream dataStream = response.GetResponseStream();
+
+            //    StreamReader reader = new StreamReader(dataStream);
+            //    prospClientResultJosn = reader.ReadToEnd();
+            //    reader.Close();
+            //    dataStream.Close();
+            //}
+            //var prospClientCollection = jsonSerialization.DeserializeFromString<Result<List<ProspectClient>>>(prospClientResultJosn);
+
+            //if (prospClientCollection.Value != null)
+            //{
+            //    _dtProspClients = ListtoDataTable.ToDataTable(prospClientCollection.Value);
+            //    //dataGridProspClients.DataSource = _dtProspClients;
+            //    fillTreeviewData(_dtProspClients);
+            //    //gridDisplaySetting();
+            //}
         }
 
         private void fillTreeviewData(DataTable dtProspClients)
@@ -187,15 +210,15 @@ namespace FinancialPlannerClient.ProspectCustomer
             {
                 MessageBox.Show("No matching records found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (trvList.SelectedNode != null)
-            {                
+            {
                 if (MessageBox.Show(
-                    string.Format("Are you sure you want to remove {0}'s record? If you select 'Yes' then all associated conversation gets deleted.",trvList.SelectedNode.Text), 
+                    string.Format("Are you sure you want to remove {0}'s record? If you select 'Yes' then all associated conversation gets deleted.", trvList.SelectedNode.Text),
                     "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     removeRecord(trvList.SelectedNode);
@@ -244,7 +267,7 @@ namespace FinancialPlannerClient.ProspectCustomer
 
         private void trvList_DoubleClick(object sender, EventArgs e)
         {
-            btnEdit_Click(sender,e);
+            btnEdit_Click(sender, e);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

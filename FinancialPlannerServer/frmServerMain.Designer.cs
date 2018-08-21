@@ -56,7 +56,9 @@
             this.tbtnReports = new System.Windows.Forms.ToolStripButton();
             this.tbtnNotification = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tbtnSystemSetting = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSystemSetting = new System.Windows.Forms.ToolStripSplitButton();
+            this.SystemSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbtnLogout = new System.Windows.Forms.ToolStripButton();
             this.pnlServerMenu.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -80,8 +82,9 @@
             this.pnlServerMenu.Controls.Add(this.btnUser);
             this.pnlServerMenu.Location = new System.Drawing.Point(0, 85);
             this.pnlServerMenu.Name = "pnlServerMenu";
-            this.pnlServerMenu.Size = new System.Drawing.Size(143, 462);
+            this.pnlServerMenu.Size = new System.Drawing.Size(10, 462);
             this.pnlServerMenu.TabIndex = 0;
+            this.pnlServerMenu.Visible = false;
             // 
             // btnLogout
             // 
@@ -253,9 +256,9 @@
             this.pnlContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContainer.Controls.Add(this.grpCompanyDetails);
             this.pnlContainer.Controls.Add(this.grpDeskboard);
-            this.pnlContainer.Location = new System.Drawing.Point(146, 85);
+            this.pnlContainer.Location = new System.Drawing.Point(3, 85);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(764, 462);
+            this.pnlContainer.Size = new System.Drawing.Size(907, 462);
             this.pnlContainer.TabIndex = 1;
             this.pnlContainer.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlContainer_ControlAdded);
             this.pnlContainer.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlContainer_ControlRemoved);
@@ -268,7 +271,7 @@
             this.grpCompanyDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpCompanyDetails.Location = new System.Drawing.Point(3, 3);
             this.grpCompanyDetails.Name = "grpCompanyDetails";
-            this.grpCompanyDetails.Size = new System.Drawing.Size(746, 74);
+            this.grpCompanyDetails.Size = new System.Drawing.Size(889, 74);
             this.grpCompanyDetails.TabIndex = 0;
             this.grpCompanyDetails.TabStop = false;
             // 
@@ -278,7 +281,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(740, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(883, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -290,7 +293,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpDeskboard.Location = new System.Drawing.Point(6, 83);
             this.grpDeskboard.Name = "grpDeskboard";
-            this.grpDeskboard.Size = new System.Drawing.Size(753, 372);
+            this.grpDeskboard.Size = new System.Drawing.Size(896, 372);
             this.grpDeskboard.TabIndex = 0;
             this.grpDeskboard.TabStop = false;
             // 
@@ -307,7 +310,7 @@
             this.tbtnReports,
             this.tbtnNotification,
             this.toolStripSeparator3,
-            this.tbtnSystemSetting,
+            this.toolStripSystemSetting,
             this.tbtnLogout});
             this.toolBarMain.Location = new System.Drawing.Point(0, 0);
             this.toolBarMain.Name = "toolBarMain";
@@ -409,16 +412,34 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 82);
             // 
-            // tbtnSystemSetting
+            // toolStripSystemSetting
             // 
-            this.tbtnSystemSetting.Image = ((System.Drawing.Image)(resources.GetObject("tbtnSystemSetting.Image")));
-            this.tbtnSystemSetting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tbtnSystemSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbtnSystemSetting.Name = "tbtnSystemSetting";
-            this.tbtnSystemSetting.Size = new System.Drawing.Size(89, 79);
-            this.tbtnSystemSetting.Text = "System Setting";
-            this.tbtnSystemSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tbtnSystemSetting.Click += new System.EventHandler(this.btnSystemSetting_Click);
+            this.toolStripSystemSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSystemSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SystemSetting,
+            this.companyInformationToolStripMenuItem});
+            this.toolStripSystemSetting.Image = global::FinancialPlannerServer.Properties.Resources.AdministrativeTool_60;
+            this.toolStripSystemSetting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripSystemSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSystemSetting.Name = "toolStripSystemSetting";
+            this.toolStripSystemSetting.Size = new System.Drawing.Size(76, 79);
+            this.toolStripSystemSetting.Text = "Setting";
+            this.toolStripSystemSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // SystemSetting
+            // 
+            this.SystemSetting.Image = global::FinancialPlannerServer.Properties.Resources.AdministrativeTool_30;
+            this.SystemSetting.Name = "SystemSetting";
+            this.SystemSetting.Size = new System.Drawing.Size(192, 22);
+            this.SystemSetting.Text = "System Setting";
+            this.SystemSetting.Click += new System.EventHandler(this.btnSystemSetting_Click);
+            // 
+            // companyInformationToolStripMenuItem
+            // 
+            this.companyInformationToolStripMenuItem.Image = global::FinancialPlannerServer.Properties.Resources.icons8_new_company_30;
+            this.companyInformationToolStripMenuItem.Name = "companyInformationToolStripMenuItem";
+            this.companyInformationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.companyInformationToolStripMenuItem.Text = "Company Information";
             // 
             // tbtnLogout
             // 
@@ -481,9 +502,11 @@
         private System.Windows.Forms.ToolStripButton tbtnReports;
         private System.Windows.Forms.ToolStripButton tbtnNotification;
         private System.Windows.Forms.ToolStripButton tbtnLogout;
-        private System.Windows.Forms.ToolStripButton tbtnSystemSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSystemSetting;
+        private System.Windows.Forms.ToolStripMenuItem SystemSetting;
+        private System.Windows.Forms.ToolStripMenuItem companyInformationToolStripMenuItem;
     }
 }
