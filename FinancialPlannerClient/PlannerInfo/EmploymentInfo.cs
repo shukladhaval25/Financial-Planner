@@ -11,6 +11,7 @@ namespace FinancialPlannerClient.PlannerInfo
     public class EmploymentInfo
     {
         const string GET_EMPLOYMENT_API = "Employment/Get?id={0}";
+        const string UPDATE_EMPLOYMENT_API = "Employment/Update";
 
         public Employment Get(int id)
         {
@@ -39,7 +40,22 @@ namespace FinancialPlannerClient.PlannerInfo
 
         public bool Update(Employment employment)
         {
-            return true;
+            try
+            {
+                FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
+                string apiurl = Program.WebServiceUrl +"/"+ UPDATE_EMPLOYMENT_API;
+
+                RestAPIExecutor restApiExecutor = new RestAPIExecutor();
+
+                var restResult = restApiExecutor.Execute<Employment>(apiurl, employment, "POST");
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogDebug(ex);
+                return false;
+            }
         }
     }
 }

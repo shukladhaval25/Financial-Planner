@@ -83,6 +83,7 @@
     <Compile Include="PlannerInfo\ClientContactInfo.cs" />
     <Compile Include="PlannerInfo\ClientPersonalInfo.cs" />
     <Compile Include="PlannerInfo\EmploymentInfo.cs" />
+    <Compile Include="PlannerInfo\FamilyMemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProspectCustomer\ProspectCustomer.cs">

@@ -1,4 +1,5 @@
-﻿using FinancialPlanner.Common.Model;
+﻿using FinancialPlanner.Common.DataConversion;
+using FinancialPlanner.Common.Model;
 using FinancialPlannerClient.PlannerInfo;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace FinancialPlannerClient.Clients
     {
         private int _plannerId = 0;
         private Client _client;
+        private DataTable _dtFamilymember;
         public int PlannerId
         {
             get { return _plannerId; }
@@ -39,9 +41,10 @@ namespace FinancialPlannerClient.Clients
                     fillupAssumptionInfo();
                     break;
                 case "PersonalInfo":
-                    fillupPersonalInfo();
+                    fillupPersonalDetails();
                     break;
-                case "FamailyInfo":
+                case "FamilyInfo":
+                    fillupFamilyMemberInfo();
                     break;
                 case "Goal":
                     break;
@@ -51,8 +54,24 @@ namespace FinancialPlannerClient.Clients
 
         }
 
-        private void fillupPersonalInfo()
+        private void fillupFamilyMemberInfo()
         {
+            if (_dtFamilymember == null)
+                _dtFamilymember = new DataTable();
+            else
+                _dtFamilymember.Clear();
+
+            FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
+            List<FamilyMember> lstFamilyMember =(List<FamilyMember>) familyMemberInfo.Get(_client.ID);
+            _dtFamilymember = ListtoDataTable.ToDataTable(lstFamilyMember);
+            dtGridFamilyMember.DataSource = _dtFamilymember;
+            setFamilyMemberGridSetting();
+        }
+
+        private void setFamilyMemberGridSetting()
+        {
+            FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
+            familyMemberInfo.setFamilyMemberGridSetting(dtGridFamilyMember);
         }
 
         private void fillupAssumptionInfo()
@@ -86,8 +105,11 @@ namespace FinancialPlannerClient.Clients
 
         private void fillupEmploymentInfo(Employment employment)
         {
-            fillupClientEmploymentInfo(employment.ClientEmployment);
-            fillupSpouseEmploymentInfo(employment.SpouseEmployment);
+            if (employment != null)
+            {
+                fillupClientEmploymentInfo(employment.ClientEmployment);
+                fillupSpouseEmploymentInfo(employment.SpouseEmployment);
+            }
         }
 
         private void fillupSpouseEmploymentInfo(SpouseEmployment spouseEmployment)
@@ -98,7 +120,7 @@ namespace FinancialPlannerClient.Clients
                 txtSpouseEmployer.Text = spouseEmployment.EmployerName;
                 txtSpouseEmployerAdd.Text = spouseEmployment.Address;
                 txtSpouseEmployerCity.Text = spouseEmployment.City;
-                txtSpouseEmployerCity.Text = spouseEmployment.Street;
+                txtSpouseEmployerStreet.Text = spouseEmployment.Street;
                 txtSpouseEmployerPin.Text = spouseEmployment.Pin;
                 txtSpouseIncome.Text = spouseEmployment.Income;
             }
@@ -201,7 +223,7 @@ namespace FinancialPlannerClient.Clients
                     fillupPersonalDetails();
                     break;
                 case "ContactDetails":
-                    fillupPersonalInfo();
+                    fillupFamilyMemberInfo();
                     break;
                 case "EmployerDetails":
                     break;
@@ -336,7 +358,7 @@ namespace FinancialPlannerClient.Clients
         }
 
         private Employment getEmploymentDetails()
-        {            
+        {
             Employment employment = new Employment();
             employment.ClientEmployment = getClientEmploymentInfo();
             employment.SpouseEmployment = getSpouseEmploymentInfo();
@@ -378,5 +400,146 @@ namespace FinancialPlannerClient.Clients
             clientEmployment.MachineName = System.Environment.MachineName;
             return clientEmployment;
         }
+
+        private void btnAddFamilyMember_Click(object sender, EventArgs e)
+        {
+            grpFamilyMemberDetail.Enabled = true;            
+            setDefaultFamilyMemberData();
+            txtFamilyMemberName.Tag = 0;
+        }
+
+        private void btnFamilyMemberCancel_Click(object sender, EventArgs e)
+        {
+            btnEditFamilyMember_Click(sender, e);
+            grpFamilyMemberDetail.Enabled = false;
+        }
+
+        private void btnFamilyMemberSave_Click(object sender, EventArgs e)
+        {
+            FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
+            FamilyMember familyMember = getFamilyMemberData();
+            bool isSaved = false;
+
+            if (familyMember != null && familyMember.Id == 0)
+                isSaved = familyMemberInfo.Add(familyMember);
+            else
+                isSaved = familyMemberInfo.Update(familyMember);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupFamilyMemberInfo();
+                grpFamilyMemberDetail.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private FamilyMember getFamilyMemberData()
+        {
+            FamilyMember familymember = new FamilyMember();
+            familymember.Id = int.Parse(txtFamilyMemberName.Tag.ToString());
+            familymember.Cid = _client.ID;
+            familymember.Name = txtFamilyMemberName.Text;
+            familymember.Relationship = cmbFamilyRelationship.Text;
+            familymember.DOB = dtFamilyMemberDOB.Value;
+            familymember.IsDependent = rdoFamilyMemberDependentYes.Checked;
+            familymember.ChildrenClass = txtChildrenClass.Text;
+            familymember.Description = txtFamilyMemberDesc.Text;
+            familymember.CreatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            familymember.CreatedBy = Program.CurrentUser.Id;
+            familymember.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            familymember.UpdatedBy = Program.CurrentUser.Id;
+            familymember.MachineName = Environment.MachineName;
+            return familymember;
+        }
+
+        private void btnEditFamilyMember_Click(object sender, EventArgs e)
+        {
+            FamilyMember familymember = convertSelectedRowDataToFamilyMember();
+            displayFamilyMemberData(familymember);
+            grpFamilyMemberDetail.Enabled = true;
+        }
+
+        private void displayFamilyMemberData(FamilyMember familymember)
+        {
+            if (familymember != null)
+            {
+                txtFamilyMemberName.Tag = familymember.Id;
+                txtFamilyMemberName.Text = familymember.Name;
+                cmbFamilyRelationship.Text = familymember.Relationship;
+                dtFamilyMemberDOB.Value = familymember.DOB;
+                rdoFamilyMemberDependentYes.Checked = familymember.IsDependent;
+                txtChildrenClass.Text = familymember.ChildrenClass;
+                txtFamilyMemberDesc.Text = familymember.Description;
+            }
+            else
+            {
+                setDefaultFamilyMemberData();
+            }
+        }
+
+        private void setDefaultFamilyMemberData()
+        {
+            txtFamilyMemberName.Tag = "";
+            txtFamilyMemberName.Text = "";
+            cmbFamilyRelationship.Text = "";
+            dtFamilyMemberDOB.Text = "";
+            rdoFamilyMemberDependentYes.Checked = false;
+            txtChildrenClass.Text = "";
+            txtFamilyMemberDesc.Text = "";
+        }
+
+        private FamilyMember convertSelectedRowDataToFamilyMember()
+        {
+
+            if (dtGridFamilyMember.SelectedRows.Count > 0)
+            {
+                FamilyMember fm = new FamilyMember();
+                DataRow dr = getSelectedDataRow();
+                fm.Id = int.Parse(dr.Field<string>("ID"));
+                fm.Cid = int.Parse(dr.Field<string>("Cid"));
+                fm.Name = dr.Field<string>("Name");
+                fm.Relationship = dr.Field<string>("Relationship");
+                fm.DOB = DateTime.Parse(dr.Field<string>("DOB"));
+                fm.IsDependent = bool.Parse(dr["IsDependent"].ToString());
+                fm.ChildrenClass = dr.Field<string>("ChildrenClass");
+                fm.Description = dr.Field<string>("Description");
+                return fm;
+            }
+            return null;
+        }
+
+        private DataRow getSelectedDataRow()
+        {
+            int selectedRowIndex = dtGridFamilyMember.SelectedRows[0].Index;
+            int selectedUserId = int.Parse(dtGridFamilyMember.SelectedRows[0].Cells["ID"].Value.ToString());
+            DataRow[] rows = _dtFamilymember.Select("Id = " + selectedUserId);
+            foreach (DataRow dr in rows)
+            {
+                return dr;
+            }
+            return null;
+        }
+
+        private void dtGridFamilyMember_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dtGridFamilyMember.Columns[e.ColumnIndex].Name == "IsDependent")
+            {
+                if (dtGridFamilyMember.Rows[e.RowIndex].Cells["IsDependent"].Value != null)
+                    e.Value = (dtGridFamilyMember.Rows[e.RowIndex].Cells["IsDependent"].Value.ToString().Equals("True")) ? "Yes" : "No";
+            }
+        }
+
+        private void btnDeleteFamilyMember_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                FamilyMember familymember = convertSelectedRowDataToFamilyMember();
+                FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
+                familyMemberInfo.Delete(familymember.Id);
+                fillupFamilyMemberInfo();
+            }            
+        }        
     }
 }

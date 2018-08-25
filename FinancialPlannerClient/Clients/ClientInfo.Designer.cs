@@ -164,29 +164,55 @@
             this.label44 = new System.Windows.Forms.Label();
             this.FamilyInfo = new System.Windows.Forms.TabPage();
             this.grpActionControls = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteFamilyMember = new System.Windows.Forms.Button();
             this.imgCollection = new System.Windows.Forms.ImageList(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.btnAddFamilyMember = new System.Windows.Forms.Button();
+            this.btnEditFamilyMember = new System.Windows.Forms.Button();
+            this.grpFamilyMemberDetail = new System.Windows.Forms.GroupBox();
+            this.btnFamilyMemberCancel = new System.Windows.Forms.Button();
+            this.btnFamilyMemberSave = new System.Windows.Forms.Button();
+            this.txtFamilyMemberDesc = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
-            this.textBox47 = new System.Windows.Forms.TextBox();
+            this.txtChildrenClass = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.grpFamilyDependent = new System.Windows.Forms.GroupBox();
+            this.rdoFamilyMemberDependentNo = new System.Windows.Forms.RadioButton();
+            this.rdoFamilyMemberDependentYes = new System.Windows.Forms.RadioButton();
             this.label55 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dtFamilyMemberDOB = new System.Windows.Forms.DateTimePicker();
             this.label54 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbFamilyRelationship = new System.Windows.Forms.ComboBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.txtFamilyMemberName = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtGridFamilyMember = new System.Windows.Forms.DataGridView();
             this.label51 = new System.Windows.Forms.Label();
+            this.NonFinancialAssets = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.grpNonFinancialAsset = new System.Windows.Forms.GroupBox();
+            this.cmbMappingGoal = new System.Windows.Forms.ComboBox();
+            this.txtSecondaryHolderShare = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.cmbSecondaryHolder = new System.Windows.Forms.ComboBox();
+            this.txtPrimaryHolderShare = new System.Windows.Forms.TextBox();
+            this.txtAssetCurrentCost = new System.Windows.Forms.TextBox();
+            this.btnNonFinancialCanel = new System.Windows.Forms.Button();
+            this.btnNonFinancialSave = new System.Windows.Forms.Button();
+            this.txtNonFinancialDesc = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.cmbPrimaryHolder = new System.Windows.Forms.ComboBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.txtAssetName = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.dtGridNonFinancialAssets = new System.Windows.Forms.DataGridView();
+            this.label73 = new System.Windows.Forms.Label();
+            this.Income = new System.Windows.Forms.TabPage();
+            this.Expenses = new System.Windows.Forms.TabPage();
             this.Goal = new System.Windows.Forms.TabPage();
             this.label65 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -215,6 +241,9 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.imageList30x30 = new System.Windows.Forms.ImageList(this.components);
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtOtherShare = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.cmbOtherHolder = new System.Windows.Forms.ComboBox();
             this.tabPlannerDetails.SuspendLayout();
             this.Assumption.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -235,9 +264,13 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.FamilyInfo.SuspendLayout();
             this.grpActionControls.SuspendLayout();
+            this.grpFamilyMemberDetail.SuspendLayout();
+            this.grpFamilyDependent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridFamilyMember)).BeginInit();
+            this.NonFinancialAssets.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grpNonFinancialAsset.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridNonFinancialAssets)).BeginInit();
             this.Goal.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -253,6 +286,9 @@
             this.tabPlannerDetails.Controls.Add(this.Assumption);
             this.tabPlannerDetails.Controls.Add(this.PersonalInfo);
             this.tabPlannerDetails.Controls.Add(this.FamilyInfo);
+            this.tabPlannerDetails.Controls.Add(this.NonFinancialAssets);
+            this.tabPlannerDetails.Controls.Add(this.Income);
+            this.tabPlannerDetails.Controls.Add(this.Expenses);
             this.tabPlannerDetails.Controls.Add(this.Goal);
             this.tabPlannerDetails.ImageList = this.imageList30x30;
             this.tabPlannerDetails.Location = new System.Drawing.Point(6, 4);
@@ -1839,8 +1875,8 @@
             // FamilyInfo
             // 
             this.FamilyInfo.Controls.Add(this.grpActionControls);
-            this.FamilyInfo.Controls.Add(this.groupBox2);
-            this.FamilyInfo.Controls.Add(this.dataGridView1);
+            this.FamilyInfo.Controls.Add(this.grpFamilyMemberDetail);
+            this.FamilyInfo.Controls.Add(this.dtGridFamilyMember);
             this.FamilyInfo.Controls.Add(this.label51);
             this.FamilyInfo.ImageKey = "icons8-family-30.png";
             this.FamilyInfo.Location = new System.Drawing.Point(4, 37);
@@ -1854,24 +1890,25 @@
             // grpActionControls
             // 
             this.grpActionControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpActionControls.Controls.Add(this.btnDelete);
-            this.grpActionControls.Controls.Add(this.btnAdd);
-            this.grpActionControls.Controls.Add(this.btnEdit);
+            this.grpActionControls.Controls.Add(this.btnDeleteFamilyMember);
+            this.grpActionControls.Controls.Add(this.btnAddFamilyMember);
+            this.grpActionControls.Controls.Add(this.btnEditFamilyMember);
             this.grpActionControls.Location = new System.Drawing.Point(833, 264);
             this.grpActionControls.Name = "grpActionControls";
             this.grpActionControls.Size = new System.Drawing.Size(111, 38);
             this.grpActionControls.TabIndex = 7;
             this.grpActionControls.TabStop = false;
             // 
-            // btnDelete
+            // btnDeleteFamilyMember
             // 
-            this.btnDelete.ImageIndex = 1;
-            this.btnDelete.ImageList = this.imgCollection;
-            this.btnDelete.Location = new System.Drawing.Point(76, 10);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(29, 24);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDeleteFamilyMember.ImageIndex = 1;
+            this.btnDeleteFamilyMember.ImageList = this.imgCollection;
+            this.btnDeleteFamilyMember.Location = new System.Drawing.Point(76, 10);
+            this.btnDeleteFamilyMember.Name = "btnDeleteFamilyMember";
+            this.btnDeleteFamilyMember.Size = new System.Drawing.Size(29, 24);
+            this.btnDeleteFamilyMember.TabIndex = 4;
+            this.btnDeleteFamilyMember.UseVisualStyleBackColor = true;
+            this.btnDeleteFamilyMember.Click += new System.EventHandler(this.btnDeleteFamilyMember_Click);
             // 
             // imgCollection
             // 
@@ -1888,85 +1925,90 @@
             this.imgCollection.Images.SetKeyName(8, "icons8-search-16.png");
             this.imgCollection.Images.SetKeyName(9, "icons8-customer-16.png");
             // 
-            // btnAdd
+            // btnAddFamilyMember
             // 
-            this.btnAdd.ImageIndex = 3;
-            this.btnAdd.ImageList = this.imgCollection;
-            this.btnAdd.Location = new System.Drawing.Point(6, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(29, 24);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAddFamilyMember.ImageIndex = 3;
+            this.btnAddFamilyMember.ImageList = this.imgCollection;
+            this.btnAddFamilyMember.Location = new System.Drawing.Point(6, 10);
+            this.btnAddFamilyMember.Name = "btnAddFamilyMember";
+            this.btnAddFamilyMember.Size = new System.Drawing.Size(29, 24);
+            this.btnAddFamilyMember.TabIndex = 2;
+            this.btnAddFamilyMember.UseVisualStyleBackColor = true;
+            this.btnAddFamilyMember.Click += new System.EventHandler(this.btnAddFamilyMember_Click);
             // 
-            // btnEdit
+            // btnEditFamilyMember
             // 
-            this.btnEdit.ImageIndex = 4;
-            this.btnEdit.ImageList = this.imgCollection;
-            this.btnEdit.Location = new System.Drawing.Point(41, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(29, 24);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEditFamilyMember.ImageIndex = 4;
+            this.btnEditFamilyMember.ImageList = this.imgCollection;
+            this.btnEditFamilyMember.Location = new System.Drawing.Point(41, 10);
+            this.btnEditFamilyMember.Name = "btnEditFamilyMember";
+            this.btnEditFamilyMember.Size = new System.Drawing.Size(29, 24);
+            this.btnEditFamilyMember.TabIndex = 3;
+            this.btnEditFamilyMember.UseVisualStyleBackColor = true;
+            this.btnEditFamilyMember.Click += new System.EventHandler(this.btnEditFamilyMember_Click);
             // 
-            // groupBox2
+            // grpFamilyMemberDetail
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpFamilyMemberDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.textBox48);
-            this.groupBox2.Controls.Add(this.label57);
-            this.groupBox2.Controls.Add(this.textBox47);
-            this.groupBox2.Controls.Add(this.label56);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.label55);
-            this.groupBox2.Controls.Add(this.dateTimePicker5);
-            this.groupBox2.Controls.Add(this.label54);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.label53);
-            this.groupBox2.Controls.Add(this.textBox46);
-            this.groupBox2.Controls.Add(this.label52);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 306);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(938, 257);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Family Detail";
+            this.grpFamilyMemberDetail.Controls.Add(this.btnFamilyMemberCancel);
+            this.grpFamilyMemberDetail.Controls.Add(this.btnFamilyMemberSave);
+            this.grpFamilyMemberDetail.Controls.Add(this.txtFamilyMemberDesc);
+            this.grpFamilyMemberDetail.Controls.Add(this.label57);
+            this.grpFamilyMemberDetail.Controls.Add(this.txtChildrenClass);
+            this.grpFamilyMemberDetail.Controls.Add(this.label56);
+            this.grpFamilyMemberDetail.Controls.Add(this.grpFamilyDependent);
+            this.grpFamilyMemberDetail.Controls.Add(this.label55);
+            this.grpFamilyMemberDetail.Controls.Add(this.dtFamilyMemberDOB);
+            this.grpFamilyMemberDetail.Controls.Add(this.label54);
+            this.grpFamilyMemberDetail.Controls.Add(this.cmbFamilyRelationship);
+            this.grpFamilyMemberDetail.Controls.Add(this.label53);
+            this.grpFamilyMemberDetail.Controls.Add(this.txtFamilyMemberName);
+            this.grpFamilyMemberDetail.Controls.Add(this.label52);
+            this.grpFamilyMemberDetail.Enabled = false;
+            this.grpFamilyMemberDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpFamilyMemberDetail.Location = new System.Drawing.Point(6, 306);
+            this.grpFamilyMemberDetail.Name = "grpFamilyMemberDetail";
+            this.grpFamilyMemberDetail.Size = new System.Drawing.Size(938, 257);
+            this.grpFamilyMemberDetail.TabIndex = 3;
+            this.grpFamilyMemberDetail.TabStop = false;
+            this.grpFamilyMemberDetail.Text = "Family Detail";
             // 
-            // button8
+            // btnFamilyMemberCancel
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.ImageKey = "icons8-cancel-16.png";
-            this.button8.ImageList = this.imageList16x16;
-            this.button8.Location = new System.Drawing.Point(737, 193);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(86, 26);
-            this.button8.TabIndex = 59;
-            this.button8.Text = "Cancel";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnFamilyMemberCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFamilyMemberCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFamilyMemberCancel.ImageKey = "icons8-cancel-16.png";
+            this.btnFamilyMemberCancel.ImageList = this.imageList16x16;
+            this.btnFamilyMemberCancel.Location = new System.Drawing.Point(737, 193);
+            this.btnFamilyMemberCancel.Name = "btnFamilyMemberCancel";
+            this.btnFamilyMemberCancel.Size = new System.Drawing.Size(86, 26);
+            this.btnFamilyMemberCancel.TabIndex = 8;
+            this.btnFamilyMemberCancel.Text = "Cancel";
+            this.btnFamilyMemberCancel.UseVisualStyleBackColor = true;
+            this.btnFamilyMemberCancel.Click += new System.EventHandler(this.btnFamilyMemberCancel_Click);
             // 
-            // button9
+            // btnFamilyMemberSave
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.ImageKey = "icons8-save-close-16.png";
-            this.button9.ImageList = this.imageList16x16;
-            this.button9.Location = new System.Drawing.Point(645, 193);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(86, 26);
-            this.button9.TabIndex = 58;
-            this.button9.Text = "Save";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnFamilyMemberSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFamilyMemberSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFamilyMemberSave.ImageKey = "icons8-save-close-16.png";
+            this.btnFamilyMemberSave.ImageList = this.imageList16x16;
+            this.btnFamilyMemberSave.Location = new System.Drawing.Point(645, 193);
+            this.btnFamilyMemberSave.Name = "btnFamilyMemberSave";
+            this.btnFamilyMemberSave.Size = new System.Drawing.Size(86, 26);
+            this.btnFamilyMemberSave.TabIndex = 7;
+            this.btnFamilyMemberSave.Text = "Save";
+            this.btnFamilyMemberSave.UseVisualStyleBackColor = true;
+            this.btnFamilyMemberSave.Click += new System.EventHandler(this.btnFamilyMemberSave_Click);
             // 
-            // textBox48
+            // txtFamilyMemberDesc
             // 
-            this.textBox48.Location = new System.Drawing.Point(457, 64);
-            this.textBox48.Multiline = true;
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(366, 123);
-            this.textBox48.TabIndex = 11;
+            this.txtFamilyMemberDesc.Location = new System.Drawing.Point(457, 64);
+            this.txtFamilyMemberDesc.Multiline = true;
+            this.txtFamilyMemberDesc.Name = "txtFamilyMemberDesc";
+            this.txtFamilyMemberDesc.Size = new System.Drawing.Size(366, 123);
+            this.txtFamilyMemberDesc.TabIndex = 6;
             // 
             // label57
             // 
@@ -1977,53 +2019,52 @@
             this.label57.TabIndex = 10;
             this.label57.Text = "Details:";
             // 
-            // textBox47
+            // txtChildrenClass
             // 
-            this.textBox47.Location = new System.Drawing.Point(129, 169);
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(294, 21);
-            this.textBox47.TabIndex = 9;
+            this.txtChildrenClass.Location = new System.Drawing.Point(129, 169);
+            this.txtChildrenClass.Name = "txtChildrenClass";
+            this.txtChildrenClass.Size = new System.Drawing.Size(294, 21);
+            this.txtChildrenClass.TabIndex = 5;
             // 
             // label56
             // 
-            this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(27, 172);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(71, 15);
+            this.label56.Size = new System.Drawing.Size(96, 31);
             this.label56.TabIndex = 8;
-            this.label56.Text = "Dependent:";
+            this.label56.Text = "Class (For Childern):";
             // 
-            // groupBox3
+            // grpFamilyDependent
             // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Location = new System.Drawing.Point(129, 116);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(294, 44);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
+            this.grpFamilyDependent.Controls.Add(this.rdoFamilyMemberDependentNo);
+            this.grpFamilyDependent.Controls.Add(this.rdoFamilyMemberDependentYes);
+            this.grpFamilyDependent.Location = new System.Drawing.Point(129, 116);
+            this.grpFamilyDependent.Name = "grpFamilyDependent";
+            this.grpFamilyDependent.Size = new System.Drawing.Size(294, 44);
+            this.grpFamilyDependent.TabIndex = 4;
+            this.grpFamilyDependent.TabStop = false;
             // 
-            // radioButton2
+            // rdoFamilyMemberDependentNo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(107, 17);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(41, 19);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdoFamilyMemberDependentNo.AutoSize = true;
+            this.rdoFamilyMemberDependentNo.Location = new System.Drawing.Point(107, 17);
+            this.rdoFamilyMemberDependentNo.Name = "rdoFamilyMemberDependentNo";
+            this.rdoFamilyMemberDependentNo.Size = new System.Drawing.Size(41, 19);
+            this.rdoFamilyMemberDependentNo.TabIndex = 1;
+            this.rdoFamilyMemberDependentNo.TabStop = true;
+            this.rdoFamilyMemberDependentNo.Text = "No";
+            this.rdoFamilyMemberDependentNo.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdoFamilyMemberDependentYes
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 17);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 19);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Yes";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdoFamilyMemberDependentYes.AutoSize = true;
+            this.rdoFamilyMemberDependentYes.Location = new System.Drawing.Point(6, 17);
+            this.rdoFamilyMemberDependentYes.Name = "rdoFamilyMemberDependentYes";
+            this.rdoFamilyMemberDependentYes.Size = new System.Drawing.Size(45, 19);
+            this.rdoFamilyMemberDependentYes.TabIndex = 0;
+            this.rdoFamilyMemberDependentYes.TabStop = true;
+            this.rdoFamilyMemberDependentYes.Text = "Yes";
+            this.rdoFamilyMemberDependentYes.UseVisualStyleBackColor = true;
             // 
             // label55
             // 
@@ -2034,12 +2075,12 @@
             this.label55.TabIndex = 6;
             this.label55.Text = "Dependent:";
             // 
-            // dateTimePicker5
+            // dtFamilyMemberDOB
             // 
-            this.dateTimePicker5.Location = new System.Drawing.Point(129, 93);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(294, 21);
-            this.dateTimePicker5.TabIndex = 5;
+            this.dtFamilyMemberDOB.Location = new System.Drawing.Point(129, 93);
+            this.dtFamilyMemberDOB.Name = "dtFamilyMemberDOB";
+            this.dtFamilyMemberDOB.Size = new System.Drawing.Size(294, 21);
+            this.dtFamilyMemberDOB.TabIndex = 3;
             // 
             // label54
             // 
@@ -2050,13 +2091,13 @@
             this.label54.TabIndex = 4;
             this.label54.Text = "Date of Birth:";
             // 
-            // comboBox3
+            // cmbFamilyRelationship
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(129, 64);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(294, 23);
-            this.comboBox3.TabIndex = 3;
+            this.cmbFamilyRelationship.FormattingEnabled = true;
+            this.cmbFamilyRelationship.Location = new System.Drawing.Point(129, 64);
+            this.cmbFamilyRelationship.Name = "cmbFamilyRelationship";
+            this.cmbFamilyRelationship.Size = new System.Drawing.Size(294, 23);
+            this.cmbFamilyRelationship.TabIndex = 2;
             // 
             // label53
             // 
@@ -2067,12 +2108,12 @@
             this.label53.TabIndex = 2;
             this.label53.Text = "Relationship:";
             // 
-            // textBox46
+            // txtFamilyMemberName
             // 
-            this.textBox46.Location = new System.Drawing.Point(129, 37);
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(294, 21);
-            this.textBox46.TabIndex = 1;
+            this.txtFamilyMemberName.Location = new System.Drawing.Point(129, 37);
+            this.txtFamilyMemberName.Name = "txtFamilyMemberName";
+            this.txtFamilyMemberName.Size = new System.Drawing.Size(294, 21);
+            this.txtFamilyMemberName.TabIndex = 1;
             // 
             // label52
             // 
@@ -2083,15 +2124,18 @@
             this.label52.TabIndex = 0;
             this.label52.Text = "Name:";
             // 
-            // dataGridView1
+            // dtGridFamilyMember
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtGridFamilyMember.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(938, 208);
-            this.dataGridView1.TabIndex = 2;
+            this.dtGridFamilyMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridFamilyMember.Location = new System.Drawing.Point(6, 52);
+            this.dtGridFamilyMember.Name = "dtGridFamilyMember";
+            this.dtGridFamilyMember.ReadOnly = true;
+            this.dtGridFamilyMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridFamilyMember.Size = new System.Drawing.Size(938, 208);
+            this.dtGridFamilyMember.TabIndex = 2;
+            this.dtGridFamilyMember.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtGridFamilyMember_CellFormatting);
             // 
             // label51
             // 
@@ -2103,6 +2147,279 @@
             this.label51.Size = new System.Drawing.Size(560, 18);
             this.label51.TabIndex = 1;
             this.label51.Text = "Children,parents or any other person who is financially dependant on you.";
+            // 
+            // NonFinancialAssets
+            // 
+            this.NonFinancialAssets.Controls.Add(this.groupBox2);
+            this.NonFinancialAssets.Controls.Add(this.grpNonFinancialAsset);
+            this.NonFinancialAssets.Controls.Add(this.dtGridNonFinancialAssets);
+            this.NonFinancialAssets.Controls.Add(this.label73);
+            this.NonFinancialAssets.ImageKey = "icons8-new-company-30.png";
+            this.NonFinancialAssets.Location = new System.Drawing.Point(4, 37);
+            this.NonFinancialAssets.Name = "NonFinancialAssets";
+            this.NonFinancialAssets.Padding = new System.Windows.Forms.Padding(3);
+            this.NonFinancialAssets.Size = new System.Drawing.Size(958, 585);
+            this.NonFinancialAssets.TabIndex = 4;
+            this.NonFinancialAssets.Text = "Non-Financial Assets";
+            this.NonFinancialAssets.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Location = new System.Drawing.Point(837, 266);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(111, 38);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.ImageIndex = 1;
+            this.button4.ImageList = this.imgCollection;
+            this.button4.Location = new System.Drawing.Point(76, 10);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(29, 24);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.ImageIndex = 3;
+            this.button5.ImageList = this.imgCollection;
+            this.button5.Location = new System.Drawing.Point(6, 10);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(29, 24);
+            this.button5.TabIndex = 2;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.ImageIndex = 4;
+            this.button6.ImageList = this.imgCollection;
+            this.button6.Location = new System.Drawing.Point(41, 10);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(29, 24);
+            this.button6.TabIndex = 3;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // grpNonFinancialAsset
+            // 
+            this.grpNonFinancialAsset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpNonFinancialAsset.Controls.Add(this.txtOtherShare);
+            this.grpNonFinancialAsset.Controls.Add(this.label68);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbOtherHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbMappingGoal);
+            this.grpNonFinancialAsset.Controls.Add(this.txtSecondaryHolderShare);
+            this.grpNonFinancialAsset.Controls.Add(this.label74);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbSecondaryHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.txtPrimaryHolderShare);
+            this.grpNonFinancialAsset.Controls.Add(this.txtAssetCurrentCost);
+            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialCanel);
+            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialSave);
+            this.grpNonFinancialAsset.Controls.Add(this.txtNonFinancialDesc);
+            this.grpNonFinancialAsset.Controls.Add(this.label67);
+            this.grpNonFinancialAsset.Controls.Add(this.label69);
+            this.grpNonFinancialAsset.Controls.Add(this.label70);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbPrimaryHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.label71);
+            this.grpNonFinancialAsset.Controls.Add(this.txtAssetName);
+            this.grpNonFinancialAsset.Controls.Add(this.label72);
+            this.grpNonFinancialAsset.Enabled = false;
+            this.grpNonFinancialAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNonFinancialAsset.Location = new System.Drawing.Point(10, 310);
+            this.grpNonFinancialAsset.Name = "grpNonFinancialAsset";
+            this.grpNonFinancialAsset.Size = new System.Drawing.Size(938, 255);
+            this.grpNonFinancialAsset.TabIndex = 3;
+            this.grpNonFinancialAsset.TabStop = false;
+            this.grpNonFinancialAsset.Text = "Non-Financial Assets Detail";
+            // 
+            // cmbMappingGoal
+            // 
+            this.cmbMappingGoal.FormattingEnabled = true;
+            this.cmbMappingGoal.Location = new System.Drawing.Point(189, 188);
+            this.cmbMappingGoal.Name = "cmbMappingGoal";
+            this.cmbMappingGoal.Size = new System.Drawing.Size(294, 23);
+            this.cmbMappingGoal.Sorted = true;
+            this.cmbMappingGoal.TabIndex = 9;
+            // 
+            // txtSecondaryHolderShare
+            // 
+            this.txtSecondaryHolderShare.Location = new System.Drawing.Point(399, 130);
+            this.txtSecondaryHolderShare.Name = "txtSecondaryHolderShare";
+            this.txtSecondaryHolderShare.Size = new System.Drawing.Size(84, 21);
+            this.txtSecondaryHolderShare.TabIndex = 6;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(15, 134);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(167, 15);
+            this.label74.TabIndex = 14;
+            this.label74.Text = "Secondry Holder && Share (%)";
+            // 
+            // cmbSecondaryHolder
+            // 
+            this.cmbSecondaryHolder.FormattingEnabled = true;
+            this.cmbSecondaryHolder.Location = new System.Drawing.Point(189, 130);
+            this.cmbSecondaryHolder.Name = "cmbSecondaryHolder";
+            this.cmbSecondaryHolder.Size = new System.Drawing.Size(204, 23);
+            this.cmbSecondaryHolder.TabIndex = 5;
+            // 
+            // txtPrimaryHolderShare
+            // 
+            this.txtPrimaryHolderShare.Location = new System.Drawing.Point(399, 101);
+            this.txtPrimaryHolderShare.Name = "txtPrimaryHolderShare";
+            this.txtPrimaryHolderShare.Size = new System.Drawing.Size(84, 21);
+            this.txtPrimaryHolderShare.TabIndex = 4;
+            // 
+            // txtAssetCurrentCost
+            // 
+            this.txtAssetCurrentCost.Location = new System.Drawing.Point(189, 74);
+            this.txtAssetCurrentCost.Name = "txtAssetCurrentCost";
+            this.txtAssetCurrentCost.Size = new System.Drawing.Size(294, 21);
+            this.txtAssetCurrentCost.TabIndex = 2;
+            // 
+            // btnNonFinancialCanel
+            // 
+            this.btnNonFinancialCanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNonFinancialCanel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNonFinancialCanel.ImageKey = "icons8-cancel-16.png";
+            this.btnNonFinancialCanel.ImageList = this.imageList16x16;
+            this.btnNonFinancialCanel.Location = new System.Drawing.Point(819, 201);
+            this.btnNonFinancialCanel.Name = "btnNonFinancialCanel";
+            this.btnNonFinancialCanel.Size = new System.Drawing.Size(86, 26);
+            this.btnNonFinancialCanel.TabIndex = 12;
+            this.btnNonFinancialCanel.Text = "Cancel";
+            this.btnNonFinancialCanel.UseVisualStyleBackColor = true;
+            // 
+            // btnNonFinancialSave
+            // 
+            this.btnNonFinancialSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNonFinancialSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNonFinancialSave.ImageKey = "icons8-save-close-16.png";
+            this.btnNonFinancialSave.ImageList = this.imageList16x16;
+            this.btnNonFinancialSave.Location = new System.Drawing.Point(727, 201);
+            this.btnNonFinancialSave.Name = "btnNonFinancialSave";
+            this.btnNonFinancialSave.Size = new System.Drawing.Size(86, 26);
+            this.btnNonFinancialSave.TabIndex = 11;
+            this.btnNonFinancialSave.Text = "Save";
+            this.btnNonFinancialSave.UseVisualStyleBackColor = true;
+            // 
+            // txtNonFinancialDesc
+            // 
+            this.txtNonFinancialDesc.Location = new System.Drawing.Point(539, 72);
+            this.txtNonFinancialDesc.Multiline = true;
+            this.txtNonFinancialDesc.Name = "txtNonFinancialDesc";
+            this.txtNonFinancialDesc.Size = new System.Drawing.Size(366, 123);
+            this.txtNonFinancialDesc.TabIndex = 10;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(536, 48);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(48, 15);
+            this.label67.TabIndex = 10;
+            this.label67.Text = "Details:";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(15, 191);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(112, 15);
+            this.label69.TabIndex = 6;
+            this.label69.Text = "Mapping With Goal";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(15, 105);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(158, 15);
+            this.label70.TabIndex = 4;
+            this.label70.Text = "Primary Holder && Share (%)";
+            // 
+            // cmbPrimaryHolder
+            // 
+            this.cmbPrimaryHolder.FormattingEnabled = true;
+            this.cmbPrimaryHolder.Location = new System.Drawing.Point(189, 101);
+            this.cmbPrimaryHolder.Name = "cmbPrimaryHolder";
+            this.cmbPrimaryHolder.Size = new System.Drawing.Size(204, 23);
+            this.cmbPrimaryHolder.TabIndex = 3;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(15, 74);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(135, 15);
+            this.label71.TabIndex = 2;
+            this.label71.Text = "Estimated Current Cost:";
+            // 
+            // txtAssetName
+            // 
+            this.txtAssetName.Location = new System.Drawing.Point(189, 47);
+            this.txtAssetName.Name = "txtAssetName";
+            this.txtAssetName.Size = new System.Drawing.Size(294, 21);
+            this.txtAssetName.TabIndex = 1;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(15, 47);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(89, 15);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Name of Asset:";
+            // 
+            // dtGridNonFinancialAssets
+            // 
+            this.dtGridNonFinancialAssets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridNonFinancialAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridNonFinancialAssets.Location = new System.Drawing.Point(10, 54);
+            this.dtGridNonFinancialAssets.Name = "dtGridNonFinancialAssets";
+            this.dtGridNonFinancialAssets.ReadOnly = true;
+            this.dtGridNonFinancialAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridNonFinancialAssets.Size = new System.Drawing.Size(938, 208);
+            this.dtGridNonFinancialAssets.TabIndex = 1;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label73.Location = new System.Drawing.Point(7, 16);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(682, 18);
+            this.label73.TabIndex = 8;
+            this.label73.Text = "Includes: Primary home, Vacation home, Rental Property, Land, Jewellery, car, art" +
+    ", others";
+            // 
+            // Income
+            // 
+            this.Income.ImageKey = "icons8-sales-performance-30.png";
+            this.Income.Location = new System.Drawing.Point(4, 37);
+            this.Income.Name = "Income";
+            this.Income.Size = new System.Drawing.Size(958, 585);
+            this.Income.TabIndex = 5;
+            this.Income.Text = "Income";
+            this.Income.UseVisualStyleBackColor = true;
+            // 
+            // Expenses
+            // 
+            this.Expenses.Location = new System.Drawing.Point(4, 37);
+            this.Expenses.Name = "Expenses";
+            this.Expenses.Size = new System.Drawing.Size(958, 585);
+            this.Expenses.TabIndex = 6;
+            this.Expenses.Text = "Expenses";
+            this.Expenses.UseVisualStyleBackColor = true;
             // 
             // Goal
             // 
@@ -2398,6 +2715,8 @@
             this.imageList30x30.Images.SetKeyName(1, "icons8-family-30.png");
             this.imageList30x30.Images.SetKeyName(2, "icons8-goal-30.png");
             this.imageList30x30.Images.SetKeyName(3, "icons8-workflow-30.png");
+            this.imageList30x30.Images.SetKeyName(4, "icons8-new-company-30.png");
+            this.imageList30x30.Images.SetKeyName(5, "icons8-sales-performance-60.png");
             // 
             // textBox11
             // 
@@ -2406,6 +2725,30 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(242, 21);
             this.textBox11.TabIndex = 23;
+            // 
+            // txtOtherShare
+            // 
+            this.txtOtherShare.Location = new System.Drawing.Point(399, 161);
+            this.txtOtherShare.Name = "txtOtherShare";
+            this.txtOtherShare.Size = new System.Drawing.Size(84, 21);
+            this.txtOtherShare.TabIndex = 8;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(15, 163);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(146, 15);
+            this.label68.TabIndex = 17;
+            this.label68.Text = "Other Holder && Share (%)";
+            // 
+            // cmbOtherHolder
+            // 
+            this.cmbOtherHolder.FormattingEnabled = true;
+            this.cmbOtherHolder.Location = new System.Drawing.Point(189, 159);
+            this.cmbOtherHolder.Name = "cmbOtherHolder";
+            this.cmbOtherHolder.Size = new System.Drawing.Size(204, 23);
+            this.cmbOtherHolder.TabIndex = 7;
             // 
             // ClientInfo
             // 
@@ -2446,11 +2789,17 @@
             this.FamilyInfo.ResumeLayout(false);
             this.FamilyInfo.PerformLayout();
             this.grpActionControls.ResumeLayout(false);
+            this.grpFamilyMemberDetail.ResumeLayout(false);
+            this.grpFamilyMemberDetail.PerformLayout();
+            this.grpFamilyDependent.ResumeLayout(false);
+            this.grpFamilyDependent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridFamilyMember)).EndInit();
+            this.NonFinancialAssets.ResumeLayout(false);
+            this.NonFinancialAssets.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grpNonFinancialAsset.ResumeLayout(false);
+            this.grpNonFinancialAsset.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridNonFinancialAssets)).EndInit();
             this.Goal.ResumeLayout(false);
             this.Goal.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -2585,25 +2934,25 @@
         private System.Windows.Forms.TextBox txtSpouseIncome;
         private System.Windows.Forms.TabPage FamilyInfo;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox grpFamilyMemberDetail;
+        private System.Windows.Forms.DataGridView dtGridFamilyMember;
         private System.Windows.Forms.GroupBox grpActionControls;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox textBox48;
+        private System.Windows.Forms.Button btnDeleteFamilyMember;
+        private System.Windows.Forms.Button btnAddFamilyMember;
+        private System.Windows.Forms.Button btnEditFamilyMember;
+        private System.Windows.Forms.TextBox txtFamilyMemberDesc;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox textBox47;
+        private System.Windows.Forms.TextBox txtChildrenClass;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox grpFamilyDependent;
+        private System.Windows.Forms.RadioButton rdoFamilyMemberDependentNo;
+        private System.Windows.Forms.RadioButton rdoFamilyMemberDependentYes;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker dtFamilyMemberDOB;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbFamilyRelationship;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox textBox46;
+        private System.Windows.Forms.TextBox txtFamilyMemberName;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TabPage Goal;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -2644,9 +2993,38 @@
         private System.Windows.Forms.Button btnContactInfoSave;
         private System.Windows.Forms.Button btnCancelEmployment;
         private System.Windows.Forms.Button btnSaveEmployment;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnFamilyMemberCancel;
+        private System.Windows.Forms.Button btnFamilyMemberSave;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TabPage NonFinancialAssets;
+        private System.Windows.Forms.TabPage Income;
+        private System.Windows.Forms.TabPage Expenses;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox grpNonFinancialAsset;
+        private System.Windows.Forms.TextBox txtSecondaryHolderShare;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.ComboBox cmbSecondaryHolder;
+        private System.Windows.Forms.TextBox txtPrimaryHolderShare;
+        private System.Windows.Forms.TextBox txtAssetCurrentCost;
+        private System.Windows.Forms.Button btnNonFinancialCanel;
+        private System.Windows.Forms.Button btnNonFinancialSave;
+        private System.Windows.Forms.TextBox txtNonFinancialDesc;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.ComboBox cmbPrimaryHolder;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.TextBox txtAssetName;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.DataGridView dtGridNonFinancialAssets;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.ComboBox cmbMappingGoal;
+        private System.Windows.Forms.TextBox txtOtherShare;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.ComboBox cmbOtherHolder;
     }
 }
