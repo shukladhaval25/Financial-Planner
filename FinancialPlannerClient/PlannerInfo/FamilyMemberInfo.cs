@@ -66,6 +66,15 @@ namespace FinancialPlannerClient.PlannerInfo
                 return null;
             }
         }
+        public void FillFamilyMemberInCombo(int clientId,ComboBox comboboxObj)
+        {
+            var lstFamily = Get(clientId);
+            comboboxObj.Items.Clear();
+            foreach (FamilyMember familyMember in lstFamily)
+            {
+                comboboxObj.Items.Add(familyMember.Name);
+            }
+        }
         public bool Add(FamilyMember familyMember)
         {
             try
@@ -142,16 +151,16 @@ namespace FinancialPlannerClient.PlannerInfo
             Logger.LogDebug(debuggerInfo);
         }
 
-        internal void Delete(int id)
+        internal void Delete(FamilyMember familyMember)
         {
             try
             {
                 FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
-                string apiurl = Program.WebServiceUrl +"/"+ string.Format(DELETE_FAMILYMEMBER_API,id);
+                string apiurl = Program.WebServiceUrl +"/"+ string.Format(DELETE_FAMILYMEMBER_API,familyMember);
 
                 RestAPIExecutor restApiExecutor = new RestAPIExecutor();
 
-                var restResult = restApiExecutor.Execute<Result>(apiurl, null, "DELETE");
+                var restResult = restApiExecutor.Execute<FamilyMember>(apiurl, familyMember, "DELETE");
                 MessageBox.Show("Record deleted successfully.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
             }

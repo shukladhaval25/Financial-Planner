@@ -84,6 +84,8 @@
     <Compile Include="PlannerInfo\ClientPersonalInfo.cs" />
     <Compile Include="PlannerInfo\EmploymentInfo.cs" />
     <Compile Include="PlannerInfo\FamilyMemberInfo.cs" />
+    <Compile Include="PlannerInfo\LoanInfo.cs" />
+    <Compile Include="PlannerInfo\NonFinancialAssetInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProspectCustomer\ProspectCustomer.cs">

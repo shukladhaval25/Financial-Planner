@@ -18,6 +18,8 @@ namespace FinancialPlannerClient.Clients
         private int _plannerId = 0;
         private Client _client;
         private DataTable _dtFamilymember;
+        private DataTable _dtNonFinancialAsset;
+        private DataTable _dtLoan;
         public int PlannerId
         {
             get { return _plannerId; }
@@ -46,12 +48,48 @@ namespace FinancialPlannerClient.Clients
                 case "FamilyInfo":
                     fillupFamilyMemberInfo();
                     break;
+                case "Loan":
+                    fillupLoanInfo();
+                    break;
+                case "NonFinancialAssets":
+                    fillupNonFinancialAssetInfo();
+                    break;
+                case "Income":
+                    break;
                 case "Goal":
                     break;
                 default:
                     break;
             }
 
+        }
+
+        private void fillupLoanInfo()
+        {
+            LoanInfo loanInfo = new LoanInfo();
+            List<Loan> lstNonFinancialAsset =(List<Loan>) loanInfo.GetAll(PlannerId);
+            _dtLoan = ListtoDataTable.ToDataTable(lstNonFinancialAsset);
+            dtGridLoan.DataSource = _dtLoan;
+            loanInfo.FillGrid(dtGridLoan);
+        }
+
+        private void fillupNonFinancialAssetInfo()
+        {
+            FamilyMemberInfo familyMemInfo =  new FamilyMemberInfo();
+            familyMemInfo.FillFamilyMemberInCombo(_client.ID, cmbOtherHolder);
+            cmbPrimaryHolder.Text = _client.Name;
+            cmbSecondaryHolder.Text = getSpouseName();
+
+            if (_dtNonFinancialAsset == null)
+                _dtNonFinancialAsset = new DataTable();
+            else
+                _dtNonFinancialAsset.Clear();
+
+            NonFinancialAssetInfo nonFinancialAssetInfo = new NonFinancialAssetInfo();
+            List<NonFinancialAsset> lstNonFinancialAsset =(List<NonFinancialAsset>) nonFinancialAssetInfo.GetAlll(PlannerId);
+            _dtNonFinancialAsset = ListtoDataTable.ToDataTable(lstNonFinancialAsset);
+            dtGridNonFinancialAssets.DataSource = _dtNonFinancialAsset;
+            nonFinancialAssetInfo.FillGrid(dtGridNonFinancialAssets);
         }
 
         private void fillupFamilyMemberInfo()
@@ -403,7 +441,7 @@ namespace FinancialPlannerClient.Clients
 
         private void btnAddFamilyMember_Click(object sender, EventArgs e)
         {
-            grpFamilyMemberDetail.Enabled = true;            
+            grpFamilyMemberDetail.Enabled = true;
             setDefaultFamilyMemberData();
             txtFamilyMemberName.Tag = 0;
         }
@@ -537,9 +575,443 @@ namespace FinancialPlannerClient.Clients
             {
                 FamilyMember familymember = convertSelectedRowDataToFamilyMember();
                 FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
-                familyMemberInfo.Delete(familymember.Id);
+                familyMemberInfo.Delete(familymember);
                 fillupFamilyMemberInfo();
-            }            
-        }        
+            }
+        }
+
+        private void btnAddNFA_Click(object sender, EventArgs e)
+        {
+            grpNonFinancialAsset.Enabled = true;
+            setDefaultNonFinancialAssetValue();
+            txtAssetName.Tag = "0";
+        }
+
+        private void setDefaultNonFinancialAssetValue()
+        {
+            txtAssetName.Text = "";
+            txtAssetCurrentCost.Text = "0";
+            txtPrimaryHolderShare.Text = "100";
+            txtSecondaryHolderShare.Text = "0";
+            cmbOtherHolder.Text = "";
+            txtOtherShare.Text = "0";
+            cmbMappingGoal.Text = "";
+            txtGoalMappingShare.Text = "0";
+            txtAssetRealisationYear.Text = DateTime.Now.Year.ToString();
+            txtNonFinancialDesc.Text = "";
+        }
+
+        private void btnNonFinancialSave_Click(object sender, EventArgs e)
+        {
+            if (!validateTotalShareRation())
+                return;
+
+            NonFinancialAssetInfo nonFinancialAssetInfo = new NonFinancialAssetInfo();
+            NonFinancialAsset nonFinancialAsset = getNonFinancialAsset();
+            bool isSaved = false;
+
+            if (nonFinancialAsset != null && nonFinancialAsset.Id == 0)
+                isSaved = nonFinancialAssetInfo.Add(nonFinancialAsset);
+            else
+                isSaved = nonFinancialAssetInfo.Update(nonFinancialAsset);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupNonFinancialAssetInfo();
+                grpNonFinancialAsset.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private bool validateTotalShareRation()
+        {
+            if ((int.Parse(txtPrimaryHolderShare.Text) +
+                int.Parse(txtSecondaryHolderShare.Text) +
+                int.Parse(txtOtherShare.Text)) > 100)
+            {
+                MessageBox.Show("Asset sharing ration must not be more then 100%.", "Sharing Ration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+        }
+
+        private NonFinancialAsset getNonFinancialAsset()
+        {
+            NonFinancialAsset nonFinancialAsset = new NonFinancialAsset();
+            nonFinancialAsset.Id = int.Parse(txtAssetName.Tag.ToString());
+            nonFinancialAsset.Pid = PlannerId;
+            nonFinancialAsset.Name = txtAssetName.Text;
+            nonFinancialAsset.CurrentValue = double.Parse(txtAssetCurrentCost.Text);
+            nonFinancialAsset.PrimaryholderShare = int.Parse(txtPrimaryHolderShare.Text);
+            nonFinancialAsset.SecondaryHolderShare = int.Parse(txtSecondaryHolderShare.Text);
+            nonFinancialAsset.OtherHolderName = cmbOtherHolder.Text;
+            nonFinancialAsset.OtherHolderShare = int.Parse(txtOtherShare.Text);
+            if (cmbMappingGoal.Tag != null)
+                nonFinancialAsset.MappedGoalId = int.Parse(cmbMappingGoal.Tag.ToString());
+            else
+                nonFinancialAsset.MappedGoalId = 0;
+            nonFinancialAsset.AssetMappingShare = int.Parse(txtGoalMappingShare.Text);
+            nonFinancialAsset.Description = txtNonFinancialDesc.Text;
+            nonFinancialAsset.CreatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            nonFinancialAsset.CreatedBy = Program.CurrentUser.Id;
+            nonFinancialAsset.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            nonFinancialAsset.UpdatedBy = Program.CurrentUser.Id;
+            nonFinancialAsset.MachineName = Environment.MachineName;
+            return nonFinancialAsset;
+        }
+
+        private void btnEditNFA_Click(object sender, EventArgs e)
+        {
+            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            displayNonFinancialAsset(nonFinancialAsset);
+            grpNonFinancialAsset.Enabled = true;
+        }
+
+        private void displayNonFinancialAsset(NonFinancialAsset nonFinancialAsset)
+        {
+            if (nonFinancialAsset != null)
+            {
+                txtAssetName.Tag = nonFinancialAsset.Id;
+                txtAssetName.Text = nonFinancialAsset.Name;
+                txtAssetCurrentCost.Text = nonFinancialAsset.CurrentValue.ToString("#,000.00");
+                cmbPrimaryHolder.Text = _client.Name;
+                cmbSecondaryHolder.Text = getSpouseName();
+                txtPrimaryHolderShare.Text = nonFinancialAsset.PrimaryholderShare.ToString();
+                txtSecondaryHolderShare.Text = nonFinancialAsset.SecondaryHolderShare.ToString();
+                cmbOtherHolder.Text = nonFinancialAsset.OtherHolderName;
+                txtOtherShare.Text = nonFinancialAsset.OtherHolderShare.ToString();
+                cmbMappingGoal.Tag = nonFinancialAsset.MappedGoalId.ToString();
+                txtGoalMappingShare.Text = nonFinancialAsset.AssetMappingShare.ToString();
+                txtAssetRealisationYear.Text = nonFinancialAsset.AssetRealisationYear;
+                txtNonFinancialDesc.Text = nonFinancialAsset.Description;
+            }
+        }
+
+        private NonFinancialAsset convertSelectedRowDataToNonFinancialAsset()
+        {
+
+            if (dtGridNonFinancialAssets.SelectedRows.Count > 0)
+            {
+                NonFinancialAsset nonFinancialAsset = new NonFinancialAsset();
+                DataRow dr = getSelectedDataRowForNonFinancialAsset();
+                nonFinancialAsset.Id = int.Parse(dr.Field<string>("ID"));
+                nonFinancialAsset.Pid = int.Parse(dr.Field<string>("PID"));
+                nonFinancialAsset.Name = dr.Field<string>("NAME");
+                nonFinancialAsset.CurrentValue = double.Parse(dr.Field<string>("CurrentValue"));
+                nonFinancialAsset.PrimaryholderShare = int.Parse(dr.Field<string>("Primaryholdershare"));
+                nonFinancialAsset.SecondaryHolderShare = int.Parse(dr.Field<string>("SecondaryHoldershare"));
+                nonFinancialAsset.OtherHolderName = dr.Field<string>("OtherHolderName");
+                nonFinancialAsset.OtherHolderShare = int.Parse(dr.Field<string>("OtherHolderShare"));
+                nonFinancialAsset.MappedGoalId = int.Parse(dr.Field<string>("MappedGoalId"));
+                nonFinancialAsset.AssetMappingShare = int.Parse(dr.Field<string>("AssetMappingShare"));
+                nonFinancialAsset.AssetRealisationYear = dr.Field<string>("AssetRealisationYear");
+                nonFinancialAsset.Description = dr.Field<string>("Description");
+                return nonFinancialAsset;
+            }
+            return null;
+        }
+        private DataRow getSelectedDataRowForNonFinancialAsset()
+        {
+            int selectedRowIndex = dtGridNonFinancialAssets.SelectedRows[0].Index;
+            int selectedUserId = int.Parse(dtGridNonFinancialAssets.SelectedRows[0].Cells["ID"].Value.ToString());
+            DataRow[] rows = _dtNonFinancialAsset.Select("Id = " + selectedUserId);
+            foreach (DataRow dr in rows)
+            {
+                return dr;
+            }
+            return null;
+        }
+
+        private DataRow getSelectedDataRowForLoan()
+        {
+            if (dtGridLoan.SelectedRows.Count >= 1)
+            {
+                int selectedRowIndex = dtGridLoan.SelectedRows[0].Index;
+                int selectedUserId = int.Parse(dtGridLoan.SelectedRows[0].Cells["ID"].Value.ToString());
+                DataRow[] rows = _dtLoan.Select("Id = " + selectedUserId);
+                foreach (DataRow dr in rows)
+                {
+                    return dr;
+                }
+            }
+            return null;
+        }
+
+        private void btnDeleteNFA_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+                NonFinancialAssetInfo nonFinancialAssetInfo = new NonFinancialAssetInfo();
+                nonFinancialAssetInfo.Delete(nonFinancialAsset);
+                fillupNonFinancialAssetInfo();
+            }
+        }
+
+        private void dtGridNonFinancialAssets_SelectionChanged(object sender, EventArgs e)
+        {
+            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            displayNonFinancialAsset(nonFinancialAsset);
+        }
+
+        private void btnNonFinancialCanel_Click(object sender, EventArgs e)
+        {
+            grpNonFinancialAsset.Enabled = false;
+            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            displayNonFinancialAsset(nonFinancialAsset);
+        }
+        private void txtPrimaryHolderShare_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtSecondaryHolderShare_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtOtherShare_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtGoalMappingShare_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtGoalMappingShare_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(txtGoalMappingShare.Text) > 100)
+            {
+                MessageBox.Show("More then 100% is not allow to map with asset value.");
+                txtGoalMappingShare.Focus();
+            }
+        }
+
+        private void btnAddLoan_Click(object sender, EventArgs e)
+        {
+            grpLoanDetails.Enabled = true;
+            setDefaultLoanValue();
+        }
+
+        private void setDefaultLoanValue()
+        {
+            txtTypeOfLoan.Tag = "0";
+            txtTypeOfLoan.Text = "";
+            txtOutStadningLoan.Text = "0";
+            txtLoanInterestRate.Text = "0";
+            txtEmis.Text = "0";
+            txtLoanTermLeft_Months.Text = "0";
+            txtNoOfEmiPayableForCY.Text = "0";
+            txtLoanDescription.Text = "";
+        }
+
+        private void btnSaveLoan_Click(object sender, EventArgs e)
+        {
+
+            LoanInfo loanInfo = new LoanInfo();
+            Loan loan = getLaonData();
+            bool isSaved = false;
+
+            if (loan != null && loan.Id == 0)
+                isSaved = loanInfo.Add(loan);
+            else
+                isSaved = loanInfo.Update(loan);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupLoanInfo();
+                grpLoanDetails.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Loan getLaonData()
+        {
+            Loan loan = new Loan();
+            loan.Id = int.Parse(txtTypeOfLoan.Tag.ToString());
+            loan.Pid = PlannerId;
+            loan.TypeOfLoan = txtTypeOfLoan.Text;
+            loan.OutstandingAmt = int.Parse(txtOutStadningLoan.Text);
+            loan.InterestRate = decimal.Parse(txtLoanInterestRate.Text);
+            loan.Emis = int.Parse(txtEmis.Text);
+            loan.TermLeftInMonths = int.Parse(txtLoanTermLeft_Months.Text);
+            loan.NoEmisPayableUntilYear = int.Parse(txtNoOfEmiPayableForCY.Text);
+            loan.Description = txtLoanDescription.Text;
+            loan.CreatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            loan.CreatedBy = Program.CurrentUser.Id;
+            loan.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            loan.UpdatedBy = Program.CurrentUser.Id;
+            loan.MachineName = Environment.MachineName;
+
+            return loan;
+        }
+
+        private void btnUpdateLoan_Click(object sender, EventArgs e)
+        {
+            Loan loan = convertSelectedRowDataToLoan();
+            displayLoanData(loan);
+            grpLoanDetails.Enabled = true;
+        }
+
+        private void displayLoanData(Loan loan)
+        {
+            if (loan != null)
+            {
+                txtTypeOfLoan.Tag = loan.Id;
+                txtTypeOfLoan.Text = loan.TypeOfLoan;
+                txtOutStadningLoan.Text = loan.OutstandingAmt.ToString("#,000.00");
+                txtLoanInterestRate.Text = loan.InterestRate.ToString();
+                txtEmis.Text = loan.Emis.ToString();
+                txtLoanTermLeft_Months.Text = loan.TermLeftInMonths.ToString();
+                txtNoOfEmiPayableForCY.Text = loan.NoEmisPayableUntilYear.ToString();
+                txtLoanDescription.Text = loan.Description;
+            }
+        }
+
+        private Loan convertSelectedRowDataToLoan()
+        {
+            if (dtGridLoan.SelectedRows.Count >= 1)
+            {
+                Loan loan = new Loan();
+                DataRow dr = getSelectedDataRowForLoan();
+                loan.Id = int.Parse(dr.Field<string>("ID"));
+                loan.Pid = int.Parse(dr.Field<string>("PID"));
+                loan.TypeOfLoan = dr.Field<string>("TypeOfLoan");
+                loan.OutstandingAmt = double.Parse(dr.Field<string>("OutstandingAmt"));
+                loan.Emis = int.Parse(dr.Field<string>("EMIs"));
+                loan.InterestRate = decimal.Parse(dr.Field<string>("InterestRate"));
+                loan.TermLeftInMonths = int.Parse(dr.Field<string>("TermLeftInMonths"));
+                loan.NoEmisPayableUntilYear = int.Parse(dr.Field<string>("NoEMISPayableUntilYear"));
+                loan.Description = dr.Field<string>("Description");
+                return loan;
+            }
+            return null;
+        }
+
+        private void btnDeleteLoan_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Loan loan = convertSelectedRowDataToLoan();
+                LoanInfo laonInfo = new LoanInfo();
+                laonInfo.Delete(loan);
+                fillupLoanInfo();
+            }
+        }
+
+        private void btnCancelLoan_Click(object sender, EventArgs e)
+        {
+            grpLoanDetails.Enabled = false;
+            Loan loan = convertSelectedRowDataToLoan();
+            displayLoanData(loan);
+        }
+
+        private void dtGridLoan_SelectionChanged(object sender, EventArgs e)
+        {
+            Loan loan = convertSelectedRowDataToLoan();
+            displayLoanData(loan);
+        }
+
+        private void cmbIncomeSource_SelectedIndexChanged(object sender, EventArgs e)
+        {           
+            btnSalaryDetails.Enabled = cmbIncomeSource.Text.Equals("Salary", StringComparison.OrdinalIgnoreCase);            
+        }
+
+        private void btnSalaryDetails_Click(object sender, EventArgs e)
+        {
+            grpSalaryDetails.Enabled = true;
+        }
+
+        private void rdoClient_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoClient.Checked)
+                lblIncomeFromName.Text = _client.Name;
+        }
+
+        private void rdoSpouse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoSpouse.Checked)
+                lblIncomeFromName.Text = getSpouseName();
+        }
+
+        private string getSpouseName()
+        {
+            if (!string.IsNullOrEmpty(txtSpouseName.Text))
+                return txtSpouseName.Text;
+            else
+            {
+                fillupPersonalDetails();
+                return txtSpouseName.Text;
+            }
+        }
+        private void calculateNetTakeHome()
+        {
+            double ctc = 0;
+            double reimbursement = 0;
+            double pfContribution = 0;
+            double employerPFContribution = 0;
+            double penssion = 0;
+            double otherDeduction = 0;
+            double netTakeHome = 0;
+            double bonusAmt = 0;
+
+            double.TryParse(txtCTC.Text, out ctc);
+            double.TryParse(txtReimbusement.Text, out reimbursement);
+            double.TryParse(txtEmployeePFContribution.Text, out pfContribution);
+            double.TryParse(txtEmployerPFContribution.Text, out employerPFContribution);
+            double.TryParse(txtSuperanuation.Text, out penssion);
+            double.TryParse(txtOtherDeduction.Text, out otherDeduction);
+            double.TryParse(txtAnnualBonusAmt.Text, out bonusAmt);
+
+            netTakeHome = (ctc + reimbursement + pfContribution + employerPFContribution + penssion) - otherDeduction;
+            txtNetTakeHome.Text = netTakeHome.ToString("#,000.00");
+            txtAnnualIncome.Text = (netTakeHome + bonusAmt).ToString("#,000.00");
+        }
+
+        private void txtCTC_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtReimbusement_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtEmployeePFContribution_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtEmployerPFContribution_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtSuperanuation_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtOtherDeduction_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtNetTakeHome_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }
+
+        private void txtAnnualBonusAmt_Leave(object sender, EventArgs e)
+        {
+            calculateNetTakeHome();
+        }       
     }
 }

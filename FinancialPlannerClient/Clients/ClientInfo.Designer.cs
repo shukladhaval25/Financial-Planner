@@ -187,12 +187,43 @@
             this.label52 = new System.Windows.Forms.Label();
             this.dtGridFamilyMember = new System.Windows.Forms.DataGridView();
             this.label51 = new System.Windows.Forms.Label();
+            this.Loan = new System.Windows.Forms.TabPage();
+            this.grpLoanDetails = new System.Windows.Forms.GroupBox();
+            this.txtNoOfEmiPayableForCY = new System.Windows.Forms.TextBox();
+            this.txtLoanTermLeft_Months = new System.Windows.Forms.TextBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.txtLoanInterestRate = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.txtEmis = new System.Windows.Forms.TextBox();
+            this.txtOutStadningLoan = new System.Windows.Forms.TextBox();
+            this.btnCancelLoan = new System.Windows.Forms.Button();
+            this.btnSaveLoan = new System.Windows.Forms.Button();
+            this.txtLoanDescription = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.txtTypeOfLoan = new System.Windows.Forms.TextBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteLoan = new System.Windows.Forms.Button();
+            this.btnAddLoan = new System.Windows.Forms.Button();
+            this.btnUpdateLoan = new System.Windows.Forms.Button();
+            this.dtGridLoan = new System.Windows.Forms.DataGridView();
+            this.label77 = new System.Windows.Forms.Label();
             this.NonFinancialAssets = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnDeleteNFA = new System.Windows.Forms.Button();
+            this.btnAddNFA = new System.Windows.Forms.Button();
+            this.btnEditNFA = new System.Windows.Forms.Button();
             this.grpNonFinancialAsset = new System.Windows.Forms.GroupBox();
+            this.txtAssetRealisationYear = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.txtGoalMappingShare = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.txtOtherShare = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.cmbOtherHolder = new System.Windows.Forms.ComboBox();
             this.cmbMappingGoal = new System.Windows.Forms.ComboBox();
             this.txtSecondaryHolderShare = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
@@ -212,7 +243,59 @@
             this.dtGridNonFinancialAssets = new System.Windows.Forms.DataGridView();
             this.label73 = new System.Windows.Forms.Label();
             this.Income = new System.Windows.Forms.TabPage();
+            this.grpIncome = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label100 = new System.Windows.Forms.Label();
+            this.txtIncomeDescription = new System.Windows.Forms.TextBox();
+            this.grpSalaryDetails = new System.Windows.Forms.GroupBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.txtBonusMonthYear = new System.Windows.Forms.TextBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.txtAnnualBonusAmt = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.txtExpectedGrowthSalary = new System.Windows.Forms.TextBox();
+            this.label104 = new System.Windows.Forms.Label();
+            this.txtNextIncrementMonthYear = new System.Windows.Forms.TextBox();
+            this.label105 = new System.Windows.Forms.Label();
+            this.txtNetTakeHome = new System.Windows.Forms.TextBox();
+            this.label98 = new System.Windows.Forms.Label();
+            this.txtOtherDeduction = new System.Windows.Forms.TextBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.txtSuperanuation = new System.Windows.Forms.TextBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.txtEmployerPFContribution = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.txtEmployeePFContribution = new System.Windows.Forms.TextBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.txtReimbusement = new System.Windows.Forms.TextBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.txtCTC = new System.Windows.Forms.TextBox();
+            this.btnSalaryDetails = new System.Windows.Forms.Button();
+            this.label93 = new System.Windows.Forms.Label();
+            this.txtIncomeEndYear = new System.Windows.Forms.TextBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.txtIncomeStartYear = new System.Windows.Forms.TextBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.txtincomeGrowthPercentage = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.txtAnnualIncome = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.grpIncomeFrom = new System.Windows.Forms.GroupBox();
+            this.lblIncomeFromName = new System.Windows.Forms.Label();
+            this.rdoSpouse = new System.Windows.Forms.RadioButton();
+            this.rdoClient = new System.Windows.Forms.RadioButton();
+            this.label87 = new System.Windows.Forms.Label();
+            this.cmbIncomeSource = new System.Windows.Forms.ComboBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.dtGridIncome = new System.Windows.Forms.DataGridView();
+            this.label78 = new System.Windows.Forms.Label();
             this.Expenses = new System.Windows.Forms.TabPage();
+            this.label88 = new System.Windows.Forms.Label();
             this.Goal = new System.Windows.Forms.TabPage();
             this.label65 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -241,9 +324,24 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.imageList30x30 = new System.Windows.Forms.ImageList(this.components);
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.txtOtherShare = new System.Windows.Forms.TextBox();
-            this.label68 = new System.Windows.Forms.Label();
-            this.cmbOtherHolder = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.grpExpenseDetails = new System.Windows.Forms.GroupBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label113 = new System.Windows.Forms.Label();
+            this.label114 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabPlannerDetails.SuspendLayout();
             this.Assumption.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -267,15 +365,29 @@
             this.grpFamilyMemberDetail.SuspendLayout();
             this.grpFamilyDependent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridFamilyMember)).BeginInit();
+            this.Loan.SuspendLayout();
+            this.grpLoanDetails.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridLoan)).BeginInit();
             this.NonFinancialAssets.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpNonFinancialAsset.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridNonFinancialAssets)).BeginInit();
+            this.Income.SuspendLayout();
+            this.grpIncome.SuspendLayout();
+            this.grpSalaryDetails.SuspendLayout();
+            this.grpIncomeFrom.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridIncome)).BeginInit();
+            this.Expenses.SuspendLayout();
             this.Goal.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.grpExpenseDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPlannerDetails
@@ -286,6 +398,7 @@
             this.tabPlannerDetails.Controls.Add(this.Assumption);
             this.tabPlannerDetails.Controls.Add(this.PersonalInfo);
             this.tabPlannerDetails.Controls.Add(this.FamilyInfo);
+            this.tabPlannerDetails.Controls.Add(this.Loan);
             this.tabPlannerDetails.Controls.Add(this.NonFinancialAssets);
             this.tabPlannerDetails.Controls.Add(this.Income);
             this.tabPlannerDetails.Controls.Add(this.Expenses);
@@ -2148,6 +2261,268 @@
             this.label51.TabIndex = 1;
             this.label51.Text = "Children,parents or any other person who is financially dependant on you.";
             // 
+            // Loan
+            // 
+            this.Loan.Controls.Add(this.grpLoanDetails);
+            this.Loan.Controls.Add(this.groupBox3);
+            this.Loan.Controls.Add(this.dtGridLoan);
+            this.Loan.Controls.Add(this.label77);
+            this.Loan.ImageKey = "icons8-magazine-30.png";
+            this.Loan.Location = new System.Drawing.Point(4, 37);
+            this.Loan.Name = "Loan";
+            this.Loan.Size = new System.Drawing.Size(958, 585);
+            this.Loan.TabIndex = 7;
+            this.Loan.Text = "Loan";
+            this.Loan.UseVisualStyleBackColor = true;
+            // 
+            // grpLoanDetails
+            // 
+            this.grpLoanDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpLoanDetails.Controls.Add(this.txtNoOfEmiPayableForCY);
+            this.grpLoanDetails.Controls.Add(this.txtLoanTermLeft_Months);
+            this.grpLoanDetails.Controls.Add(this.label80);
+            this.grpLoanDetails.Controls.Add(this.txtLoanInterestRate);
+            this.grpLoanDetails.Controls.Add(this.label81);
+            this.grpLoanDetails.Controls.Add(this.txtEmis);
+            this.grpLoanDetails.Controls.Add(this.txtOutStadningLoan);
+            this.grpLoanDetails.Controls.Add(this.btnCancelLoan);
+            this.grpLoanDetails.Controls.Add(this.btnSaveLoan);
+            this.grpLoanDetails.Controls.Add(this.txtLoanDescription);
+            this.grpLoanDetails.Controls.Add(this.label82);
+            this.grpLoanDetails.Controls.Add(this.label83);
+            this.grpLoanDetails.Controls.Add(this.label84);
+            this.grpLoanDetails.Controls.Add(this.label85);
+            this.grpLoanDetails.Controls.Add(this.txtTypeOfLoan);
+            this.grpLoanDetails.Controls.Add(this.label86);
+            this.grpLoanDetails.Enabled = false;
+            this.grpLoanDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpLoanDetails.Location = new System.Drawing.Point(10, 306);
+            this.grpLoanDetails.Name = "grpLoanDetails";
+            this.grpLoanDetails.Size = new System.Drawing.Size(938, 255);
+            this.grpLoanDetails.TabIndex = 12;
+            this.grpLoanDetails.TabStop = false;
+            this.grpLoanDetails.Text = "Loan Details";
+            // 
+            // txtNoOfEmiPayableForCY
+            // 
+            this.txtNoOfEmiPayableForCY.Location = new System.Drawing.Point(195, 186);
+            this.txtNoOfEmiPayableForCY.MaxLength = 3;
+            this.txtNoOfEmiPayableForCY.Name = "txtNoOfEmiPayableForCY";
+            this.txtNoOfEmiPayableForCY.Size = new System.Drawing.Size(294, 21);
+            this.txtNoOfEmiPayableForCY.TabIndex = 9;
+            this.txtNoOfEmiPayableForCY.Text = "0";
+            // 
+            // txtLoanTermLeft_Months
+            // 
+            this.txtLoanTermLeft_Months.Location = new System.Drawing.Point(195, 157);
+            this.txtLoanTermLeft_Months.MaxLength = 3;
+            this.txtLoanTermLeft_Months.Name = "txtLoanTermLeft_Months";
+            this.txtLoanTermLeft_Months.Size = new System.Drawing.Size(294, 21);
+            this.txtLoanTermLeft_Months.TabIndex = 8;
+            this.txtLoanTermLeft_Months.Text = "0";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(21, 161);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(126, 15);
+            this.label80.TabIndex = 17;
+            this.label80.Text = "Term left (In Months) :";
+            // 
+            // txtLoanInterestRate
+            // 
+            this.txtLoanInterestRate.Location = new System.Drawing.Point(195, 128);
+            this.txtLoanInterestRate.MaxLength = 6;
+            this.txtLoanInterestRate.Name = "txtLoanInterestRate";
+            this.txtLoanInterestRate.Size = new System.Drawing.Size(294, 21);
+            this.txtLoanInterestRate.TabIndex = 6;
+            this.txtLoanInterestRate.Text = "0";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(21, 132);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(104, 15);
+            this.label81.TabIndex = 14;
+            this.label81.Text = "Interest Rate (%) :";
+            // 
+            // txtEmis
+            // 
+            this.txtEmis.Location = new System.Drawing.Point(195, 100);
+            this.txtEmis.MaxLength = 10;
+            this.txtEmis.Name = "txtEmis";
+            this.txtEmis.Size = new System.Drawing.Size(294, 21);
+            this.txtEmis.TabIndex = 4;
+            // 
+            // txtOutStadningLoan
+            // 
+            this.txtOutStadningLoan.Location = new System.Drawing.Point(195, 72);
+            this.txtOutStadningLoan.Name = "txtOutStadningLoan";
+            this.txtOutStadningLoan.Size = new System.Drawing.Size(294, 21);
+            this.txtOutStadningLoan.TabIndex = 2;
+            // 
+            // btnCancelLoan
+            // 
+            this.btnCancelLoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelLoan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelLoan.ImageKey = "icons8-cancel-16.png";
+            this.btnCancelLoan.ImageList = this.imageList16x16;
+            this.btnCancelLoan.Location = new System.Drawing.Point(819, 201);
+            this.btnCancelLoan.Name = "btnCancelLoan";
+            this.btnCancelLoan.Size = new System.Drawing.Size(86, 26);
+            this.btnCancelLoan.TabIndex = 14;
+            this.btnCancelLoan.Text = "Cancel";
+            this.btnCancelLoan.UseVisualStyleBackColor = true;
+            this.btnCancelLoan.Click += new System.EventHandler(this.btnCancelLoan_Click);
+            // 
+            // btnSaveLoan
+            // 
+            this.btnSaveLoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveLoan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveLoan.ImageKey = "icons8-save-close-16.png";
+            this.btnSaveLoan.ImageList = this.imageList16x16;
+            this.btnSaveLoan.Location = new System.Drawing.Point(727, 201);
+            this.btnSaveLoan.Name = "btnSaveLoan";
+            this.btnSaveLoan.Size = new System.Drawing.Size(86, 26);
+            this.btnSaveLoan.TabIndex = 13;
+            this.btnSaveLoan.Text = "Save";
+            this.btnSaveLoan.UseVisualStyleBackColor = true;
+            this.btnSaveLoan.Click += new System.EventHandler(this.btnSaveLoan_Click);
+            // 
+            // txtLoanDescription
+            // 
+            this.txtLoanDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLoanDescription.Location = new System.Drawing.Point(539, 72);
+            this.txtLoanDescription.Multiline = true;
+            this.txtLoanDescription.Name = "txtLoanDescription";
+            this.txtLoanDescription.Size = new System.Drawing.Size(366, 123);
+            this.txtLoanDescription.TabIndex = 12;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(536, 48);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(48, 15);
+            this.label82.TabIndex = 10;
+            this.label82.Text = "Details:";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(21, 189);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(168, 15);
+            this.label83.TabIndex = 6;
+            this.label83.Text = "No. of EMI payable until year :";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(21, 103);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(70, 15);
+            this.label84.TabIndex = 4;
+            this.label84.Text = "EMIs (Rs.) :";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(21, 72);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(135, 15);
+            this.label85.TabIndex = 2;
+            this.label85.Text = "Outstanding loan (Rs.) :";
+            // 
+            // txtTypeOfLoan
+            // 
+            this.txtTypeOfLoan.Location = new System.Drawing.Point(195, 45);
+            this.txtTypeOfLoan.Name = "txtTypeOfLoan";
+            this.txtTypeOfLoan.Size = new System.Drawing.Size(294, 21);
+            this.txtTypeOfLoan.TabIndex = 1;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(21, 45);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(83, 15);
+            this.label86.TabIndex = 0;
+            this.label86.Text = "Type of Loan :";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btnDeleteLoan);
+            this.groupBox3.Controls.Add(this.btnAddLoan);
+            this.groupBox3.Controls.Add(this.btnUpdateLoan);
+            this.groupBox3.Location = new System.Drawing.Point(837, 260);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(111, 38);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            // 
+            // btnDeleteLoan
+            // 
+            this.btnDeleteLoan.ImageIndex = 1;
+            this.btnDeleteLoan.ImageList = this.imgCollection;
+            this.btnDeleteLoan.Location = new System.Drawing.Point(76, 10);
+            this.btnDeleteLoan.Name = "btnDeleteLoan";
+            this.btnDeleteLoan.Size = new System.Drawing.Size(29, 24);
+            this.btnDeleteLoan.TabIndex = 4;
+            this.btnDeleteLoan.UseVisualStyleBackColor = true;
+            this.btnDeleteLoan.Click += new System.EventHandler(this.btnDeleteLoan_Click);
+            // 
+            // btnAddLoan
+            // 
+            this.btnAddLoan.ImageIndex = 3;
+            this.btnAddLoan.ImageList = this.imgCollection;
+            this.btnAddLoan.Location = new System.Drawing.Point(6, 10);
+            this.btnAddLoan.Name = "btnAddLoan";
+            this.btnAddLoan.Size = new System.Drawing.Size(29, 24);
+            this.btnAddLoan.TabIndex = 2;
+            this.btnAddLoan.UseVisualStyleBackColor = true;
+            this.btnAddLoan.Click += new System.EventHandler(this.btnAddLoan_Click);
+            // 
+            // btnUpdateLoan
+            // 
+            this.btnUpdateLoan.ImageIndex = 4;
+            this.btnUpdateLoan.ImageList = this.imgCollection;
+            this.btnUpdateLoan.Location = new System.Drawing.Point(41, 10);
+            this.btnUpdateLoan.Name = "btnUpdateLoan";
+            this.btnUpdateLoan.Size = new System.Drawing.Size(29, 24);
+            this.btnUpdateLoan.TabIndex = 3;
+            this.btnUpdateLoan.UseVisualStyleBackColor = true;
+            this.btnUpdateLoan.Click += new System.EventHandler(this.btnUpdateLoan_Click);
+            // 
+            // dtGridLoan
+            // 
+            this.dtGridLoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridLoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridLoan.Location = new System.Drawing.Point(10, 48);
+            this.dtGridLoan.Name = "dtGridLoan";
+            this.dtGridLoan.ReadOnly = true;
+            this.dtGridLoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridLoan.Size = new System.Drawing.Size(938, 208);
+            this.dtGridLoan.TabIndex = 9;
+            this.dtGridLoan.SelectionChanged += new System.EventHandler(this.dtGridLoan_SelectionChanged);
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label77.Location = new System.Drawing.Point(7, 16);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(632, 18);
+            this.label77.TabIndex = 11;
+            this.label77.Text = "Includes: Home loan/Education loan/Personal loan/Credit card balance/Other loans";
+            // 
             // NonFinancialAssets
             // 
             this.NonFinancialAssets.Controls.Add(this.groupBox2);
@@ -2166,14 +2541,857 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.btnDeleteNFA);
+            this.groupBox2.Controls.Add(this.btnAddNFA);
+            this.groupBox2.Controls.Add(this.btnEditNFA);
             this.groupBox2.Location = new System.Drawing.Point(837, 266);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 38);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // btnDeleteNFA
+            // 
+            this.btnDeleteNFA.ImageIndex = 1;
+            this.btnDeleteNFA.ImageList = this.imgCollection;
+            this.btnDeleteNFA.Location = new System.Drawing.Point(76, 10);
+            this.btnDeleteNFA.Name = "btnDeleteNFA";
+            this.btnDeleteNFA.Size = new System.Drawing.Size(29, 24);
+            this.btnDeleteNFA.TabIndex = 4;
+            this.btnDeleteNFA.UseVisualStyleBackColor = true;
+            this.btnDeleteNFA.Click += new System.EventHandler(this.btnDeleteNFA_Click);
+            // 
+            // btnAddNFA
+            // 
+            this.btnAddNFA.ImageIndex = 3;
+            this.btnAddNFA.ImageList = this.imgCollection;
+            this.btnAddNFA.Location = new System.Drawing.Point(6, 10);
+            this.btnAddNFA.Name = "btnAddNFA";
+            this.btnAddNFA.Size = new System.Drawing.Size(29, 24);
+            this.btnAddNFA.TabIndex = 2;
+            this.btnAddNFA.UseVisualStyleBackColor = true;
+            this.btnAddNFA.Click += new System.EventHandler(this.btnAddNFA_Click);
+            // 
+            // btnEditNFA
+            // 
+            this.btnEditNFA.ImageIndex = 4;
+            this.btnEditNFA.ImageList = this.imgCollection;
+            this.btnEditNFA.Location = new System.Drawing.Point(41, 10);
+            this.btnEditNFA.Name = "btnEditNFA";
+            this.btnEditNFA.Size = new System.Drawing.Size(29, 24);
+            this.btnEditNFA.TabIndex = 3;
+            this.btnEditNFA.UseVisualStyleBackColor = true;
+            this.btnEditNFA.Click += new System.EventHandler(this.btnEditNFA_Click);
+            // 
+            // grpNonFinancialAsset
+            // 
+            this.grpNonFinancialAsset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpNonFinancialAsset.Controls.Add(this.txtAssetRealisationYear);
+            this.grpNonFinancialAsset.Controls.Add(this.label76);
+            this.grpNonFinancialAsset.Controls.Add(this.txtGoalMappingShare);
+            this.grpNonFinancialAsset.Controls.Add(this.label75);
+            this.grpNonFinancialAsset.Controls.Add(this.txtOtherShare);
+            this.grpNonFinancialAsset.Controls.Add(this.label68);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbOtherHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbMappingGoal);
+            this.grpNonFinancialAsset.Controls.Add(this.txtSecondaryHolderShare);
+            this.grpNonFinancialAsset.Controls.Add(this.label74);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbSecondaryHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.txtPrimaryHolderShare);
+            this.grpNonFinancialAsset.Controls.Add(this.txtAssetCurrentCost);
+            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialCanel);
+            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialSave);
+            this.grpNonFinancialAsset.Controls.Add(this.txtNonFinancialDesc);
+            this.grpNonFinancialAsset.Controls.Add(this.label67);
+            this.grpNonFinancialAsset.Controls.Add(this.label69);
+            this.grpNonFinancialAsset.Controls.Add(this.label70);
+            this.grpNonFinancialAsset.Controls.Add(this.cmbPrimaryHolder);
+            this.grpNonFinancialAsset.Controls.Add(this.label71);
+            this.grpNonFinancialAsset.Controls.Add(this.txtAssetName);
+            this.grpNonFinancialAsset.Controls.Add(this.label72);
+            this.grpNonFinancialAsset.Enabled = false;
+            this.grpNonFinancialAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNonFinancialAsset.Location = new System.Drawing.Point(10, 310);
+            this.grpNonFinancialAsset.Name = "grpNonFinancialAsset";
+            this.grpNonFinancialAsset.Size = new System.Drawing.Size(938, 255);
+            this.grpNonFinancialAsset.TabIndex = 3;
+            this.grpNonFinancialAsset.TabStop = false;
+            this.grpNonFinancialAsset.Text = "Non-Financial Assets Detail";
+            // 
+            // txtAssetRealisationYear
+            // 
+            this.txtAssetRealisationYear.Location = new System.Drawing.Point(434, 215);
+            this.txtAssetRealisationYear.MaxLength = 4;
+            this.txtAssetRealisationYear.Name = "txtAssetRealisationYear";
+            this.txtAssetRealisationYear.Size = new System.Drawing.Size(55, 21);
+            this.txtAssetRealisationYear.TabIndex = 11;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(254, 218);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(177, 15);
+            this.label76.TabIndex = 20;
+            this.label76.Text = "Assets Value Realisation (Year)";
+            // 
+            // txtGoalMappingShare
+            // 
+            this.txtGoalMappingShare.Location = new System.Drawing.Point(195, 215);
+            this.txtGoalMappingShare.MaxLength = 3;
+            this.txtGoalMappingShare.Name = "txtGoalMappingShare";
+            this.txtGoalMappingShare.Size = new System.Drawing.Size(55, 21);
+            this.txtGoalMappingShare.TabIndex = 10;
+            this.txtGoalMappingShare.Text = "0";
+            this.txtGoalMappingShare.TextChanged += new System.EventHandler(this.txtGoalMappingShare_TextChanged);
+            this.txtGoalMappingShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGoalMappingShare_KeyPress);
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(21, 218);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(164, 15);
+            this.label75.TabIndex = 18;
+            this.label75.Text = "Share Allocation for Goal (%)";
+            // 
+            // txtOtherShare
+            // 
+            this.txtOtherShare.Location = new System.Drawing.Point(432, 157);
+            this.txtOtherShare.MaxLength = 3;
+            this.txtOtherShare.Name = "txtOtherShare";
+            this.txtOtherShare.Size = new System.Drawing.Size(57, 21);
+            this.txtOtherShare.TabIndex = 8;
+            this.txtOtherShare.Text = "0";
+            this.txtOtherShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOtherShare_KeyPress);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(21, 161);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(146, 15);
+            this.label68.TabIndex = 17;
+            this.label68.Text = "Other Holder && Share (%)";
+            // 
+            // cmbOtherHolder
+            // 
+            this.cmbOtherHolder.FormattingEnabled = true;
+            this.cmbOtherHolder.Location = new System.Drawing.Point(195, 157);
+            this.cmbOtherHolder.Name = "cmbOtherHolder";
+            this.cmbOtherHolder.Size = new System.Drawing.Size(231, 23);
+            this.cmbOtherHolder.TabIndex = 7;
+            // 
+            // cmbMappingGoal
+            // 
+            this.cmbMappingGoal.FormattingEnabled = true;
+            this.cmbMappingGoal.Location = new System.Drawing.Point(195, 186);
+            this.cmbMappingGoal.Name = "cmbMappingGoal";
+            this.cmbMappingGoal.Size = new System.Drawing.Size(294, 23);
+            this.cmbMappingGoal.Sorted = true;
+            this.cmbMappingGoal.TabIndex = 9;
+            // 
+            // txtSecondaryHolderShare
+            // 
+            this.txtSecondaryHolderShare.Location = new System.Drawing.Point(432, 128);
+            this.txtSecondaryHolderShare.MaxLength = 3;
+            this.txtSecondaryHolderShare.Name = "txtSecondaryHolderShare";
+            this.txtSecondaryHolderShare.Size = new System.Drawing.Size(57, 21);
+            this.txtSecondaryHolderShare.TabIndex = 6;
+            this.txtSecondaryHolderShare.Text = "0";
+            this.txtSecondaryHolderShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondaryHolderShare_KeyPress);
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(21, 132);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(167, 15);
+            this.label74.TabIndex = 14;
+            this.label74.Text = "Secondry Holder && Share (%)";
+            // 
+            // cmbSecondaryHolder
+            // 
+            this.cmbSecondaryHolder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cmbSecondaryHolder.Enabled = false;
+            this.cmbSecondaryHolder.FormattingEnabled = true;
+            this.cmbSecondaryHolder.Location = new System.Drawing.Point(195, 128);
+            this.cmbSecondaryHolder.Name = "cmbSecondaryHolder";
+            this.cmbSecondaryHolder.Size = new System.Drawing.Size(231, 23);
+            this.cmbSecondaryHolder.TabIndex = 5;
+            // 
+            // txtPrimaryHolderShare
+            // 
+            this.txtPrimaryHolderShare.Location = new System.Drawing.Point(432, 100);
+            this.txtPrimaryHolderShare.MaxLength = 3;
+            this.txtPrimaryHolderShare.Name = "txtPrimaryHolderShare";
+            this.txtPrimaryHolderShare.Size = new System.Drawing.Size(57, 21);
+            this.txtPrimaryHolderShare.TabIndex = 4;
+            this.txtPrimaryHolderShare.Text = "100";
+            this.txtPrimaryHolderShare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimaryHolderShare_KeyPress);
+            // 
+            // txtAssetCurrentCost
+            // 
+            this.txtAssetCurrentCost.Location = new System.Drawing.Point(195, 72);
+            this.txtAssetCurrentCost.Name = "txtAssetCurrentCost";
+            this.txtAssetCurrentCost.Size = new System.Drawing.Size(294, 21);
+            this.txtAssetCurrentCost.TabIndex = 2;
+            // 
+            // btnNonFinancialCanel
+            // 
+            this.btnNonFinancialCanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNonFinancialCanel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNonFinancialCanel.ImageKey = "icons8-cancel-16.png";
+            this.btnNonFinancialCanel.ImageList = this.imageList16x16;
+            this.btnNonFinancialCanel.Location = new System.Drawing.Point(819, 201);
+            this.btnNonFinancialCanel.Name = "btnNonFinancialCanel";
+            this.btnNonFinancialCanel.Size = new System.Drawing.Size(86, 26);
+            this.btnNonFinancialCanel.TabIndex = 14;
+            this.btnNonFinancialCanel.Text = "Cancel";
+            this.btnNonFinancialCanel.UseVisualStyleBackColor = true;
+            this.btnNonFinancialCanel.Click += new System.EventHandler(this.btnNonFinancialCanel_Click);
+            // 
+            // btnNonFinancialSave
+            // 
+            this.btnNonFinancialSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNonFinancialSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNonFinancialSave.ImageKey = "icons8-save-close-16.png";
+            this.btnNonFinancialSave.ImageList = this.imageList16x16;
+            this.btnNonFinancialSave.Location = new System.Drawing.Point(727, 201);
+            this.btnNonFinancialSave.Name = "btnNonFinancialSave";
+            this.btnNonFinancialSave.Size = new System.Drawing.Size(86, 26);
+            this.btnNonFinancialSave.TabIndex = 13;
+            this.btnNonFinancialSave.Text = "Save";
+            this.btnNonFinancialSave.UseVisualStyleBackColor = true;
+            this.btnNonFinancialSave.Click += new System.EventHandler(this.btnNonFinancialSave_Click);
+            // 
+            // txtNonFinancialDesc
+            // 
+            this.txtNonFinancialDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNonFinancialDesc.Location = new System.Drawing.Point(539, 72);
+            this.txtNonFinancialDesc.Multiline = true;
+            this.txtNonFinancialDesc.Name = "txtNonFinancialDesc";
+            this.txtNonFinancialDesc.Size = new System.Drawing.Size(366, 123);
+            this.txtNonFinancialDesc.TabIndex = 12;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(536, 48);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(48, 15);
+            this.label67.TabIndex = 10;
+            this.label67.Text = "Details:";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(21, 189);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(112, 15);
+            this.label69.TabIndex = 6;
+            this.label69.Text = "Mapping With Goal";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(21, 103);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(158, 15);
+            this.label70.TabIndex = 4;
+            this.label70.Text = "Primary Holder && Share (%)";
+            // 
+            // cmbPrimaryHolder
+            // 
+            this.cmbPrimaryHolder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cmbPrimaryHolder.Enabled = false;
+            this.cmbPrimaryHolder.FormattingEnabled = true;
+            this.cmbPrimaryHolder.Location = new System.Drawing.Point(195, 99);
+            this.cmbPrimaryHolder.Name = "cmbPrimaryHolder";
+            this.cmbPrimaryHolder.Size = new System.Drawing.Size(231, 23);
+            this.cmbPrimaryHolder.TabIndex = 3;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(21, 72);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(135, 15);
+            this.label71.TabIndex = 2;
+            this.label71.Text = "Estimated Current Cost:";
+            // 
+            // txtAssetName
+            // 
+            this.txtAssetName.Location = new System.Drawing.Point(195, 45);
+            this.txtAssetName.Name = "txtAssetName";
+            this.txtAssetName.Size = new System.Drawing.Size(294, 21);
+            this.txtAssetName.TabIndex = 1;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(21, 45);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(89, 15);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Name of Asset:";
+            // 
+            // dtGridNonFinancialAssets
+            // 
+            this.dtGridNonFinancialAssets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridNonFinancialAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridNonFinancialAssets.Location = new System.Drawing.Point(10, 54);
+            this.dtGridNonFinancialAssets.Name = "dtGridNonFinancialAssets";
+            this.dtGridNonFinancialAssets.ReadOnly = true;
+            this.dtGridNonFinancialAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridNonFinancialAssets.Size = new System.Drawing.Size(938, 208);
+            this.dtGridNonFinancialAssets.TabIndex = 1;
+            this.dtGridNonFinancialAssets.SelectionChanged += new System.EventHandler(this.dtGridNonFinancialAssets_SelectionChanged);
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label73.Location = new System.Drawing.Point(7, 16);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(682, 18);
+            this.label73.TabIndex = 8;
+            this.label73.Text = "Includes: Primary home, Vacation home, Rental Property, Land, Jewellery, car, art" +
+    ", others";
+            // 
+            // Income
+            // 
+            this.Income.BackColor = System.Drawing.Color.Transparent;
+            this.Income.Controls.Add(this.grpIncome);
+            this.Income.Controls.Add(this.groupBox6);
+            this.Income.Controls.Add(this.dtGridIncome);
+            this.Income.Controls.Add(this.label78);
+            this.Income.ImageKey = "(none)";
+            this.Income.Location = new System.Drawing.Point(4, 37);
+            this.Income.Name = "Income";
+            this.Income.Size = new System.Drawing.Size(958, 585);
+            this.Income.TabIndex = 5;
+            this.Income.Text = "Income";
+            // 
+            // grpIncome
+            // 
+            this.grpIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpIncome.BackColor = System.Drawing.Color.Transparent;
+            this.grpIncome.Controls.Add(this.button8);
+            this.grpIncome.Controls.Add(this.button9);
+            this.grpIncome.Controls.Add(this.label100);
+            this.grpIncome.Controls.Add(this.txtIncomeDescription);
+            this.grpIncome.Controls.Add(this.grpSalaryDetails);
+            this.grpIncome.Controls.Add(this.btnSalaryDetails);
+            this.grpIncome.Controls.Add(this.label93);
+            this.grpIncome.Controls.Add(this.txtIncomeEndYear);
+            this.grpIncome.Controls.Add(this.label92);
+            this.grpIncome.Controls.Add(this.txtIncomeStartYear);
+            this.grpIncome.Controls.Add(this.label91);
+            this.grpIncome.Controls.Add(this.txtincomeGrowthPercentage);
+            this.grpIncome.Controls.Add(this.label90);
+            this.grpIncome.Controls.Add(this.txtAnnualIncome);
+            this.grpIncome.Controls.Add(this.label89);
+            this.grpIncome.Controls.Add(this.grpIncomeFrom);
+            this.grpIncome.Controls.Add(this.label87);
+            this.grpIncome.Controls.Add(this.cmbIncomeSource);
+            this.grpIncome.Controls.Add(this.label79);
+            this.grpIncome.Location = new System.Drawing.Point(10, 209);
+            this.grpIncome.Name = "grpIncome";
+            this.grpIncome.Size = new System.Drawing.Size(938, 370);
+            this.grpIncome.TabIndex = 12;
+            this.grpIncome.TabStop = false;
+            this.grpIncome.Text = "Income Detail";
+            // 
+            // button8
+            // 
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.ImageKey = "icons8-cancel-16.png";
+            this.button8.ImageList = this.imageList16x16;
+            this.button8.Location = new System.Drawing.Point(325, 307);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(86, 26);
+            this.button8.TabIndex = 19;
+            this.button8.Text = "Cancel";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.ImageKey = "icons8-save-close-16.png";
+            this.button9.ImageList = this.imageList16x16;
+            this.button9.Location = new System.Drawing.Point(233, 307);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(86, 26);
+            this.button9.TabIndex = 18;
+            this.button9.Text = "Save";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.Location = new System.Drawing.Point(25, 247);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(75, 15);
+            this.label100.TabIndex = 17;
+            this.label100.Text = "Description :";
+            // 
+            // txtIncomeDescription
+            // 
+            this.txtIncomeDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIncomeDescription.Location = new System.Drawing.Point(154, 247);
+            this.txtIncomeDescription.Multiline = true;
+            this.txtIncomeDescription.Name = "txtIncomeDescription";
+            this.txtIncomeDescription.Size = new System.Drawing.Size(257, 54);
+            this.txtIncomeDescription.TabIndex = 16;
+            // 
+            // grpSalaryDetails
+            // 
+            this.grpSalaryDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpSalaryDetails.Controls.Add(this.label101);
+            this.grpSalaryDetails.Controls.Add(this.txtBonusMonthYear);
+            this.grpSalaryDetails.Controls.Add(this.label102);
+            this.grpSalaryDetails.Controls.Add(this.txtAnnualBonusAmt);
+            this.grpSalaryDetails.Controls.Add(this.label103);
+            this.grpSalaryDetails.Controls.Add(this.txtExpectedGrowthSalary);
+            this.grpSalaryDetails.Controls.Add(this.label104);
+            this.grpSalaryDetails.Controls.Add(this.txtNextIncrementMonthYear);
+            this.grpSalaryDetails.Controls.Add(this.label105);
+            this.grpSalaryDetails.Controls.Add(this.txtNetTakeHome);
+            this.grpSalaryDetails.Controls.Add(this.label98);
+            this.grpSalaryDetails.Controls.Add(this.txtOtherDeduction);
+            this.grpSalaryDetails.Controls.Add(this.label99);
+            this.grpSalaryDetails.Controls.Add(this.txtSuperanuation);
+            this.grpSalaryDetails.Controls.Add(this.label96);
+            this.grpSalaryDetails.Controls.Add(this.txtEmployerPFContribution);
+            this.grpSalaryDetails.Controls.Add(this.label97);
+            this.grpSalaryDetails.Controls.Add(this.txtEmployeePFContribution);
+            this.grpSalaryDetails.Controls.Add(this.label95);
+            this.grpSalaryDetails.Controls.Add(this.txtReimbusement);
+            this.grpSalaryDetails.Controls.Add(this.label94);
+            this.grpSalaryDetails.Controls.Add(this.txtCTC);
+            this.grpSalaryDetails.Enabled = false;
+            this.grpSalaryDetails.Location = new System.Drawing.Point(429, 16);
+            this.grpSalaryDetails.Name = "grpSalaryDetails";
+            this.grpSalaryDetails.Size = new System.Drawing.Size(503, 333);
+            this.grpSalaryDetails.TabIndex = 15;
+            this.grpSalaryDetails.TabStop = false;
+            this.grpSalaryDetails.Text = "Salary Income Details";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.Location = new System.Drawing.Point(6, 299);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(133, 15);
+            this.label101.TabIndex = 36;
+            this.label101.Text = "Bonus (Month && Year) :";
+            // 
+            // txtBonusMonthYear
+            // 
+            this.txtBonusMonthYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBonusMonthYear.Location = new System.Drawing.Point(240, 296);
+            this.txtBonusMonthYear.Name = "txtBonusMonthYear";
+            this.txtBonusMonthYear.Size = new System.Drawing.Size(257, 21);
+            this.txtBonusMonthYear.TabIndex = 35;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label102.Location = new System.Drawing.Point(6, 272);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(142, 15);
+            this.label102.TabIndex = 34;
+            this.label102.Text = "Bonus (Annual Amount) :";
+            // 
+            // txtAnnualBonusAmt
+            // 
+            this.txtAnnualBonusAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnnualBonusAmt.Location = new System.Drawing.Point(240, 269);
+            this.txtAnnualBonusAmt.Name = "txtAnnualBonusAmt";
+            this.txtAnnualBonusAmt.Size = new System.Drawing.Size(257, 21);
+            this.txtAnnualBonusAmt.TabIndex = 33;
+            this.txtAnnualBonusAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAnnualBonusAmt.Leave += new System.EventHandler(this.txtAnnualBonusAmt_Leave);
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.Location = new System.Drawing.Point(6, 245);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(229, 15);
+            this.label103.TabIndex = 32;
+            this.label103.Text = "Expected % growth in salary per annum :";
+            // 
+            // txtExpectedGrowthSalary
+            // 
+            this.txtExpectedGrowthSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpectedGrowthSalary.Location = new System.Drawing.Point(240, 242);
+            this.txtExpectedGrowthSalary.Name = "txtExpectedGrowthSalary";
+            this.txtExpectedGrowthSalary.Size = new System.Drawing.Size(257, 21);
+            this.txtExpectedGrowthSalary.TabIndex = 31;
+            this.txtExpectedGrowthSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label104.Location = new System.Drawing.Point(6, 218);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(181, 15);
+            this.label104.TabIndex = 30;
+            this.label104.Text = "Next Increment (Month && Year) :";
+            // 
+            // txtNextIncrementMonthYear
+            // 
+            this.txtNextIncrementMonthYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNextIncrementMonthYear.Location = new System.Drawing.Point(240, 215);
+            this.txtNextIncrementMonthYear.Name = "txtNextIncrementMonthYear";
+            this.txtNextIncrementMonthYear.Size = new System.Drawing.Size(257, 21);
+            this.txtNextIncrementMonthYear.TabIndex = 29;
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label105.Location = new System.Drawing.Point(6, 193);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(116, 16);
+            this.label105.TabIndex = 28;
+            this.label105.Text = "Net take home :";
+            // 
+            // txtNetTakeHome
+            // 
+            this.txtNetTakeHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtNetTakeHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNetTakeHome.Location = new System.Drawing.Point(240, 188);
+            this.txtNetTakeHome.Name = "txtNetTakeHome";
+            this.txtNetTakeHome.Size = new System.Drawing.Size(257, 22);
+            this.txtNetTakeHome.TabIndex = 27;
+            this.txtNetTakeHome.Text = "0.00";
+            this.txtNetTakeHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNetTakeHome.Leave += new System.EventHandler(this.txtNetTakeHome_Leave);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.Location = new System.Drawing.Point(6, 164);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(106, 15);
+            this.label98.TabIndex = 26;
+            this.label98.Text = "Other deductions :";
+            // 
+            // txtOtherDeduction
+            // 
+            this.txtOtherDeduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOtherDeduction.Location = new System.Drawing.Point(240, 161);
+            this.txtOtherDeduction.Name = "txtOtherDeduction";
+            this.txtOtherDeduction.Size = new System.Drawing.Size(257, 21);
+            this.txtOtherDeduction.TabIndex = 25;
+            this.txtOtherDeduction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOtherDeduction.Leave += new System.EventHandler(this.txtOtherDeduction_Leave);
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Location = new System.Drawing.Point(6, 137);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(101, 15);
+            this.label99.TabIndex = 24;
+            this.label99.Text = "Superannuation :";
+            // 
+            // txtSuperanuation
+            // 
+            this.txtSuperanuation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuperanuation.Location = new System.Drawing.Point(240, 134);
+            this.txtSuperanuation.Name = "txtSuperanuation";
+            this.txtSuperanuation.Size = new System.Drawing.Size(257, 21);
+            this.txtSuperanuation.TabIndex = 23;
+            this.txtSuperanuation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSuperanuation.Leave += new System.EventHandler(this.txtSuperanuation_Leave);
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label96.Location = new System.Drawing.Point(6, 110);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(150, 15);
+            this.label96.TabIndex = 22;
+            this.label96.Text = "Employer PF contribution :";
+            // 
+            // txtEmployerPFContribution
+            // 
+            this.txtEmployerPFContribution.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployerPFContribution.Location = new System.Drawing.Point(240, 107);
+            this.txtEmployerPFContribution.Name = "txtEmployerPFContribution";
+            this.txtEmployerPFContribution.Size = new System.Drawing.Size(257, 21);
+            this.txtEmployerPFContribution.TabIndex = 21;
+            this.txtEmployerPFContribution.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtEmployerPFContribution.Leave += new System.EventHandler(this.txtEmployerPFContribution_Leave);
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label97.Location = new System.Drawing.Point(6, 83);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(126, 15);
+            this.label97.TabIndex = 20;
+            this.label97.Text = "Your  PF contribution :";
+            // 
+            // txtEmployeePFContribution
+            // 
+            this.txtEmployeePFContribution.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployeePFContribution.Location = new System.Drawing.Point(240, 80);
+            this.txtEmployeePFContribution.Name = "txtEmployeePFContribution";
+            this.txtEmployeePFContribution.Size = new System.Drawing.Size(257, 21);
+            this.txtEmployeePFContribution.TabIndex = 19;
+            this.txtEmployeePFContribution.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtEmployeePFContribution.Leave += new System.EventHandler(this.txtEmployeePFContribution_Leave);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label95.Location = new System.Drawing.Point(6, 56);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(98, 15);
+            this.label95.TabIndex = 18;
+            this.label95.Text = "Reimbusement :";
+            // 
+            // txtReimbusement
+            // 
+            this.txtReimbusement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReimbusement.Location = new System.Drawing.Point(240, 53);
+            this.txtReimbusement.Name = "txtReimbusement";
+            this.txtReimbusement.Size = new System.Drawing.Size(257, 21);
+            this.txtReimbusement.TabIndex = 17;
+            this.txtReimbusement.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtReimbusement.Leave += new System.EventHandler(this.txtReimbusement_Leave);
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(6, 29);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(36, 15);
+            this.label94.TabIndex = 16;
+            this.label94.Text = "CTC :";
+            // 
+            // txtCTC
+            // 
+            this.txtCTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCTC.Location = new System.Drawing.Point(240, 26);
+            this.txtCTC.Name = "txtCTC";
+            this.txtCTC.Size = new System.Drawing.Size(257, 21);
+            this.txtCTC.TabIndex = 15;
+            this.txtCTC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCTC.Leave += new System.EventHandler(this.txtCTC_Leave);
+            // 
+            // btnSalaryDetails
+            // 
+            this.btnSalaryDetails.Location = new System.Drawing.Point(154, 51);
+            this.btnSalaryDetails.Name = "btnSalaryDetails";
+            this.btnSalaryDetails.Size = new System.Drawing.Size(257, 23);
+            this.btnSalaryDetails.TabIndex = 4;
+            this.btnSalaryDetails.Text = "Salary Details";
+            this.btnSalaryDetails.UseVisualStyleBackColor = true;
+            this.btnSalaryDetails.Click += new System.EventHandler(this.btnSalaryDetails_Click);
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label93.Location = new System.Drawing.Point(25, 221);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(60, 15);
+            this.label93.TabIndex = 14;
+            this.label93.Text = "End Year:";
+            // 
+            // txtIncomeEndYear
+            // 
+            this.txtIncomeEndYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIncomeEndYear.Location = new System.Drawing.Point(154, 220);
+            this.txtIncomeEndYear.Name = "txtIncomeEndYear";
+            this.txtIncomeEndYear.Size = new System.Drawing.Size(257, 21);
+            this.txtIncomeEndYear.TabIndex = 13;
+            this.txtIncomeEndYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label92.Location = new System.Drawing.Point(25, 197);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(63, 15);
+            this.label92.TabIndex = 12;
+            this.label92.Text = "Start Year:";
+            // 
+            // txtIncomeStartYear
+            // 
+            this.txtIncomeStartYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIncomeStartYear.Location = new System.Drawing.Point(154, 194);
+            this.txtIncomeStartYear.Name = "txtIncomeStartYear";
+            this.txtIncomeStartYear.Size = new System.Drawing.Size(257, 21);
+            this.txtIncomeStartYear.TabIndex = 11;
+            this.txtIncomeStartYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label91
+            // 
+            this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.Location = new System.Drawing.Point(25, 163);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(105, 32);
+            this.label91.TabIndex = 10;
+            this.label91.Text = "Expected Growth % (Per Year)";
+            // 
+            // txtincomeGrowthPercentage
+            // 
+            this.txtincomeGrowthPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtincomeGrowthPercentage.Location = new System.Drawing.Point(154, 168);
+            this.txtincomeGrowthPercentage.Name = "txtincomeGrowthPercentage";
+            this.txtincomeGrowthPercentage.Size = new System.Drawing.Size(257, 21);
+            this.txtincomeGrowthPercentage.TabIndex = 9;
+            this.txtincomeGrowthPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label90.Location = new System.Drawing.Point(25, 145);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(126, 15);
+            this.label90.TabIndex = 8;
+            this.label90.Text = "Income Annually (Rs.)";
+            // 
+            // txtAnnualIncome
+            // 
+            this.txtAnnualIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtAnnualIncome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtAnnualIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnnualIncome.Location = new System.Drawing.Point(154, 142);
+            this.txtAnnualIncome.Name = "txtAnnualIncome";
+            this.txtAnnualIncome.Size = new System.Drawing.Size(257, 21);
+            this.txtAnnualIncome.TabIndex = 7;
+            this.txtAnnualIncome.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Location = new System.Drawing.Point(25, 135);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(0, 15);
+            this.label89.TabIndex = 6;
+            // 
+            // grpIncomeFrom
+            // 
+            this.grpIncomeFrom.Controls.Add(this.lblIncomeFromName);
+            this.grpIncomeFrom.Controls.Add(this.rdoSpouse);
+            this.grpIncomeFrom.Controls.Add(this.rdoClient);
+            this.grpIncomeFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpIncomeFrom.Location = new System.Drawing.Point(154, 74);
+            this.grpIncomeFrom.Name = "grpIncomeFrom";
+            this.grpIncomeFrom.Size = new System.Drawing.Size(257, 62);
+            this.grpIncomeFrom.TabIndex = 5;
+            this.grpIncomeFrom.TabStop = false;
+            // 
+            // lblIncomeFromName
+            // 
+            this.lblIncomeFromName.AutoSize = true;
+            this.lblIncomeFromName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncomeFromName.Location = new System.Drawing.Point(11, 40);
+            this.lblIncomeFromName.Name = "lblIncomeFromName";
+            this.lblIncomeFromName.Size = new System.Drawing.Size(0, 15);
+            this.lblIncomeFromName.TabIndex = 5;
+            // 
+            // rdoSpouse
+            // 
+            this.rdoSpouse.AutoSize = true;
+            this.rdoSpouse.Location = new System.Drawing.Point(114, 15);
+            this.rdoSpouse.Name = "rdoSpouse";
+            this.rdoSpouse.Size = new System.Drawing.Size(67, 19);
+            this.rdoSpouse.TabIndex = 1;
+            this.rdoSpouse.Text = "Spouse";
+            this.rdoSpouse.UseVisualStyleBackColor = true;
+            this.rdoSpouse.CheckedChanged += new System.EventHandler(this.rdoSpouse_CheckedChanged);
+            // 
+            // rdoClient
+            // 
+            this.rdoClient.AutoSize = true;
+            this.rdoClient.Checked = true;
+            this.rdoClient.Location = new System.Drawing.Point(8, 15);
+            this.rdoClient.Name = "rdoClient";
+            this.rdoClient.Size = new System.Drawing.Size(56, 19);
+            this.rdoClient.TabIndex = 0;
+            this.rdoClient.TabStop = true;
+            this.rdoClient.Text = "Client";
+            this.rdoClient.UseVisualStyleBackColor = true;
+            this.rdoClient.CheckedChanged += new System.EventHandler(this.rdoClient_CheckedChanged);
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.Location = new System.Drawing.Point(25, 104);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(67, 15);
+            this.label87.TabIndex = 4;
+            this.label87.Text = "Income By:";
+            // 
+            // cmbIncomeSource
+            // 
+            this.cmbIncomeSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIncomeSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbIncomeSource.FormattingEnabled = true;
+            this.cmbIncomeSource.Items.AddRange(new object[] {
+            "Salary",
+            "Business",
+            "Rent Received",
+            "Interest Received",
+            "Others"});
+            this.cmbIncomeSource.Location = new System.Drawing.Point(154, 22);
+            this.cmbIncomeSource.Name = "cmbIncomeSource";
+            this.cmbIncomeSource.Size = new System.Drawing.Size(257, 23);
+            this.cmbIncomeSource.TabIndex = 3;
+            this.cmbIncomeSource.SelectedIndexChanged += new System.EventHandler(this.cmbIncomeSource_SelectedIndexChanged);
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label79.Location = new System.Drawing.Point(25, 26);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(108, 15);
+            this.label79.TabIndex = 2;
+            this.label79.Text = "Source Of Income:";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.button4);
+            this.groupBox6.Controls.Add(this.button5);
+            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Location = new System.Drawing.Point(837, 165);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(111, 38);
+            this.groupBox6.TabIndex = 11;
+            this.groupBox6.TabStop = false;
             // 
             // button4
             // 
@@ -2205,221 +3423,53 @@
             this.button6.TabIndex = 3;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // grpNonFinancialAsset
+            // dtGridIncome
             // 
-            this.grpNonFinancialAsset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtGridIncome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpNonFinancialAsset.Controls.Add(this.txtOtherShare);
-            this.grpNonFinancialAsset.Controls.Add(this.label68);
-            this.grpNonFinancialAsset.Controls.Add(this.cmbOtherHolder);
-            this.grpNonFinancialAsset.Controls.Add(this.cmbMappingGoal);
-            this.grpNonFinancialAsset.Controls.Add(this.txtSecondaryHolderShare);
-            this.grpNonFinancialAsset.Controls.Add(this.label74);
-            this.grpNonFinancialAsset.Controls.Add(this.cmbSecondaryHolder);
-            this.grpNonFinancialAsset.Controls.Add(this.txtPrimaryHolderShare);
-            this.grpNonFinancialAsset.Controls.Add(this.txtAssetCurrentCost);
-            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialCanel);
-            this.grpNonFinancialAsset.Controls.Add(this.btnNonFinancialSave);
-            this.grpNonFinancialAsset.Controls.Add(this.txtNonFinancialDesc);
-            this.grpNonFinancialAsset.Controls.Add(this.label67);
-            this.grpNonFinancialAsset.Controls.Add(this.label69);
-            this.grpNonFinancialAsset.Controls.Add(this.label70);
-            this.grpNonFinancialAsset.Controls.Add(this.cmbPrimaryHolder);
-            this.grpNonFinancialAsset.Controls.Add(this.label71);
-            this.grpNonFinancialAsset.Controls.Add(this.txtAssetName);
-            this.grpNonFinancialAsset.Controls.Add(this.label72);
-            this.grpNonFinancialAsset.Enabled = false;
-            this.grpNonFinancialAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpNonFinancialAsset.Location = new System.Drawing.Point(10, 310);
-            this.grpNonFinancialAsset.Name = "grpNonFinancialAsset";
-            this.grpNonFinancialAsset.Size = new System.Drawing.Size(938, 255);
-            this.grpNonFinancialAsset.TabIndex = 3;
-            this.grpNonFinancialAsset.TabStop = false;
-            this.grpNonFinancialAsset.Text = "Non-Financial Assets Detail";
+            this.dtGridIncome.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridIncome.Location = new System.Drawing.Point(10, 38);
+            this.dtGridIncome.Name = "dtGridIncome";
+            this.dtGridIncome.ReadOnly = true;
+            this.dtGridIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridIncome.Size = new System.Drawing.Size(938, 121);
+            this.dtGridIncome.TabIndex = 9;
             // 
-            // cmbMappingGoal
+            // label78
             // 
-            this.cmbMappingGoal.FormattingEnabled = true;
-            this.cmbMappingGoal.Location = new System.Drawing.Point(189, 188);
-            this.cmbMappingGoal.Name = "cmbMappingGoal";
-            this.cmbMappingGoal.Size = new System.Drawing.Size(294, 23);
-            this.cmbMappingGoal.Sorted = true;
-            this.cmbMappingGoal.TabIndex = 9;
-            // 
-            // txtSecondaryHolderShare
-            // 
-            this.txtSecondaryHolderShare.Location = new System.Drawing.Point(399, 130);
-            this.txtSecondaryHolderShare.Name = "txtSecondaryHolderShare";
-            this.txtSecondaryHolderShare.Size = new System.Drawing.Size(84, 21);
-            this.txtSecondaryHolderShare.TabIndex = 6;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(15, 134);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(167, 15);
-            this.label74.TabIndex = 14;
-            this.label74.Text = "Secondry Holder && Share (%)";
-            // 
-            // cmbSecondaryHolder
-            // 
-            this.cmbSecondaryHolder.FormattingEnabled = true;
-            this.cmbSecondaryHolder.Location = new System.Drawing.Point(189, 130);
-            this.cmbSecondaryHolder.Name = "cmbSecondaryHolder";
-            this.cmbSecondaryHolder.Size = new System.Drawing.Size(204, 23);
-            this.cmbSecondaryHolder.TabIndex = 5;
-            // 
-            // txtPrimaryHolderShare
-            // 
-            this.txtPrimaryHolderShare.Location = new System.Drawing.Point(399, 101);
-            this.txtPrimaryHolderShare.Name = "txtPrimaryHolderShare";
-            this.txtPrimaryHolderShare.Size = new System.Drawing.Size(84, 21);
-            this.txtPrimaryHolderShare.TabIndex = 4;
-            // 
-            // txtAssetCurrentCost
-            // 
-            this.txtAssetCurrentCost.Location = new System.Drawing.Point(189, 74);
-            this.txtAssetCurrentCost.Name = "txtAssetCurrentCost";
-            this.txtAssetCurrentCost.Size = new System.Drawing.Size(294, 21);
-            this.txtAssetCurrentCost.TabIndex = 2;
-            // 
-            // btnNonFinancialCanel
-            // 
-            this.btnNonFinancialCanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNonFinancialCanel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNonFinancialCanel.ImageKey = "icons8-cancel-16.png";
-            this.btnNonFinancialCanel.ImageList = this.imageList16x16;
-            this.btnNonFinancialCanel.Location = new System.Drawing.Point(819, 201);
-            this.btnNonFinancialCanel.Name = "btnNonFinancialCanel";
-            this.btnNonFinancialCanel.Size = new System.Drawing.Size(86, 26);
-            this.btnNonFinancialCanel.TabIndex = 12;
-            this.btnNonFinancialCanel.Text = "Cancel";
-            this.btnNonFinancialCanel.UseVisualStyleBackColor = true;
-            // 
-            // btnNonFinancialSave
-            // 
-            this.btnNonFinancialSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNonFinancialSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNonFinancialSave.ImageKey = "icons8-save-close-16.png";
-            this.btnNonFinancialSave.ImageList = this.imageList16x16;
-            this.btnNonFinancialSave.Location = new System.Drawing.Point(727, 201);
-            this.btnNonFinancialSave.Name = "btnNonFinancialSave";
-            this.btnNonFinancialSave.Size = new System.Drawing.Size(86, 26);
-            this.btnNonFinancialSave.TabIndex = 11;
-            this.btnNonFinancialSave.Text = "Save";
-            this.btnNonFinancialSave.UseVisualStyleBackColor = true;
-            // 
-            // txtNonFinancialDesc
-            // 
-            this.txtNonFinancialDesc.Location = new System.Drawing.Point(539, 72);
-            this.txtNonFinancialDesc.Multiline = true;
-            this.txtNonFinancialDesc.Name = "txtNonFinancialDesc";
-            this.txtNonFinancialDesc.Size = new System.Drawing.Size(366, 123);
-            this.txtNonFinancialDesc.TabIndex = 10;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(536, 48);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(48, 15);
-            this.label67.TabIndex = 10;
-            this.label67.Text = "Details:";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(15, 191);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(112, 15);
-            this.label69.TabIndex = 6;
-            this.label69.Text = "Mapping With Goal";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(15, 105);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(158, 15);
-            this.label70.TabIndex = 4;
-            this.label70.Text = "Primary Holder && Share (%)";
-            // 
-            // cmbPrimaryHolder
-            // 
-            this.cmbPrimaryHolder.FormattingEnabled = true;
-            this.cmbPrimaryHolder.Location = new System.Drawing.Point(189, 101);
-            this.cmbPrimaryHolder.Name = "cmbPrimaryHolder";
-            this.cmbPrimaryHolder.Size = new System.Drawing.Size(204, 23);
-            this.cmbPrimaryHolder.TabIndex = 3;
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(15, 74);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(135, 15);
-            this.label71.TabIndex = 2;
-            this.label71.Text = "Estimated Current Cost:";
-            // 
-            // txtAssetName
-            // 
-            this.txtAssetName.Location = new System.Drawing.Point(189, 47);
-            this.txtAssetName.Name = "txtAssetName";
-            this.txtAssetName.Size = new System.Drawing.Size(294, 21);
-            this.txtAssetName.TabIndex = 1;
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(15, 47);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(89, 15);
-            this.label72.TabIndex = 0;
-            this.label72.Text = "Name of Asset:";
-            // 
-            // dtGridNonFinancialAssets
-            // 
-            this.dtGridNonFinancialAssets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGridNonFinancialAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridNonFinancialAssets.Location = new System.Drawing.Point(10, 54);
-            this.dtGridNonFinancialAssets.Name = "dtGridNonFinancialAssets";
-            this.dtGridNonFinancialAssets.ReadOnly = true;
-            this.dtGridNonFinancialAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridNonFinancialAssets.Size = new System.Drawing.Size(938, 208);
-            this.dtGridNonFinancialAssets.TabIndex = 1;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label73.Location = new System.Drawing.Point(7, 16);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(682, 18);
-            this.label73.TabIndex = 8;
-            this.label73.Text = "Includes: Primary home, Vacation home, Rental Property, Land, Jewellery, car, art" +
-    ", others";
-            // 
-            // Income
-            // 
-            this.Income.ImageKey = "icons8-sales-performance-30.png";
-            this.Income.Location = new System.Drawing.Point(4, 37);
-            this.Income.Name = "Income";
-            this.Income.Size = new System.Drawing.Size(958, 585);
-            this.Income.TabIndex = 5;
-            this.Income.Text = "Income";
-            this.Income.UseVisualStyleBackColor = true;
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label78.Location = new System.Drawing.Point(7, 9);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(896, 16);
+            this.label78.TabIndex = 10;
+            this.label78.Text = "includes: Professional Income, Salary Income, Rental income, Business income, inc" +
+    "ome from investments and other income if any";
             // 
             // Expenses
             // 
+            this.Expenses.Controls.Add(this.grpExpenseDetails);
+            this.Expenses.Controls.Add(this.groupBox7);
+            this.Expenses.Controls.Add(this.dataGridView1);
+            this.Expenses.Controls.Add(this.label88);
             this.Expenses.Location = new System.Drawing.Point(4, 37);
             this.Expenses.Name = "Expenses";
             this.Expenses.Size = new System.Drawing.Size(958, 585);
             this.Expenses.TabIndex = 6;
             this.Expenses.Text = "Expenses";
             this.Expenses.UseVisualStyleBackColor = true;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label88.Location = new System.Drawing.Point(16, 12);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(133, 16);
+            this.label88.TabIndex = 11;
+            this.label88.Text = "Monthly Expenses";
             // 
             // Goal
             // 
@@ -2717,6 +3767,7 @@
             this.imageList30x30.Images.SetKeyName(3, "icons8-workflow-30.png");
             this.imageList30x30.Images.SetKeyName(4, "icons8-new-company-30.png");
             this.imageList30x30.Images.SetKeyName(5, "icons8-sales-performance-60.png");
+            this.imageList30x30.Images.SetKeyName(6, "icons8-magazine-30.png");
             // 
             // textBox11
             // 
@@ -2726,29 +3777,206 @@
             this.textBox11.Size = new System.Drawing.Size(242, 21);
             this.textBox11.TabIndex = 23;
             // 
-            // txtOtherShare
+            // dataGridView1
             // 
-            this.txtOtherShare.Location = new System.Drawing.Point(399, 161);
-            this.txtOtherShare.Name = "txtOtherShare";
-            this.txtOtherShare.Size = new System.Drawing.Size(84, 21);
-            this.txtOtherShare.TabIndex = 8;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(938, 287);
+            this.dataGridView1.TabIndex = 12;
             // 
-            // label68
+            // groupBox7
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(15, 163);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(146, 15);
-            this.label68.TabIndex = 17;
-            this.label68.Text = "Other Holder && Share (%)";
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.button7);
+            this.groupBox7.Controls.Add(this.button12);
+            this.groupBox7.Controls.Add(this.button13);
+            this.groupBox7.Location = new System.Drawing.Point(839, 324);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(111, 38);
+            this.groupBox7.TabIndex = 13;
+            this.groupBox7.TabStop = false;
             // 
-            // cmbOtherHolder
+            // button7
             // 
-            this.cmbOtherHolder.FormattingEnabled = true;
-            this.cmbOtherHolder.Location = new System.Drawing.Point(189, 159);
-            this.cmbOtherHolder.Name = "cmbOtherHolder";
-            this.cmbOtherHolder.Size = new System.Drawing.Size(204, 23);
-            this.cmbOtherHolder.TabIndex = 7;
+            this.button7.ImageIndex = 1;
+            this.button7.ImageList = this.imgCollection;
+            this.button7.Location = new System.Drawing.Point(76, 10);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(29, 24);
+            this.button7.TabIndex = 4;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.ImageIndex = 3;
+            this.button12.ImageList = this.imgCollection;
+            this.button12.Location = new System.Drawing.Point(6, 10);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(29, 24);
+            this.button12.TabIndex = 2;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.ImageIndex = 4;
+            this.button13.ImageList = this.imgCollection;
+            this.button13.Location = new System.Drawing.Point(41, 10);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(29, 24);
+            this.button13.TabIndex = 3;
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // grpExpenseDetails
+            // 
+            this.grpExpenseDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpExpenseDetails.Controls.Add(this.textBox9);
+            this.grpExpenseDetails.Controls.Add(this.comboBox2);
+            this.grpExpenseDetails.Controls.Add(this.textBox8);
+            this.grpExpenseDetails.Controls.Add(this.comboBox1);
+            this.grpExpenseDetails.Controls.Add(this.label109);
+            this.grpExpenseDetails.Controls.Add(this.button14);
+            this.grpExpenseDetails.Controls.Add(this.button15);
+            this.grpExpenseDetails.Controls.Add(this.textBox15);
+            this.grpExpenseDetails.Controls.Add(this.label110);
+            this.grpExpenseDetails.Controls.Add(this.label112);
+            this.grpExpenseDetails.Controls.Add(this.label113);
+            this.grpExpenseDetails.Controls.Add(this.label114);
+            this.grpExpenseDetails.Enabled = false;
+            this.grpExpenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpExpenseDetails.Location = new System.Drawing.Point(12, 368);
+            this.grpExpenseDetails.Name = "grpExpenseDetails";
+            this.grpExpenseDetails.Size = new System.Drawing.Size(938, 211);
+            this.grpExpenseDetails.TabIndex = 14;
+            this.grpExpenseDetails.TabStop = false;
+            this.grpExpenseDetails.Text = "Expenses Details";
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(21, 132);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(105, 15);
+            this.label109.TabIndex = 14;
+            this.label109.Text = "Expense Amt (Rs)";
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button14.ImageKey = "icons8-cancel-16.png";
+            this.button14.ImageList = this.imageList16x16;
+            this.button14.Location = new System.Drawing.Point(727, 156);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(86, 26);
+            this.button14.TabIndex = 14;
+            this.button14.Text = "Cancel";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button15.ImageKey = "icons8-save-close-16.png";
+            this.button15.ImageList = this.imageList16x16;
+            this.button15.Location = new System.Drawing.Point(635, 156);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(86, 26);
+            this.button15.TabIndex = 13;
+            this.button15.Text = "Save";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox15.Location = new System.Drawing.Point(447, 63);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(366, 87);
+            this.textBox15.TabIndex = 12;
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(444, 39);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(48, 15);
+            this.label110.TabIndex = 10;
+            this.label110.Text = "Details:";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(21, 103);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(90, 15);
+            this.label112.TabIndex = 4;
+            this.label112.Text = "Expense Type :";
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(21, 72);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(74, 15);
+            this.label113.TabIndex = 2;
+            this.label113.Text = "Item Name :";
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(21, 45);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(133, 15);
+            this.label114.TabIndex = 0;
+            this.label114.Text = "Expense Item Category";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Housing",
+            "Utilities",
+            "Food,Clothing,Transport",
+            "Education",
+            "Other Expenses"});
+            this.comboBox1.Location = new System.Drawing.Point(170, 42);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(254, 23);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(170, 72);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(254, 21);
+            this.textBox8.TabIndex = 16;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Monthly",
+            "Yearly"});
+            this.comboBox2.Location = new System.Drawing.Point(170, 99);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(254, 23);
+            this.comboBox2.TabIndex = 17;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(170, 129);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(254, 21);
+            this.textBox9.TabIndex = 18;
             // 
             // ClientInfo
             // 
@@ -2794,12 +4022,30 @@
             this.grpFamilyDependent.ResumeLayout(false);
             this.grpFamilyDependent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridFamilyMember)).EndInit();
+            this.Loan.ResumeLayout(false);
+            this.Loan.PerformLayout();
+            this.grpLoanDetails.ResumeLayout(false);
+            this.grpLoanDetails.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridLoan)).EndInit();
             this.NonFinancialAssets.ResumeLayout(false);
             this.NonFinancialAssets.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.grpNonFinancialAsset.ResumeLayout(false);
             this.grpNonFinancialAsset.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridNonFinancialAssets)).EndInit();
+            this.Income.ResumeLayout(false);
+            this.Income.PerformLayout();
+            this.grpIncome.ResumeLayout(false);
+            this.grpIncome.PerformLayout();
+            this.grpSalaryDetails.ResumeLayout(false);
+            this.grpSalaryDetails.PerformLayout();
+            this.grpIncomeFrom.ResumeLayout(false);
+            this.grpIncomeFrom.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridIncome)).EndInit();
+            this.Expenses.ResumeLayout(false);
+            this.Expenses.PerformLayout();
             this.Goal.ResumeLayout(false);
             this.Goal.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -2807,6 +4053,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.grpExpenseDetails.ResumeLayout(false);
+            this.grpExpenseDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3001,9 +4251,9 @@
         private System.Windows.Forms.TabPage Income;
         private System.Windows.Forms.TabPage Expenses;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnDeleteNFA;
+        private System.Windows.Forms.Button btnAddNFA;
+        private System.Windows.Forms.Button btnEditNFA;
         private System.Windows.Forms.GroupBox grpNonFinancialAsset;
         private System.Windows.Forms.TextBox txtSecondaryHolderShare;
         private System.Windows.Forms.Label label74;
@@ -3026,5 +4276,103 @@
         private System.Windows.Forms.TextBox txtOtherShare;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.ComboBox cmbOtherHolder;
+        private System.Windows.Forms.TextBox txtAssetRealisationYear;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.TextBox txtGoalMappingShare;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.TabPage Loan;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnDeleteLoan;
+        private System.Windows.Forms.Button btnAddLoan;
+        private System.Windows.Forms.Button btnUpdateLoan;
+        private System.Windows.Forms.DataGridView dtGridLoan;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.GroupBox grpLoanDetails;
+        private System.Windows.Forms.TextBox txtLoanTermLeft_Months;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.TextBox txtLoanInterestRate;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.TextBox txtEmis;
+        private System.Windows.Forms.TextBox txtOutStadningLoan;
+        private System.Windows.Forms.Button btnCancelLoan;
+        private System.Windows.Forms.Button btnSaveLoan;
+        private System.Windows.Forms.TextBox txtLoanDescription;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.TextBox txtTypeOfLoan;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox txtNoOfEmiPayableForCY;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridView dtGridIncome;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.GroupBox grpIncome;
+        private System.Windows.Forms.TextBox txtAnnualIncome;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.GroupBox grpIncomeFrom;
+        private System.Windows.Forms.Label lblIncomeFromName;
+        private System.Windows.Forms.RadioButton rdoSpouse;
+        private System.Windows.Forms.RadioButton rdoClient;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.ComboBox cmbIncomeSource;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.TextBox txtincomeGrowthPercentage;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.TextBox txtIncomeEndYear;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox txtIncomeStartYear;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.TextBox txtIncomeDescription;
+        private System.Windows.Forms.GroupBox grpSalaryDetails;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TextBox txtBonusMonthYear;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.TextBox txtAnnualBonusAmt;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.TextBox txtExpectedGrowthSalary;
+        private System.Windows.Forms.Label label104;
+        private System.Windows.Forms.TextBox txtNextIncrementMonthYear;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.TextBox txtNetTakeHome;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.TextBox txtOtherDeduction;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.TextBox txtSuperanuation;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.TextBox txtEmployerPFContribution;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.TextBox txtEmployeePFContribution;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.TextBox txtReimbusement;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.TextBox txtCTC;
+        private System.Windows.Forms.Button btnSalaryDetails;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox grpExpenseDetails;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.Label label114;
     }
 }
