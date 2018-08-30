@@ -244,8 +244,8 @@
             this.label73 = new System.Windows.Forms.Label();
             this.Income = new System.Windows.Forms.TabPage();
             this.grpIncome = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnIncomeCancel = new System.Windows.Forms.Button();
+            this.btnSaveIncome = new System.Windows.Forms.Button();
             this.label100 = new System.Windows.Forms.Label();
             this.txtIncomeDescription = new System.Windows.Forms.TextBox();
             this.grpSalaryDetails = new System.Windows.Forms.GroupBox();
@@ -283,18 +283,36 @@
             this.label89 = new System.Windows.Forms.Label();
             this.grpIncomeFrom = new System.Windows.Forms.GroupBox();
             this.lblIncomeFromName = new System.Windows.Forms.Label();
-            this.rdoSpouse = new System.Windows.Forms.RadioButton();
-            this.rdoClient = new System.Windows.Forms.RadioButton();
+            this.rdoSpouseIncome = new System.Windows.Forms.RadioButton();
+            this.rdoClientIncome = new System.Windows.Forms.RadioButton();
             this.label87 = new System.Windows.Forms.Label();
             this.cmbIncomeSource = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnDeleteIncome = new System.Windows.Forms.Button();
+            this.btnAddIncome = new System.Windows.Forms.Button();
+            this.btnEditIncome = new System.Windows.Forms.Button();
             this.dtGridIncome = new System.Windows.Forms.DataGridView();
             this.label78 = new System.Windows.Forms.Label();
             this.Expenses = new System.Windows.Forms.TabPage();
+            this.grpExpenseDetails = new System.Windows.Forms.GroupBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label113 = new System.Windows.Forms.Label();
+            this.label114 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label88 = new System.Windows.Forms.Label();
             this.Goal = new System.Windows.Forms.TabPage();
             this.label65 = new System.Windows.Forms.Label();
@@ -324,24 +342,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.imageList30x30 = new System.Windows.Forms.ImageList(this.components);
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.grpExpenseDetails = new System.Windows.Forms.GroupBox();
-            this.label109 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label110 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label114 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabPlannerDetails.SuspendLayout();
             this.Assumption.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -380,14 +380,14 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridIncome)).BeginInit();
             this.Expenses.SuspendLayout();
+            this.grpExpenseDetails.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Goal.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.grpExpenseDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPlannerDetails
@@ -2249,6 +2249,7 @@
             this.dtGridFamilyMember.Size = new System.Drawing.Size(938, 208);
             this.dtGridFamilyMember.TabIndex = 2;
             this.dtGridFamilyMember.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtGridFamilyMember_CellFormatting);
+            this.dtGridFamilyMember.SelectionChanged += new System.EventHandler(this.dtGridFamilyMember_SelectionChanged);
             // 
             // label51
             // 
@@ -2883,8 +2884,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpIncome.BackColor = System.Drawing.Color.Transparent;
-            this.grpIncome.Controls.Add(this.button8);
-            this.grpIncome.Controls.Add(this.button9);
+            this.grpIncome.Controls.Add(this.btnIncomeCancel);
+            this.grpIncome.Controls.Add(this.btnSaveIncome);
             this.grpIncome.Controls.Add(this.label100);
             this.grpIncome.Controls.Add(this.txtIncomeDescription);
             this.grpIncome.Controls.Add(this.grpSalaryDetails);
@@ -2902,6 +2903,7 @@
             this.grpIncome.Controls.Add(this.label87);
             this.grpIncome.Controls.Add(this.cmbIncomeSource);
             this.grpIncome.Controls.Add(this.label79);
+            this.grpIncome.Enabled = false;
             this.grpIncome.Location = new System.Drawing.Point(10, 209);
             this.grpIncome.Name = "grpIncome";
             this.grpIncome.Size = new System.Drawing.Size(938, 370);
@@ -2909,29 +2911,31 @@
             this.grpIncome.TabStop = false;
             this.grpIncome.Text = "Income Detail";
             // 
-            // button8
+            // btnIncomeCancel
             // 
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.ImageKey = "icons8-cancel-16.png";
-            this.button8.ImageList = this.imageList16x16;
-            this.button8.Location = new System.Drawing.Point(325, 307);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(86, 26);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "Cancel";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnIncomeCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIncomeCancel.ImageKey = "icons8-cancel-16.png";
+            this.btnIncomeCancel.ImageList = this.imageList16x16;
+            this.btnIncomeCancel.Location = new System.Drawing.Point(325, 307);
+            this.btnIncomeCancel.Name = "btnIncomeCancel";
+            this.btnIncomeCancel.Size = new System.Drawing.Size(86, 26);
+            this.btnIncomeCancel.TabIndex = 19;
+            this.btnIncomeCancel.Text = "Cancel";
+            this.btnIncomeCancel.UseVisualStyleBackColor = true;
+            this.btnIncomeCancel.Click += new System.EventHandler(this.btnIncomeCancel_Click);
             // 
-            // button9
+            // btnSaveIncome
             // 
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.ImageKey = "icons8-save-close-16.png";
-            this.button9.ImageList = this.imageList16x16;
-            this.button9.Location = new System.Drawing.Point(233, 307);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(86, 26);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "Save";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnSaveIncome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveIncome.ImageKey = "icons8-save-close-16.png";
+            this.btnSaveIncome.ImageList = this.imageList16x16;
+            this.btnSaveIncome.Location = new System.Drawing.Point(233, 307);
+            this.btnSaveIncome.Name = "btnSaveIncome";
+            this.btnSaveIncome.Size = new System.Drawing.Size(86, 26);
+            this.btnSaveIncome.TabIndex = 18;
+            this.btnSaveIncome.Text = "Save";
+            this.btnSaveIncome.UseVisualStyleBackColor = true;
+            this.btnSaveIncome.Click += new System.EventHandler(this.btnSaveIncome_Click);
             // 
             // label100
             // 
@@ -3302,8 +3306,8 @@
             // grpIncomeFrom
             // 
             this.grpIncomeFrom.Controls.Add(this.lblIncomeFromName);
-            this.grpIncomeFrom.Controls.Add(this.rdoSpouse);
-            this.grpIncomeFrom.Controls.Add(this.rdoClient);
+            this.grpIncomeFrom.Controls.Add(this.rdoSpouseIncome);
+            this.grpIncomeFrom.Controls.Add(this.rdoClientIncome);
             this.grpIncomeFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpIncomeFrom.Location = new System.Drawing.Point(154, 74);
             this.grpIncomeFrom.Name = "grpIncomeFrom";
@@ -3320,29 +3324,29 @@
             this.lblIncomeFromName.Size = new System.Drawing.Size(0, 15);
             this.lblIncomeFromName.TabIndex = 5;
             // 
-            // rdoSpouse
+            // rdoSpouseIncome
             // 
-            this.rdoSpouse.AutoSize = true;
-            this.rdoSpouse.Location = new System.Drawing.Point(114, 15);
-            this.rdoSpouse.Name = "rdoSpouse";
-            this.rdoSpouse.Size = new System.Drawing.Size(67, 19);
-            this.rdoSpouse.TabIndex = 1;
-            this.rdoSpouse.Text = "Spouse";
-            this.rdoSpouse.UseVisualStyleBackColor = true;
-            this.rdoSpouse.CheckedChanged += new System.EventHandler(this.rdoSpouse_CheckedChanged);
+            this.rdoSpouseIncome.AutoSize = true;
+            this.rdoSpouseIncome.Location = new System.Drawing.Point(114, 15);
+            this.rdoSpouseIncome.Name = "rdoSpouseIncome";
+            this.rdoSpouseIncome.Size = new System.Drawing.Size(67, 19);
+            this.rdoSpouseIncome.TabIndex = 1;
+            this.rdoSpouseIncome.Text = "Spouse";
+            this.rdoSpouseIncome.UseVisualStyleBackColor = true;
+            this.rdoSpouseIncome.CheckedChanged += new System.EventHandler(this.rdoSpouse_CheckedChanged);
             // 
-            // rdoClient
+            // rdoClientIncome
             // 
-            this.rdoClient.AutoSize = true;
-            this.rdoClient.Checked = true;
-            this.rdoClient.Location = new System.Drawing.Point(8, 15);
-            this.rdoClient.Name = "rdoClient";
-            this.rdoClient.Size = new System.Drawing.Size(56, 19);
-            this.rdoClient.TabIndex = 0;
-            this.rdoClient.TabStop = true;
-            this.rdoClient.Text = "Client";
-            this.rdoClient.UseVisualStyleBackColor = true;
-            this.rdoClient.CheckedChanged += new System.EventHandler(this.rdoClient_CheckedChanged);
+            this.rdoClientIncome.AutoSize = true;
+            this.rdoClientIncome.Checked = true;
+            this.rdoClientIncome.Location = new System.Drawing.Point(8, 15);
+            this.rdoClientIncome.Name = "rdoClientIncome";
+            this.rdoClientIncome.Size = new System.Drawing.Size(56, 19);
+            this.rdoClientIncome.TabIndex = 0;
+            this.rdoClientIncome.TabStop = true;
+            this.rdoClientIncome.Text = "Client";
+            this.rdoClientIncome.UseVisualStyleBackColor = true;
+            this.rdoClientIncome.CheckedChanged += new System.EventHandler(this.rdoClient_CheckedChanged);
             // 
             // label87
             // 
@@ -3384,44 +3388,47 @@
             // groupBox6
             // 
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Controls.Add(this.button5);
-            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Controls.Add(this.btnDeleteIncome);
+            this.groupBox6.Controls.Add(this.btnAddIncome);
+            this.groupBox6.Controls.Add(this.btnEditIncome);
             this.groupBox6.Location = new System.Drawing.Point(837, 165);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(111, 38);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             // 
-            // button4
+            // btnDeleteIncome
             // 
-            this.button4.ImageIndex = 1;
-            this.button4.ImageList = this.imgCollection;
-            this.button4.Location = new System.Drawing.Point(76, 10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(29, 24);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDeleteIncome.ImageIndex = 1;
+            this.btnDeleteIncome.ImageList = this.imgCollection;
+            this.btnDeleteIncome.Location = new System.Drawing.Point(76, 10);
+            this.btnDeleteIncome.Name = "btnDeleteIncome";
+            this.btnDeleteIncome.Size = new System.Drawing.Size(29, 24);
+            this.btnDeleteIncome.TabIndex = 4;
+            this.btnDeleteIncome.UseVisualStyleBackColor = true;
+            this.btnDeleteIncome.Click += new System.EventHandler(this.btnDeleteIncome_Click);
             // 
-            // button5
+            // btnAddIncome
             // 
-            this.button5.ImageIndex = 3;
-            this.button5.ImageList = this.imgCollection;
-            this.button5.Location = new System.Drawing.Point(6, 10);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(29, 24);
-            this.button5.TabIndex = 2;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddIncome.ImageIndex = 3;
+            this.btnAddIncome.ImageList = this.imgCollection;
+            this.btnAddIncome.Location = new System.Drawing.Point(6, 10);
+            this.btnAddIncome.Name = "btnAddIncome";
+            this.btnAddIncome.Size = new System.Drawing.Size(29, 24);
+            this.btnAddIncome.TabIndex = 2;
+            this.btnAddIncome.UseVisualStyleBackColor = true;
+            this.btnAddIncome.Click += new System.EventHandler(this.btnAddIncome_Click);
             // 
-            // button6
+            // btnEditIncome
             // 
-            this.button6.ImageIndex = 4;
-            this.button6.ImageList = this.imgCollection;
-            this.button6.Location = new System.Drawing.Point(41, 10);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(29, 24);
-            this.button6.TabIndex = 3;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnEditIncome.ImageIndex = 4;
+            this.btnEditIncome.ImageList = this.imgCollection;
+            this.btnEditIncome.Location = new System.Drawing.Point(41, 10);
+            this.btnEditIncome.Name = "btnEditIncome";
+            this.btnEditIncome.Size = new System.Drawing.Size(29, 24);
+            this.btnEditIncome.TabIndex = 3;
+            this.btnEditIncome.UseVisualStyleBackColor = true;
+            this.btnEditIncome.Click += new System.EventHandler(this.btnEditIncome_Click);
             // 
             // dtGridIncome
             // 
@@ -3434,6 +3441,8 @@
             this.dtGridIncome.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridIncome.Size = new System.Drawing.Size(938, 121);
             this.dtGridIncome.TabIndex = 9;
+            this.dtGridIncome.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtGridIncome_CellFormatting);
+            this.dtGridIncome.SelectionChanged += new System.EventHandler(this.dtGridIncome_SelectionChanged);
             // 
             // label78
             // 
@@ -3459,6 +3468,207 @@
             this.Expenses.TabIndex = 6;
             this.Expenses.Text = "Expenses";
             this.Expenses.UseVisualStyleBackColor = true;
+            // 
+            // grpExpenseDetails
+            // 
+            this.grpExpenseDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpExpenseDetails.Controls.Add(this.textBox9);
+            this.grpExpenseDetails.Controls.Add(this.comboBox2);
+            this.grpExpenseDetails.Controls.Add(this.textBox8);
+            this.grpExpenseDetails.Controls.Add(this.comboBox1);
+            this.grpExpenseDetails.Controls.Add(this.label109);
+            this.grpExpenseDetails.Controls.Add(this.button14);
+            this.grpExpenseDetails.Controls.Add(this.button15);
+            this.grpExpenseDetails.Controls.Add(this.textBox15);
+            this.grpExpenseDetails.Controls.Add(this.label110);
+            this.grpExpenseDetails.Controls.Add(this.label112);
+            this.grpExpenseDetails.Controls.Add(this.label113);
+            this.grpExpenseDetails.Controls.Add(this.label114);
+            this.grpExpenseDetails.Enabled = false;
+            this.grpExpenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpExpenseDetails.Location = new System.Drawing.Point(12, 368);
+            this.grpExpenseDetails.Name = "grpExpenseDetails";
+            this.grpExpenseDetails.Size = new System.Drawing.Size(938, 202);
+            this.grpExpenseDetails.TabIndex = 14;
+            this.grpExpenseDetails.TabStop = false;
+            this.grpExpenseDetails.Text = "Expenses Details";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(170, 129);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(254, 21);
+            this.textBox9.TabIndex = 18;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Monthly",
+            "Yearly"});
+            this.comboBox2.Location = new System.Drawing.Point(170, 99);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(254, 23);
+            this.comboBox2.TabIndex = 17;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(170, 72);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(254, 21);
+            this.textBox8.TabIndex = 16;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Housing",
+            "Utilities",
+            "Food,Clothing,Transport",
+            "Education",
+            "Other Expenses"});
+            this.comboBox1.Location = new System.Drawing.Point(170, 42);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(254, 23);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(21, 132);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(105, 15);
+            this.label109.TabIndex = 14;
+            this.label109.Text = "Expense Amt (Rs)";
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button14.ImageKey = "icons8-cancel-16.png";
+            this.button14.ImageList = this.imageList16x16;
+            this.button14.Location = new System.Drawing.Point(727, 156);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(86, 26);
+            this.button14.TabIndex = 14;
+            this.button14.Text = "Cancel";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button15.ImageKey = "icons8-save-close-16.png";
+            this.button15.ImageList = this.imageList16x16;
+            this.button15.Location = new System.Drawing.Point(635, 156);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(86, 26);
+            this.button15.TabIndex = 13;
+            this.button15.Text = "Save";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox15.Location = new System.Drawing.Point(447, 63);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(366, 87);
+            this.textBox15.TabIndex = 12;
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(444, 39);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(48, 15);
+            this.label110.TabIndex = 10;
+            this.label110.Text = "Details:";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(21, 103);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(90, 15);
+            this.label112.TabIndex = 4;
+            this.label112.Text = "Expense Type :";
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(21, 72);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(74, 15);
+            this.label113.TabIndex = 2;
+            this.label113.Text = "Item Name :";
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(21, 45);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(133, 15);
+            this.label114.TabIndex = 0;
+            this.label114.Text = "Expense Item Category";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.button7);
+            this.groupBox7.Controls.Add(this.button12);
+            this.groupBox7.Controls.Add(this.button13);
+            this.groupBox7.Location = new System.Drawing.Point(839, 324);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(111, 38);
+            this.groupBox7.TabIndex = 13;
+            this.groupBox7.TabStop = false;
+            // 
+            // button7
+            // 
+            this.button7.ImageIndex = 1;
+            this.button7.ImageList = this.imgCollection;
+            this.button7.Location = new System.Drawing.Point(76, 10);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(29, 24);
+            this.button7.TabIndex = 4;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.ImageIndex = 3;
+            this.button12.ImageList = this.imgCollection;
+            this.button12.Location = new System.Drawing.Point(6, 10);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(29, 24);
+            this.button12.TabIndex = 2;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.ImageIndex = 4;
+            this.button13.ImageList = this.imgCollection;
+            this.button13.Location = new System.Drawing.Point(41, 10);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(29, 24);
+            this.button13.TabIndex = 3;
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(938, 287);
+            this.dataGridView1.TabIndex = 12;
             // 
             // label88
             // 
@@ -3777,207 +3987,6 @@
             this.textBox11.Size = new System.Drawing.Size(242, 21);
             this.textBox11.TabIndex = 23;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(938, 287);
-            this.dataGridView1.TabIndex = 12;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox7.Controls.Add(this.button7);
-            this.groupBox7.Controls.Add(this.button12);
-            this.groupBox7.Controls.Add(this.button13);
-            this.groupBox7.Location = new System.Drawing.Point(839, 324);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(111, 38);
-            this.groupBox7.TabIndex = 13;
-            this.groupBox7.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.ImageIndex = 1;
-            this.button7.ImageList = this.imgCollection;
-            this.button7.Location = new System.Drawing.Point(76, 10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(29, 24);
-            this.button7.TabIndex = 4;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.ImageIndex = 3;
-            this.button12.ImageList = this.imgCollection;
-            this.button12.Location = new System.Drawing.Point(6, 10);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(29, 24);
-            this.button12.TabIndex = 2;
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.ImageIndex = 4;
-            this.button13.ImageList = this.imgCollection;
-            this.button13.Location = new System.Drawing.Point(41, 10);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(29, 24);
-            this.button13.TabIndex = 3;
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // grpExpenseDetails
-            // 
-            this.grpExpenseDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpExpenseDetails.Controls.Add(this.textBox9);
-            this.grpExpenseDetails.Controls.Add(this.comboBox2);
-            this.grpExpenseDetails.Controls.Add(this.textBox8);
-            this.grpExpenseDetails.Controls.Add(this.comboBox1);
-            this.grpExpenseDetails.Controls.Add(this.label109);
-            this.grpExpenseDetails.Controls.Add(this.button14);
-            this.grpExpenseDetails.Controls.Add(this.button15);
-            this.grpExpenseDetails.Controls.Add(this.textBox15);
-            this.grpExpenseDetails.Controls.Add(this.label110);
-            this.grpExpenseDetails.Controls.Add(this.label112);
-            this.grpExpenseDetails.Controls.Add(this.label113);
-            this.grpExpenseDetails.Controls.Add(this.label114);
-            this.grpExpenseDetails.Enabled = false;
-            this.grpExpenseDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpExpenseDetails.Location = new System.Drawing.Point(12, 368);
-            this.grpExpenseDetails.Name = "grpExpenseDetails";
-            this.grpExpenseDetails.Size = new System.Drawing.Size(938, 211);
-            this.grpExpenseDetails.TabIndex = 14;
-            this.grpExpenseDetails.TabStop = false;
-            this.grpExpenseDetails.Text = "Expenses Details";
-            // 
-            // label109
-            // 
-            this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(21, 132);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(105, 15);
-            this.label109.TabIndex = 14;
-            this.label109.Text = "Expense Amt (Rs)";
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button14.ImageKey = "icons8-cancel-16.png";
-            this.button14.ImageList = this.imageList16x16;
-            this.button14.Location = new System.Drawing.Point(727, 156);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(86, 26);
-            this.button14.TabIndex = 14;
-            this.button14.Text = "Cancel";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button15.ImageKey = "icons8-save-close-16.png";
-            this.button15.ImageList = this.imageList16x16;
-            this.button15.Location = new System.Drawing.Point(635, 156);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(86, 26);
-            this.button15.TabIndex = 13;
-            this.button15.Text = "Save";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox15.Location = new System.Drawing.Point(447, 63);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(366, 87);
-            this.textBox15.TabIndex = 12;
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(444, 39);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(48, 15);
-            this.label110.TabIndex = 10;
-            this.label110.Text = "Details:";
-            // 
-            // label112
-            // 
-            this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(21, 103);
-            this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(90, 15);
-            this.label112.TabIndex = 4;
-            this.label112.Text = "Expense Type :";
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Location = new System.Drawing.Point(21, 72);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(74, 15);
-            this.label113.TabIndex = 2;
-            this.label113.Text = "Item Name :";
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(21, 45);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(133, 15);
-            this.label114.TabIndex = 0;
-            this.label114.Text = "Expense Item Category";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Housing",
-            "Utilities",
-            "Food,Clothing,Transport",
-            "Education",
-            "Other Expenses"});
-            this.comboBox1.Location = new System.Drawing.Point(170, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 23);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(170, 72);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(254, 21);
-            this.textBox8.TabIndex = 16;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Monthly",
-            "Yearly"});
-            this.comboBox2.Location = new System.Drawing.Point(170, 99);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(254, 23);
-            this.comboBox2.TabIndex = 17;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(170, 129);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(254, 21);
-            this.textBox9.TabIndex = 18;
-            // 
             // ClientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3986,6 +3995,7 @@
             this.Controls.Add(this.tabPlannerDetails);
             this.Name = "ClientInfo";
             this.Text = "Planner Details";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabPlannerDetails.ResumeLayout(false);
             this.Assumption.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -4046,6 +4056,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGridIncome)).EndInit();
             this.Expenses.ResumeLayout(false);
             this.Expenses.PerformLayout();
+            this.grpExpenseDetails.ResumeLayout(false);
+            this.grpExpenseDetails.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Goal.ResumeLayout(false);
             this.Goal.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -4053,10 +4067,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.grpExpenseDetails.ResumeLayout(false);
-            this.grpExpenseDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4305,9 +4315,9 @@
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.TextBox txtNoOfEmiPayableForCY;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnDeleteIncome;
+        private System.Windows.Forms.Button btnAddIncome;
+        private System.Windows.Forms.Button btnEditIncome;
         private System.Windows.Forms.DataGridView dtGridIncome;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.GroupBox grpIncome;
@@ -4315,8 +4325,8 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.GroupBox grpIncomeFrom;
         private System.Windows.Forms.Label lblIncomeFromName;
-        private System.Windows.Forms.RadioButton rdoSpouse;
-        private System.Windows.Forms.RadioButton rdoClient;
+        private System.Windows.Forms.RadioButton rdoSpouseIncome;
+        private System.Windows.Forms.RadioButton rdoClientIncome;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.ComboBox cmbIncomeSource;
         private System.Windows.Forms.Label label79;
@@ -4353,8 +4363,8 @@
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.TextBox txtCTC;
         private System.Windows.Forms.Button btnSalaryDetails;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnIncomeCancel;
+        private System.Windows.Forms.Button btnSaveIncome;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button7;

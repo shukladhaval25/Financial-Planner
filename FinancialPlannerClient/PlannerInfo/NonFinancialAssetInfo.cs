@@ -2,6 +2,7 @@
 using FinancialPlanner.Common.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,7 @@ namespace FinancialPlannerClient.PlannerInfo
         const string ADD_NON_FINANCIAL_API = "NonFinancialAsset/Add";
         const string UPDATE_NON_FINANCIAL_API = "NonFinancialAsset/Update";
         const string DELETE_NON_FINANCIAL_API = "NonFinancialAsset/Delete";
+        DataTable _dtNonFinancialAsset;
         public IList<NonFinancialAsset> GetAlll(int plannerId)
         {
             IList<NonFinancialAsset> nonFinancialAssetObj = new List<NonFinancialAsset>();
@@ -156,6 +158,13 @@ namespace FinancialPlannerClient.PlannerInfo
                 MessageBox.Show("Unable to delete record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }      
+
+        internal NonFinancialAsset GetNonFinancialAssetInfo(DataGridView dtGridNonFinancialAssets,DataTable dtNonFinancialAsset)
+        {
+            _dtNonFinancialAsset = dtNonFinancialAsset;
+            return convertSelectedRowDataToNonFinancialAsset(dtGridNonFinancialAssets);
+        }
+
         private void LogDebug(string methodName, Exception ex)
         {
             DebuggerLogInfo debuggerInfo = new DebuggerLogInfo();
@@ -163,6 +172,46 @@ namespace FinancialPlannerClient.PlannerInfo
             debuggerInfo.Method = methodName;
             debuggerInfo.ExceptionInfo = ex;
             Logger.LogDebug(debuggerInfo);
+        }
+        
+        private NonFinancialAsset convertSelectedRowDataToNonFinancialAsset(DataGridView dtGridNonFinancialAssets)
+        {
+            if (dtGridNonFinancialAssets.SelectedRows.Count > 0)
+            {
+                NonFinancialAsset nonFinancialAsset = new NonFinancialAsset();
+                DataRow dr = getSelectedDataRowForNonFinancialAsset(dtGridNonFinancialAssets);
+                if (dr != null)
+                {
+                    nonFinancialAsset.Id = int.Parse(dr.Field<string>("ID"));
+                    nonFinancialAsset.Pid = int.Parse(dr.Field<string>("PID"));
+                    nonFinancialAsset.Name = dr.Field<string>("NAME");
+                    nonFinancialAsset.CurrentValue = double.Parse(dr.Field<string>("CurrentValue"));
+                    nonFinancialAsset.PrimaryholderShare = int.Parse(dr.Field<string>("Primaryholdershare"));
+                    nonFinancialAsset.SecondaryHolderShare = int.Parse(dr.Field<string>("SecondaryHoldershare"));
+                    nonFinancialAsset.OtherHolderName = dr.Field<string>("OtherHolderName");
+                    nonFinancialAsset.OtherHolderShare = int.Parse(dr.Field<string>("OtherHolderShare"));
+                    nonFinancialAsset.MappedGoalId = int.Parse(dr.Field<string>("MappedGoalId"));
+                    nonFinancialAsset.AssetMappingShare = int.Parse(dr.Field<string>("AssetMappingShare"));
+                    nonFinancialAsset.AssetRealisationYear = dr.Field<string>("AssetRealisationYear");
+                    nonFinancialAsset.Description = dr.Field<string>("Description");
+                    return nonFinancialAsset;
+                }
+            }
+            return null;
+        }
+        private DataRow getSelectedDataRowForNonFinancialAsset(DataGridView dtGridNonFinancialAssets)
+        {
+            int selectedRowIndex = dtGridNonFinancialAssets.SelectedRows[0].Index;
+            if (dtGridNonFinancialAssets.SelectedRows[0].Cells["ID"].Value != System.DBNull.Value)
+            {
+                int selectedUserId = int.Parse(dtGridNonFinancialAssets.SelectedRows[0].Cells["ID"].Value.ToString());
+                DataRow[] rows = _dtNonFinancialAsset.Select("Id = " + selectedUserId);
+                foreach (DataRow dr in rows)
+                {
+                    return dr;
+                }
+            }
+            return null;
         }
     }
 }

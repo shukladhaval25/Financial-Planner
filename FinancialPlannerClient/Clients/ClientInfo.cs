@@ -20,6 +20,7 @@ namespace FinancialPlannerClient.Clients
         private DataTable _dtFamilymember;
         private DataTable _dtNonFinancialAsset;
         private DataTable _dtLoan;
+        private DataTable _dtIncome;
         public int PlannerId
         {
             get { return _plannerId; }
@@ -55,6 +56,7 @@ namespace FinancialPlannerClient.Clients
                     fillupNonFinancialAssetInfo();
                     break;
                 case "Income":
+                    fillupIncomeInfo();
                     break;
                 case "Goal":
                     break;
@@ -62,6 +64,15 @@ namespace FinancialPlannerClient.Clients
                     break;
             }
 
+        }
+
+        private void fillupIncomeInfo()
+        {
+            IncomeInfo incomeInfo = new IncomeInfo();
+            List<Income> lstIncome =(List<Income>) incomeInfo.GetAll(PlannerId);
+            _dtIncome = ListtoDataTable.ToDataTable(lstIncome);
+            dtGridIncome.DataSource = _dtIncome;
+            incomeInfo.FillGrid(dtGridIncome);
         }
 
         private void fillupLoanInfo()
@@ -494,7 +505,7 @@ namespace FinancialPlannerClient.Clients
 
         private void btnEditFamilyMember_Click(object sender, EventArgs e)
         {
-            FamilyMember familymember = convertSelectedRowDataToFamilyMember();
+            FamilyMember familymember = new FamilyMemberInfo().GetFamilyMemberInfo(dtGridFamilyMember,_dtFamilymember);
             displayFamilyMemberData(familymember);
             grpFamilyMemberDetail.Enabled = true;
         }
@@ -528,37 +539,7 @@ namespace FinancialPlannerClient.Clients
             txtFamilyMemberDesc.Text = "";
         }
 
-        private FamilyMember convertSelectedRowDataToFamilyMember()
-        {
-
-            if (dtGridFamilyMember.SelectedRows.Count > 0)
-            {
-                FamilyMember fm = new FamilyMember();
-                DataRow dr = getSelectedDataRow();
-                fm.Id = int.Parse(dr.Field<string>("ID"));
-                fm.Cid = int.Parse(dr.Field<string>("Cid"));
-                fm.Name = dr.Field<string>("Name");
-                fm.Relationship = dr.Field<string>("Relationship");
-                fm.DOB = DateTime.Parse(dr.Field<string>("DOB"));
-                fm.IsDependent = bool.Parse(dr["IsDependent"].ToString());
-                fm.ChildrenClass = dr.Field<string>("ChildrenClass");
-                fm.Description = dr.Field<string>("Description");
-                return fm;
-            }
-            return null;
-        }
-
-        private DataRow getSelectedDataRow()
-        {
-            int selectedRowIndex = dtGridFamilyMember.SelectedRows[0].Index;
-            int selectedUserId = int.Parse(dtGridFamilyMember.SelectedRows[0].Cells["ID"].Value.ToString());
-            DataRow[] rows = _dtFamilymember.Select("Id = " + selectedUserId);
-            foreach (DataRow dr in rows)
-            {
-                return dr;
-            }
-            return null;
-        }
+      
 
         private void dtGridFamilyMember_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -573,8 +554,10 @@ namespace FinancialPlannerClient.Clients
         {
             if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                FamilyMember familymember = convertSelectedRowDataToFamilyMember();
+                
                 FamilyMemberInfo familyMemberInfo = new FamilyMemberInfo();
+                FamilyMember familymember = 
+                    familyMemberInfo.GetFamilyMemberInfo(dtGridFamilyMember,_dtFamilymember);
                 familyMemberInfo.Delete(familymember);
                 fillupFamilyMemberInfo();
             }
@@ -664,7 +647,8 @@ namespace FinancialPlannerClient.Clients
 
         private void btnEditNFA_Click(object sender, EventArgs e)
         {
-            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            NonFinancialAsset nonFinancialAsset =
+                new NonFinancialAssetInfo().GetNonFinancialAssetInfo(dtGridNonFinancialAssets,_dtNonFinancialAsset);
             displayNonFinancialAsset(nonFinancialAsset);
             grpNonFinancialAsset.Enabled = true;
         }
@@ -675,7 +659,7 @@ namespace FinancialPlannerClient.Clients
             {
                 txtAssetName.Tag = nonFinancialAsset.Id;
                 txtAssetName.Text = nonFinancialAsset.Name;
-                txtAssetCurrentCost.Text = nonFinancialAsset.CurrentValue.ToString("#,000.00");
+                txtAssetCurrentCost.Text = nonFinancialAsset.CurrentValue.ToString("#,##0.00");
                 cmbPrimaryHolder.Text = _client.Name;
                 cmbSecondaryHolder.Text = getSpouseName();
                 txtPrimaryHolderShare.Text = nonFinancialAsset.PrimaryholderShare.ToString();
@@ -689,62 +673,14 @@ namespace FinancialPlannerClient.Clients
             }
         }
 
-        private NonFinancialAsset convertSelectedRowDataToNonFinancialAsset()
-        {
-
-            if (dtGridNonFinancialAssets.SelectedRows.Count > 0)
-            {
-                NonFinancialAsset nonFinancialAsset = new NonFinancialAsset();
-                DataRow dr = getSelectedDataRowForNonFinancialAsset();
-                nonFinancialAsset.Id = int.Parse(dr.Field<string>("ID"));
-                nonFinancialAsset.Pid = int.Parse(dr.Field<string>("PID"));
-                nonFinancialAsset.Name = dr.Field<string>("NAME");
-                nonFinancialAsset.CurrentValue = double.Parse(dr.Field<string>("CurrentValue"));
-                nonFinancialAsset.PrimaryholderShare = int.Parse(dr.Field<string>("Primaryholdershare"));
-                nonFinancialAsset.SecondaryHolderShare = int.Parse(dr.Field<string>("SecondaryHoldershare"));
-                nonFinancialAsset.OtherHolderName = dr.Field<string>("OtherHolderName");
-                nonFinancialAsset.OtherHolderShare = int.Parse(dr.Field<string>("OtherHolderShare"));
-                nonFinancialAsset.MappedGoalId = int.Parse(dr.Field<string>("MappedGoalId"));
-                nonFinancialAsset.AssetMappingShare = int.Parse(dr.Field<string>("AssetMappingShare"));
-                nonFinancialAsset.AssetRealisationYear = dr.Field<string>("AssetRealisationYear");
-                nonFinancialAsset.Description = dr.Field<string>("Description");
-                return nonFinancialAsset;
-            }
-            return null;
-        }
-        private DataRow getSelectedDataRowForNonFinancialAsset()
-        {
-            int selectedRowIndex = dtGridNonFinancialAssets.SelectedRows[0].Index;
-            int selectedUserId = int.Parse(dtGridNonFinancialAssets.SelectedRows[0].Cells["ID"].Value.ToString());
-            DataRow[] rows = _dtNonFinancialAsset.Select("Id = " + selectedUserId);
-            foreach (DataRow dr in rows)
-            {
-                return dr;
-            }
-            return null;
-        }
-
-        private DataRow getSelectedDataRowForLoan()
-        {
-            if (dtGridLoan.SelectedRows.Count >= 1)
-            {
-                int selectedRowIndex = dtGridLoan.SelectedRows[0].Index;
-                int selectedUserId = int.Parse(dtGridLoan.SelectedRows[0].Cells["ID"].Value.ToString());
-                DataRow[] rows = _dtLoan.Select("Id = " + selectedUserId);
-                foreach (DataRow dr in rows)
-                {
-                    return dr;
-                }
-            }
-            return null;
-        }
-
+        
         private void btnDeleteNFA_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            {              
                 NonFinancialAssetInfo nonFinancialAssetInfo = new NonFinancialAssetInfo();
+                NonFinancialAsset nonFinancialAsset =
+                    nonFinancialAssetInfo.GetNonFinancialAssetInfo(dtGridNonFinancialAssets,_dtNonFinancialAsset);
                 nonFinancialAssetInfo.Delete(nonFinancialAsset);
                 fillupNonFinancialAssetInfo();
             }
@@ -752,14 +688,16 @@ namespace FinancialPlannerClient.Clients
 
         private void dtGridNonFinancialAssets_SelectionChanged(object sender, EventArgs e)
         {
-            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            NonFinancialAsset nonFinancialAsset =
+                new NonFinancialAssetInfo().GetNonFinancialAssetInfo(dtGridNonFinancialAssets,_dtNonFinancialAsset);
             displayNonFinancialAsset(nonFinancialAsset);
         }
 
         private void btnNonFinancialCanel_Click(object sender, EventArgs e)
         {
             grpNonFinancialAsset.Enabled = false;
-            NonFinancialAsset nonFinancialAsset = convertSelectedRowDataToNonFinancialAsset();
+            NonFinancialAsset nonFinancialAsset =
+                new NonFinancialAssetInfo().GetNonFinancialAssetInfo(dtGridNonFinancialAssets,_dtNonFinancialAsset);
             displayNonFinancialAsset(nonFinancialAsset);
         }
         private void txtPrimaryHolderShare_KeyPress(object sender, KeyPressEventArgs e)
@@ -811,7 +749,6 @@ namespace FinancialPlannerClient.Clients
 
         private void btnSaveLoan_Click(object sender, EventArgs e)
         {
-
             LoanInfo loanInfo = new LoanInfo();
             Loan loan = getLaonData();
             bool isSaved = false;
@@ -854,7 +791,7 @@ namespace FinancialPlannerClient.Clients
 
         private void btnUpdateLoan_Click(object sender, EventArgs e)
         {
-            Loan loan = convertSelectedRowDataToLoan();
+            Loan loan = new LoanInfo().GetLonInfo(dtGridLoan,_dtLoan);
             displayLoanData(loan);
             grpLoanDetails.Enabled = true;
         }
@@ -865,7 +802,7 @@ namespace FinancialPlannerClient.Clients
             {
                 txtTypeOfLoan.Tag = loan.Id;
                 txtTypeOfLoan.Text = loan.TypeOfLoan;
-                txtOutStadningLoan.Text = loan.OutstandingAmt.ToString("#,000.00");
+                txtOutStadningLoan.Text = loan.OutstandingAmt.ToString("#,##0.00");
                 txtLoanInterestRate.Text = loan.InterestRate.ToString();
                 txtEmis.Text = loan.Emis.ToString();
                 txtLoanTermLeft_Months.Text = loan.TermLeftInMonths.ToString();
@@ -873,34 +810,15 @@ namespace FinancialPlannerClient.Clients
                 txtLoanDescription.Text = loan.Description;
             }
         }
-
-        private Loan convertSelectedRowDataToLoan()
-        {
-            if (dtGridLoan.SelectedRows.Count >= 1)
-            {
-                Loan loan = new Loan();
-                DataRow dr = getSelectedDataRowForLoan();
-                loan.Id = int.Parse(dr.Field<string>("ID"));
-                loan.Pid = int.Parse(dr.Field<string>("PID"));
-                loan.TypeOfLoan = dr.Field<string>("TypeOfLoan");
-                loan.OutstandingAmt = double.Parse(dr.Field<string>("OutstandingAmt"));
-                loan.Emis = int.Parse(dr.Field<string>("EMIs"));
-                loan.InterestRate = decimal.Parse(dr.Field<string>("InterestRate"));
-                loan.TermLeftInMonths = int.Parse(dr.Field<string>("TermLeftInMonths"));
-                loan.NoEmisPayableUntilYear = int.Parse(dr.Field<string>("NoEMISPayableUntilYear"));
-                loan.Description = dr.Field<string>("Description");
-                return loan;
-            }
-            return null;
-        }
+             
 
         private void btnDeleteLoan_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Loan loan = convertSelectedRowDataToLoan();
-                LoanInfo laonInfo = new LoanInfo();
-                laonInfo.Delete(loan);
+                LoanInfo loanInfo = new LoanInfo();
+                Loan loan =loanInfo.GetLonInfo(dtGridLoan,_dtLoan);
+                loanInfo.Delete(loan);
                 fillupLoanInfo();
             }
         }
@@ -908,19 +826,19 @@ namespace FinancialPlannerClient.Clients
         private void btnCancelLoan_Click(object sender, EventArgs e)
         {
             grpLoanDetails.Enabled = false;
-            Loan loan = convertSelectedRowDataToLoan();
+            Loan loan = new LoanInfo().GetLonInfo(dtGridLoan,_dtLoan);
             displayLoanData(loan);
         }
 
         private void dtGridLoan_SelectionChanged(object sender, EventArgs e)
         {
-            Loan loan = convertSelectedRowDataToLoan();
+            Loan loan = new LoanInfo().GetLonInfo(dtGridLoan,_dtLoan);
             displayLoanData(loan);
         }
 
         private void cmbIncomeSource_SelectedIndexChanged(object sender, EventArgs e)
-        {           
-            btnSalaryDetails.Enabled = cmbIncomeSource.Text.Equals("Salary", StringComparison.OrdinalIgnoreCase);            
+        {
+            btnSalaryDetails.Enabled = cmbIncomeSource.Text.Equals("Salary", StringComparison.OrdinalIgnoreCase);
         }
 
         private void btnSalaryDetails_Click(object sender, EventArgs e)
@@ -930,13 +848,13 @@ namespace FinancialPlannerClient.Clients
 
         private void rdoClient_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdoClient.Checked)
+            if (rdoClientIncome.Checked)
                 lblIncomeFromName.Text = _client.Name;
         }
 
         private void rdoSpouse_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdoSpouse.Checked)
+            if (rdoSpouseIncome.Checked)
                 lblIncomeFromName.Text = getSpouseName();
         }
 
@@ -970,8 +888,9 @@ namespace FinancialPlannerClient.Clients
             double.TryParse(txtAnnualBonusAmt.Text, out bonusAmt);
 
             netTakeHome = (ctc + reimbursement + pfContribution + employerPFContribution + penssion) - otherDeduction;
-            txtNetTakeHome.Text = netTakeHome.ToString("#,000.00");
-            txtAnnualIncome.Text = (netTakeHome + bonusAmt).ToString("#,000.00");
+            txtNetTakeHome.Text = netTakeHome.ToString("#,##0.00");
+            if ((netTakeHome + bonusAmt)  > 0 )
+                txtAnnualIncome.Text = (netTakeHome + bonusAmt).ToString("#,##0.00");
         }
 
         private void txtCTC_Leave(object sender, EventArgs e)
@@ -1012,6 +931,176 @@ namespace FinancialPlannerClient.Clients
         private void txtAnnualBonusAmt_Leave(object sender, EventArgs e)
         {
             calculateNetTakeHome();
-        }       
+        }
+
+        private void dtGridIncome_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dtGridIncome.Columns[e.ColumnIndex].Name == "IncomeBy")
+            {
+                if (dtGridIncome.Rows[e.RowIndex].Cells["IncomeBy"].Value != null)
+                    e.Value =
+                        (dtGridIncome.Rows[e.RowIndex].Cells["IncomeBy"].Value.ToString().Equals("Client", StringComparison.OrdinalIgnoreCase)) ?
+                        _client.Name : getSpouseName();
+            }
+        }
+
+        private void btnAddIncome_Click(object sender, EventArgs e)
+        {
+            grpIncome.Enabled = true;
+            setDefaultIncomeValue();
+        }
+
+        private void setDefaultIncomeValue()
+        {
+            cmbIncomeSource.Text = "";
+            cmbIncomeSource.Tag = "0";
+            rdoClientIncome.Checked = true;
+            txtAnnualIncome.Text  = "0";
+            txtExpectedGrowthSalary.Text = "0";
+            txtIncomeStartYear.Text = DateTime.Now.Year.ToString();
+            txtIncomeEndYear.Text = "";
+
+            txtCTC.Tag = "0";
+            txtCTC.Text = "0";
+            txtEmployeePFContribution.Text = "0";
+            txtEmployerPFContribution.Text = "0";
+            txtSuperanuation.Text = "0";
+            txtOtherDeduction.Text = "0";
+            txtNetTakeHome.Text = "0";
+            txtNextIncrementMonthYear.Text = "";
+            txtExpectedGrowthSalary.Text = "0";
+            txtBonusMonthYear.Text = "";
+            txtAnnualBonusAmt.Text = "0";
+        }
+
+        private void btnSaveIncome_Click(object sender, EventArgs e)
+        {
+            IncomeInfo incomeInfo = new IncomeInfo();
+            Income income = getIncomeData();
+            bool isSaved = false;
+
+            if (income != null && income.Id == 0)
+                isSaved = incomeInfo.Add(income);
+            else
+                isSaved = incomeInfo.Update(income);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupIncomeInfo();
+                grpIncome.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Income getIncomeData()
+        {
+            Income income = new Income();
+            income.Source =  cmbIncomeSource.Text;
+            income.Id = int.Parse(cmbIncomeSource.Tag.ToString());
+            income.Pid = PlannerId;
+            income.IncomeBy = (rdoClientIncome.Checked) ? "Client" : "Source";
+            income.Amount = (txtAnnualBonusAmt.Text =="000.00") ? 0 : double.Parse(txtAnnualIncome.Text);
+            income.ExpectGrowthInPercentage = (txtincomeGrowthPercentage.Text =="") ? 0 : 
+                decimal.Parse( txtincomeGrowthPercentage.Text);
+            income.StartYear = txtIncomeStartYear.Text;
+            income.EndYear = txtIncomeEndYear.Text;
+            income.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            income.UpdatedBy = Program.CurrentUser.Id;
+            income.UpdatedByUserName = Program.CurrentUser.UserName;
+            income.MachineName = System.Environment.MachineName;
+
+            SalaryDetail salaryDet = new SalaryDetail();
+            salaryDet.Id = int.Parse(txtCTC.Tag.ToString());
+            salaryDet.IncomeId = income.Id;
+            salaryDet.Pid = PlannerId;
+            salaryDet.Ctc = (txtCTC.Text == "") ? 0 : double.Parse(txtCTC.Text);
+            salaryDet.Reimbursement = (txtReimbusement.Text == "") ? 0 : double.Parse(txtReimbusement.Text);
+            salaryDet.EmployeePFContribution = (txtEmployeePFContribution.Text == "") ? 0 : double.Parse(txtEmployeePFContribution.Text);
+            salaryDet.EmployerPFContribution = (txtEmployerPFContribution.Text == "") ? 0 : double.Parse(txtEmployerPFContribution.Text);
+            salaryDet.Superannuation = (txtSuperanuation.Text =="") ? 0 : double.Parse(txtSuperanuation.Text);
+            salaryDet.OtherDeduction  = (txtOtherDeduction.Text =="") ? 0 : double.Parse(txtOtherDeduction.Text);
+            salaryDet.NetTakeHome = (txtNetTakeHome.Text =="") ? 0 : double.Parse(txtNetTakeHome.Text);
+            salaryDet.NextIncrementMonthYear = txtNextIncrementMonthYear.Text;
+            salaryDet.ExpectedGrowthInPercentage = (txtExpectedGrowthSalary.Text == "" ) ? 0 : decimal.Parse(txtExpectedGrowthSalary.Text);
+            salaryDet.BonusMonthYear = txtBonusMonthYear.Text;
+            salaryDet.BonusAmt = (txtAnnualBonusAmt.Text == "") ? 0 : double.Parse(txtAnnualBonusAmt.Text);
+            salaryDet.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            salaryDet.UpdatedBy = Program.CurrentUser.Id;
+            salaryDet.UpdatedByUserName = Program.CurrentUser.UserName;
+            salaryDet.MachineName = System.Environment.MachineName;
+            income.SalaryDetail = salaryDet;
+            return income;
+        }
+
+        private void btnEditIncome_Click(object sender, EventArgs e)
+        {
+            Income income = new IncomeInfo().GetIncomeInfo(dtGridIncome,_dtIncome);
+            displayIncomeData(income);
+            grpIncome.Enabled = true;
+        }
+
+        private void displayIncomeData(Income income)
+        {
+            if (income != null)
+            {
+                cmbIncomeSource.Tag = income.Id.ToString();
+                cmbIncomeSource.Text =  income.Source;
+                rdoClientIncome.Checked = income.IncomeBy.ToString().Equals("Client", StringComparison.OrdinalIgnoreCase) ? true : false;
+                rdoSpouseIncome.Checked = !rdoClientIncome.Checked;
+                txtincomeGrowthPercentage.Text = income.ExpectGrowthInPercentage.ToString();
+                txtAnnualIncome.Text = income.Amount.ToString();
+                txtIncomeStartYear.Text = income.StartYear;
+                txtIncomeEndYear.Text = income.EndYear;
+                txtIncomeDescription.Text =   income.Description;
+
+                SalaryDetail salaryDetail = income.SalaryDetail;
+                txtCTC.Tag = salaryDetail.Id.ToString();                
+                txtCTC.Text =   salaryDetail.Ctc.ToString("#,#00.00");
+                txtReimbusement.Text = salaryDetail.Reimbursement.ToString("#,###.00");
+                txtEmployeePFContribution.Text = salaryDetail.EmployeePFContribution.ToString("#,#00.00");
+                txtEmployerPFContribution.Text = salaryDetail.EmployerPFContribution.ToString("#,#00.00");
+                txtSuperanuation.Text =  salaryDetail.Superannuation.ToString("#,#00.00");
+                txtOtherDeduction.Text = salaryDetail.OtherDeduction.ToString("#,#00.00");
+                txtNetTakeHome.Text = salaryDetail.NetTakeHome.ToString("#,#00.00");
+                txtNextIncrementMonthYear.Text = salaryDetail.NextIncrementMonthYear;
+                txtExpectedGrowthSalary.Text = salaryDetail.ExpectedGrowthInPercentage.ToString("#00.00");
+                txtAnnualBonusAmt.Text =  salaryDetail.BonusAmt.ToString("#,#00.00");
+                txtBonusMonthYear.Text = salaryDetail.BonusMonthYear;
+                income.SalaryDetail = salaryDetail;
+                calculateNetTakeHome();
+            }
+        }
+
+        private void dtGridIncome_SelectionChanged(object sender, EventArgs e)
+        {
+            Income income = new IncomeInfo().GetIncomeInfo(dtGridIncome,_dtIncome);
+            displayIncomeData(income);
+        }
+
+        private void btnDeleteIncome_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                IncomeInfo incomeInfo = new IncomeInfo();
+                Income income = incomeInfo.GetIncomeInfo(dtGridIncome, _dtIncome);
+                incomeInfo.Delete(income);
+                fillupIncomeInfo();
+            }
+        }
+
+        private void dtGridFamilyMember_SelectionChanged(object sender, EventArgs e)
+        {
+            FamilyMember familymember = new FamilyMemberInfo().GetFamilyMemberInfo(dtGridFamilyMember,_dtFamilymember);
+            displayFamilyMemberData(familymember);
+        }
+
+        private void btnIncomeCancel_Click(object sender, EventArgs e)
+        {
+            FamilyMember familymember = new FamilyMemberInfo().GetFamilyMemberInfo(dtGridFamilyMember,_dtFamilymember);
+            displayFamilyMemberData(familymember);
+            grpIncome.Enabled = false;
+        }
     }
 }

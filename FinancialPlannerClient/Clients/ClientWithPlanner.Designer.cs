@@ -534,6 +534,7 @@
             this.Controls.Add(this.grpClient);
             this.Name = "ClientWithPlanner";
             this.Text = "Client";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ClientWithPlanner_Load);
             this.grpClient.ResumeLayout(false);
             this.grpClient.PerformLayout();

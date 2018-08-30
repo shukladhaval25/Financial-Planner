@@ -2,6 +2,7 @@
 using FinancialPlanner.Common.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -14,10 +15,11 @@ namespace FinancialPlannerClient.PlannerInfo
     public class FamilyMemberInfo
     {
         const string GET_All_FAMAILYMEMBER_API = "FamilyMember/GetAll?clientId={0}";
-        const string GET_FAMILYMEMBER_BY_CLIENTID_AND_ID = "FamilyMember/GetById?id={0},clientId={1}";
+        const string GET_FAMILYMEMBER_BY_CLIENTID_AND_ID = "FamilyMember/GetById?id={0}&clientId={1}";
         const string ADD_FAMILYMEMBER_API = "FamilyMember/Add";
         const string UPDATE_FAMILYMEMBER_API = "FamilyMember/Update";
         const string DELETE_FAMILYMEMBER_API = "FamilyMember/Delete?id={0}";
+        DataTable _dtFamilymember;
         public FamilyMember Get(int id,int clientId)
         {
             FamilyMember employmentObj = new FamilyMember();
@@ -172,6 +174,49 @@ namespace FinancialPlannerClient.PlannerInfo
                 LogDebug(currentMethodName.Name, ex);
                 MessageBox.Show("Unable to delete record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        internal FamilyMember GetFamilyMemberInfo(DataGridView dtGridFamilyMember, DataTable dtFamilyMember)
+        {
+            _dtFamilymember = dtFamilyMember;
+            return convertSelectedRowDataToFamilyMember(dtGridFamilyMember);
+        }
+
+        private FamilyMember convertSelectedRowDataToFamilyMember(DataGridView dtGridFamilyMember)
+        {
+
+            if (dtGridFamilyMember.SelectedRows.Count > 0)
+            {
+                FamilyMember fm = new FamilyMember();
+                DataRow dr = getSelectedDataRow(dtGridFamilyMember);
+                if (dr != null)
+                {
+                    fm.Id = int.Parse(dr.Field<string>("ID"));
+                    fm.Cid = int.Parse(dr.Field<string>("Cid"));
+                    fm.Name = dr.Field<string>("Name");
+                    fm.Relationship = dr.Field<string>("Relationship");
+                    fm.DOB = DateTime.Parse(dr.Field<string>("DOB"));
+                    fm.IsDependent = bool.Parse(dr["IsDependent"].ToString());
+                    fm.ChildrenClass = dr.Field<string>("ChildrenClass");
+                    fm.Description = dr.Field<string>("Description");
+                    return fm;
+                }
+            }
+            return null;
+        }
+
+        private DataRow getSelectedDataRow(DataGridView dtGridFamilyMember)
+        {
+            int selectedRowIndex = dtGridFamilyMember.SelectedRows[0].Index;
+            if (dtGridFamilyMember.SelectedRows[0].Cells["ID"].Value != System.DBNull.Value)
+            {
+                    int selectedUserId = int.Parse(dtGridFamilyMember.SelectedRows[0].Cells["ID"].Value.ToString());
+                    DataRow[] rows = _dtFamilymember.Select("Id = " + selectedUserId);
+                    foreach (DataRow dr in rows)
+                    {
+                        return dr;
+                    }                
+            }
+            return null;
         }
     }
 }
