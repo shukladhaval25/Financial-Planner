@@ -21,6 +21,7 @@ namespace FinancialPlannerClient.Clients
         private DataTable _dtNonFinancialAsset;
         private DataTable _dtLoan;
         private DataTable _dtIncome;
+        private DataTable _dtExpenses;
         public int PlannerId
         {
             get { return _plannerId; }
@@ -58,12 +59,24 @@ namespace FinancialPlannerClient.Clients
                 case "Income":
                     fillupIncomeInfo();
                     break;
+                case "Expenses":
+                    fillupExpensesInfo();
+                    break;
                 case "Goal":
                     break;
                 default:
                     break;
             }
 
+        }
+
+        private void fillupExpensesInfo()
+        {
+            ExpensesInfo expensesInfo = new ExpensesInfo();
+            List<Expenses> lstIncome =(List<Expenses>) expensesInfo.GetAll(PlannerId);
+            _dtExpenses = ListtoDataTable.ToDataTable(lstIncome);
+            dtGridExpenses.DataSource = _dtExpenses;
+            expensesInfo.FillGrid(dtGridExpenses);
         }
 
         private void fillupIncomeInfo()
@@ -125,6 +138,29 @@ namespace FinancialPlannerClient.Clients
 
         private void fillupAssumptionInfo()
         {
+            lblClientTiitle.Text = _client.Name;
+            lblSpouseTitle.Text = getSpouseName();
+            PlannerAssumptionInfo plannerassumptionInfo = new PlannerAssumptionInfo();
+            PlannerAssumption plannerAssumption = plannerassumptionInfo.GetAll(PlannerId);
+            displayPlannerAssumptionData(plannerAssumption);           
+        }
+
+        private void displayPlannerAssumptionData(PlannerAssumption plannerAssumption)
+        {
+            if (plannerAssumption != null)
+            {
+                txtClientRetAge.Tag = plannerAssumption.Id;
+                txtClientRetAge.Text = plannerAssumption.ClientRetirementAge.ToString();
+                txtSpouseRetAge.Text = plannerAssumption.SpouseRetirementAge.ToString();
+                txtClientLifeExp.Text = plannerAssumption.ClientLifeExpectancy.ToString();
+                txtSpouseLifeExp.Text = plannerAssumption.SpouseLifeExpectancy.ToString();
+                txtPreRetInflationRate.Text = plannerAssumption.PreRetirementInflactionRate.ToString();
+                txtPostRetInflationRate.Text = plannerAssumption.PostRetirementInflactionRate.ToString();
+                txtEquityReturn.Text = plannerAssumption.EquityReturnRate.ToString();
+                txtDebtReturn.Text = plannerAssumption.DebtReturnRate.ToString();
+                txtOtherReturn.Text = plannerAssumption.OtherReturnRate.ToString();
+                txtPlannerAssumptionDescription.Text = plannerAssumption.Decription;
+            }
         }
 
         private void tbPersonalInfo_SelectedIndexChanged(object sender, EventArgs e)
@@ -1101,6 +1137,145 @@ namespace FinancialPlannerClient.Clients
             FamilyMember familymember = new FamilyMemberInfo().GetFamilyMemberInfo(dtGridFamilyMember,_dtFamilymember);
             displayFamilyMemberData(familymember);
             grpIncome.Enabled = false;
+        }
+
+        private void dtGridExpenses_SelectionChanged(object sender, EventArgs e)
+        {
+            Expenses expenses = new ExpensesInfo().GetExpensesInfo(dtGridExpenses,_dtExpenses);
+            displayExpensesData(expenses);
+        }
+
+        private void btnEditExpenses_Click(object sender, EventArgs e)
+        {
+            Expenses expenses = new ExpensesInfo().GetExpensesInfo(dtGridExpenses,_dtExpenses);
+            displayExpensesData(expenses);
+            grpExpenseDetails.Enabled = true;
+        }
+
+        private void displayExpensesData(Expenses expenses)
+        {
+            if (expenses != null)
+            {
+                cmbExpCategory.Tag = expenses.Id.ToString();
+                cmbExpCategory.Text = expenses.ItemCategory;
+                txtExpItem.Text = expenses.Item;
+                txtExpAmount.Text = expenses.Amount.ToString("#,##0.00");
+                txtExpDescription.Text = "";
+            }
+        }
+
+        private void btnAddExpenses_Click(object sender, EventArgs e)
+        {
+            grpExpenseDetails.Enabled = true;
+            setDefaultExpValue();
+        }
+
+        private void setDefaultExpValue()
+        {
+            cmbExpCategory.Tag = "0";
+            cmbExpCategory.Text = "";
+            txtExpItem.Text = "";
+            txtExpAmount.Text = "0";
+            txtExpDescription.Text = "";
+        }
+
+        private void btnDeleteExpenses_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ExpensesInfo expensesInfo = new ExpensesInfo();
+                Expenses expenses = expensesInfo.GetExpensesInfo(dtGridExpenses, _dtExpenses);
+                expensesInfo.Delete(expenses);
+                fillupExpensesInfo();
+            }
+        }
+
+        private void btnSaveExp_Click(object sender, EventArgs e)
+        {
+            ExpensesInfo expensesInfo = new ExpensesInfo();
+            Expenses expenses = getExpensesData();
+            bool isSaved = false;
+
+            if (expenses != null && expenses.Id == 0)
+                isSaved = expensesInfo.Add(expenses);
+            else
+                isSaved = expensesInfo.Update(expenses);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupExpensesInfo();
+                grpExpenseDetails.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Expenses getExpensesData()
+        {
+            Expenses expenses = new Expenses();
+            expenses.Id = int.Parse(cmbExpCategory.Tag.ToString());
+            expenses.Pid = PlannerId;
+            expenses.ItemCategory = cmbExpCategory.Text;
+            expenses.Item = txtExpItem.Text;
+            expenses.OccuranceType = (ExpenseType) cmbExpType.SelectedIndex;
+            expenses.Amount = double.Parse(txtExpAmount.Text);
+            expenses.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            expenses.UpdatedBy = Program.CurrentUser.Id;
+            expenses.UpdatedByUserName = Program.CurrentUser.UserName;
+            expenses.MachineName = System.Environment.MachineName;
+            return expenses;
+        }
+
+        private void btnCacelExp_Click(object sender, EventArgs e)
+        {
+            grpExpenseDetails.Enabled = false;
+            Expenses expenses = new ExpensesInfo().GetExpensesInfo(dtGridExpenses,_dtExpenses);
+            displayExpensesData(expenses);
+        }
+
+        private void ClientInfo_Load(object sender, EventArgs e)
+        {
+            fillupAssumptionInfo();
+        }
+
+        private void btnSaveAssumption_Click(object sender, EventArgs e)
+        {
+            PlannerAssumptionInfo PlannerAssumptionInfo = new PlannerAssumptionInfo();
+            PlannerAssumption PlannerAssumption = getPlannerAssumptionData();
+            bool isSaved = false;
+                        
+            isSaved = PlannerAssumptionInfo.Update(PlannerAssumption);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupAssumptionInfo();
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private PlannerAssumption getPlannerAssumptionData()
+        {
+            PlannerAssumption plannerAssumption = new PlannerAssumption();
+            plannerAssumption.Id = int.Parse(txtClientRetAge.Tag.ToString());
+            plannerAssumption.Pid = PlannerId;
+            plannerAssumption.ClientRetirementAge = int.Parse(txtClientRetAge.Text);
+            plannerAssumption.SpouseRetirementAge = int.Parse(txtSpouseRetAge.Text);
+            plannerAssumption.ClientLifeExpectancy = int.Parse(txtClientLifeExp.Text);
+            plannerAssumption.SpouseLifeExpectancy = int.Parse(txtSpouseLifeExp.Text);
+            plannerAssumption.PreRetirementInflactionRate = decimal.Parse(txtPreRetInflationRate.Text);
+            plannerAssumption.PostRetirementInflactionRate = decimal.Parse(txtPostRetInflationRate.Text);
+            plannerAssumption.EquityReturnRate = decimal.Parse(txtEquityReturn.Text);
+            plannerAssumption.DebtReturnRate = decimal.Parse(txtDebtReturn.Text);
+            plannerAssumption.OtherReturnRate = decimal.Parse(txtOtherReturn.Text);
+            plannerAssumption.Decription = txtPlannerAssumptionDescription.Text;
+            plannerAssumption.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            plannerAssumption.UpdatedBy = Program.CurrentUser.Id;
+            plannerAssumption.UpdatedByUserName = Program.CurrentUser.UserName;
+            plannerAssumption.MachineName = System.Environment.MachineName;
+            return plannerAssumption;
         }
     }
 }
