@@ -36,12 +36,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.trvList = new System.Windows.Forms.TreeView();
             this.grpSearch = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblProsCust = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.grpActionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -131,6 +131,17 @@
             this.splitContainer.SplitterDistance = 170;
             this.splitContainer.TabIndex = 10;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRefresh.Image = global::FinancialPlannerClient.Properties.Resources.icons8_refresh_16;
+            this.btnRefresh.Location = new System.Drawing.Point(7, 455);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(29, 24);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -141,6 +152,7 @@
             this.btnSearch.Size = new System.Drawing.Size(30, 23);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // trvList
             // 
@@ -189,17 +201,6 @@
             this.lblProsCust.Size = new System.Drawing.Size(170, 17);
             this.lblProsCust.TabIndex = 9;
             this.lblProsCust.Text = "List of Prospect Customer";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRefresh.Image = global::FinancialPlannerClient.Properties.Resources.icons8_refresh_16;
-            this.btnRefresh.Location = new System.Drawing.Point(7, 455);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(29, 24);
-            this.btnRefresh.TabIndex = 8;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ClientList
             // 

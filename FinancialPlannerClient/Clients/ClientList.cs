@@ -38,10 +38,10 @@ namespace FinancialPlannerClient.Clients
 
         private void ClientList_Load(object sender, EventArgs e)
         {
-            loadProspectCustomerData();
+            loadCustomerData();
         }
 
-        private void loadProspectCustomerData()
+        private void loadCustomerData()
         {
             FinancialPlanner.Common.JSONSerialization jsonSerialization = new FinancialPlanner.Common.JSONSerialization();
             string apiurl = Program.WebServiceUrl +"/"+ CLIENTS_GETALL;
@@ -145,7 +145,23 @@ namespace FinancialPlannerClient.Clients
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            loadProspectCustomerData();
+            loadCustomerData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            DataTable queryResultTable = new DataTable();
+            string query = string.Format("Name like '%{0}%' " +
+                "or PAN LIKE '%{0}%' OR AADHAR LIKE '%{0}%'",txtSearch.Text);
+            try
+            {
+                queryResultTable = _dtClient.Select(query).CopyToDataTable();
+                fillTreeviewData(queryResultTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No matching records found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

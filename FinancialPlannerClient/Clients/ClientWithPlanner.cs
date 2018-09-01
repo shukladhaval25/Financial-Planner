@@ -208,6 +208,7 @@ namespace FinancialPlannerClient.Clients
                 {
                     cmbPlan.Items.Add(dr.Field<string>("Name"));
                 }
+                cmbPlan.SelectedIndex = 0;
             }
         }
 

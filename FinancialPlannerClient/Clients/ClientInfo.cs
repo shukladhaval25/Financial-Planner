@@ -22,6 +22,8 @@ namespace FinancialPlannerClient.Clients
         private DataTable _dtLoan;
         private DataTable _dtIncome;
         private DataTable _dtExpenses;
+        private DataTable _dtGoals;
+
         public int PlannerId
         {
             get { return _plannerId; }
@@ -63,11 +65,30 @@ namespace FinancialPlannerClient.Clients
                     fillupExpensesInfo();
                     break;
                 case "Goal":
+                    fillupGoalsInfo();
+                    break;
+                case "SessionCoverd":
+                    fillupSessionInfo();
                     break;
                 default:
                     break;
             }
 
+        }
+
+        private void fillupSessionInfo()
+        {
+            SessionInfo sessionInfo = new SessionInfo();
+            sessionInfo.fillSessionInfo(dtGridSession);
+        }
+
+        private void fillupGoalsInfo()
+        {
+            GoalsInfo GoalsInfo = new GoalsInfo();
+            List<Goals> lstIncome =(List<Goals>) GoalsInfo.GetAll(PlannerId);
+            _dtGoals = ListtoDataTable.ToDataTable(lstIncome);
+            dtGridGoal.DataSource = _dtGoals;
+            GoalsInfo.FillGrid(dtGridGoal);
         }
 
         private void fillupExpensesInfo()
@@ -677,6 +698,7 @@ namespace FinancialPlannerClient.Clients
             nonFinancialAsset.CreatedBy = Program.CurrentUser.Id;
             nonFinancialAsset.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
             nonFinancialAsset.UpdatedBy = Program.CurrentUser.Id;
+            nonFinancialAsset.UpdatedByUserName = Program.CurrentUser.UserName;
             nonFinancialAsset.MachineName = Environment.MachineName;
             return nonFinancialAsset;
         }
@@ -820,6 +842,7 @@ namespace FinancialPlannerClient.Clients
             loan.CreatedBy = Program.CurrentUser.Id;
             loan.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
             loan.UpdatedBy = Program.CurrentUser.Id;
+            loan.UpdatedByUserName = Program.CurrentUser.UserName;
             loan.MachineName = Environment.MachineName;
 
             return loan;
@@ -1276,6 +1299,118 @@ namespace FinancialPlannerClient.Clients
             plannerAssumption.UpdatedByUserName = Program.CurrentUser.UserName;
             plannerAssumption.MachineName = System.Environment.MachineName;
             return plannerAssumption;
+        }
+
+        private void btnAddGoal_Click(object sender, EventArgs e)
+        {
+            grpGoalsDetail.Enabled = true;
+            setDefaultGoalsValue();
+        }
+
+        private void setDefaultGoalsValue()
+        {
+            cmbCategory.Tag = "0";
+            cmbCategory.Text = "";
+            cmbGoalName.Text = "";
+            txtGoalCurrentValue.Text = "0";
+            txtGoalStartYear.Text = "";
+            txtGoalEndYear.Text = "";
+            txtGoalRecurrence.Text = "";
+            numPriority.Text = "";
+            txtGoalDescription.Text = ""; 
+        }
+
+        private void btnEditGoal_Click(object sender, EventArgs e)
+        {
+            Goals goals = new GoalsInfo().GetGoalsInfo(dtGridGoal,_dtGoals);
+            displayGoalsData(goals);
+            grpGoalsDetail.Enabled = true;
+        }
+
+        private void displayGoalsData(Goals goals)
+        {
+           if (goals != null)
+            {
+                cmbCategory.Tag = goals.Id;
+                cmbCategory.Text = goals.Category;
+                cmbGoalName.Text = goals.Name;
+                txtGoalCurrentValue.Text = goals.Amount.ToString("#,##0.00");
+                txtGoalStartYear.Text = goals.StartYear;
+                txtGoalEndYear.Text = goals.EndYear;
+                if (goals.Recurrence != null)
+                    txtGoalRecurrence.Text = goals.Recurrence.Value.ToString();
+                else
+                    txtGoalRecurrence.Text = "";
+                numPriority.Value = goals.Priority;
+                txtGoalDescription.Text = goals.Description;
+            }
+        }
+
+        private void btnGoalSave_Click(object sender, EventArgs e)
+        {
+            GoalsInfo goalsInfo = new GoalsInfo();
+            Goals goals = getGoalsData();
+            bool isSaved = false;
+
+            if (goals != null && goals.Id == 0)
+                isSaved = goalsInfo.Add(goals);
+            else
+                isSaved = goalsInfo.Update(goals);
+
+            if (isSaved)
+            {
+                MessageBox.Show("Record save successfully.", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillupGoalsInfo();
+                grpGoalsDetail.Enabled = false;
+            }
+            else
+                MessageBox.Show("Unable to save record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private Goals getGoalsData()
+        {
+            Goals Goals = new Goals();
+            Goals.Id = int.Parse(cmbCategory.Tag.ToString());
+            Goals.Pid = PlannerId;
+            Goals.Category = cmbCategory.Text;
+            Goals.Name = cmbGoalName.Text;
+            Goals.Amount = double.Parse(txtGoalCurrentValue.Text);
+            Goals.Recurrence = string.IsNullOrEmpty(txtGoalRecurrence.Text) ? 0 : int.Parse(txtGoalRecurrence.Text);
+            Goals.Priority = int.Parse(numPriority.Value.ToString());
+            Goals.Description = txtGoalDescription.Text;
+            Goals.StartYear = txtGoalStartYear.Text;
+            Goals.EndYear = txtGoalEndYear.Text;
+            Goals.CreatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            Goals.CreatedBy = Program.CurrentUser.Id;
+            Goals.UpdatedOn = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            Goals.UpdatedBy = Program.CurrentUser.Id;
+            Goals.UpdatedByUserName = Program.CurrentUser.UserName;
+            Goals.MachineName = Environment.MachineName;
+            return Goals;
+        }
+
+        private void dtGridGoal_SelectionChanged(object sender, EventArgs e)
+        {
+            Goals goals = new GoalsInfo().GetGoalsInfo(dtGridGoal,_dtGoals);
+            displayGoalsData(goals);
+        }
+
+        private void btnDeleteGoal_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure, you want to delete this record?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                GoalsInfo goalsInfo = new GoalsInfo();
+                Goals goals = goalsInfo.GetGoalsInfo(dtGridGoal, _dtGoals);
+                goalsInfo.Delete(goals);
+                fillupGoalsInfo();
+            }
+        }
+
+        private void btnGoalCancel_Click(object sender, EventArgs e)
+        {
+            Goals goals = new GoalsInfo().GetGoalsInfo(dtGridGoal,_dtGoals);
+            displayGoalsData(goals);
+            grpGoalsDetail.Enabled = false;
         }
     }
 }
