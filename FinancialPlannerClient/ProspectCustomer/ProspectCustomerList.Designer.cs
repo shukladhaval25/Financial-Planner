@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProspectCustomerList));
             this.grpActionControls = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.imgCollection = new System.Windows.Forms.ImageList(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.lblProsCust = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.trvList = new System.Windows.Forms.TreeView();
             this.grpSearch = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grpActionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -64,6 +64,18 @@
             this.grpActionControls.TabIndex = 6;
             this.grpActionControls.TabStop = false;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.ImageIndex = 1;
+            this.btnDelete.ImageList = this.imgCollection;
+            this.btnDelete.Location = new System.Drawing.Point(76, 10);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(29, 24);
+            this.btnDelete.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // imgCollection
             // 
             this.imgCollection.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgCollection.ImageStream")));
@@ -75,11 +87,35 @@
             this.imgCollection.Images.SetKeyName(4, "Edit.png");
             this.imgCollection.Images.SetKeyName(5, "User.png");
             this.imgCollection.Images.SetKeyName(6, "VirtualUser.png");
-            this.imgCollection.Images.SetKeyName(7, "Run.png");
+            this.imgCollection.Images.SetKeyName(7, "icons8-circled-play-16.png");
             this.imgCollection.Images.SetKeyName(8, "icons8-search-16.png");
             this.imgCollection.Images.SetKeyName(9, "icons8-customer-16.png");
             this.imgCollection.Images.SetKeyName(10, "icons8-reception-16 - Copy.png");
             this.imgCollection.Images.SetKeyName(11, "icons8-refresh-16.png");
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.ImageIndex = 3;
+            this.btnAdd.ImageList = this.imgCollection;
+            this.btnAdd.Location = new System.Drawing.Point(6, 10);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(29, 24);
+            this.btnAdd.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnAdd, "Add");
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.ImageIndex = 4;
+            this.btnEdit.ImageList = this.imgCollection;
+            this.btnEdit.Location = new System.Drawing.Point(41, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(29, 24);
+            this.btnEdit.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblProsCust
             // 
@@ -117,6 +153,30 @@
             this.splitContainer.Size = new System.Drawing.Size(945, 492);
             this.splitContainer.SplitterDistance = 194;
             this.splitContainer.TabIndex = 8;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRefresh.Image = global::FinancialPlannerClient.Properties.Resources.icons8_refresh_16;
+            this.btnRefresh.Location = new System.Drawing.Point(7, 458);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(29, 24);
+            this.btnRefresh.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnRefresh, "Refresh Data");
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.ImageKey = "icons8-search-16.png";
+            this.btnSearch.ImageList = this.imgCollection;
+            this.btnSearch.Location = new System.Drawing.Point(156, 28);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(30, 23);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // trvList
             // 
@@ -168,66 +228,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(747, 492);
             this.tabControl1.TabIndex = 0;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRefresh.Image = global::FinancialPlannerClient.Properties.Resources.icons8_refresh_16;
-            this.btnRefresh.Location = new System.Drawing.Point(7, 458);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(29, 24);
-            this.btnRefresh.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnRefresh, "Refresh Data");
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.ImageKey = "icons8-search-16.png";
-            this.btnSearch.ImageList = this.imgCollection;
-            this.btnSearch.Location = new System.Drawing.Point(156, 28);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(30, 23);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.ImageIndex = 1;
-            this.btnDelete.ImageList = this.imgCollection;
-            this.btnDelete.Location = new System.Drawing.Point(76, 10);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(29, 24);
-            this.btnDelete.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.ImageIndex = 3;
-            this.btnAdd.ImageList = this.imgCollection;
-            this.btnAdd.Location = new System.Drawing.Point(6, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(29, 24);
-            this.btnAdd.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnAdd, "Add");
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.ImageIndex = 4;
-            this.btnEdit.ImageList = this.imgCollection;
-            this.btnEdit.Location = new System.Drawing.Point(41, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(29, 24);
-            this.btnEdit.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ProspectCustomerList
             // 

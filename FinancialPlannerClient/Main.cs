@@ -82,12 +82,26 @@ namespace FinancialPlannerClient
         }
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {          
+        }
+
+        private void dataGaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clients.ClientList frmClientList = new Clients.ClientList();
             frmClientList.TopLevel = false;
             this.pnlMain.Controls.Add(frmClientList);
             frmClientList.Dock = DockStyle.Fill;
             frmClientList.Show();
+        }
+
+        private void createNewRsikProfiledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RiskProfile.frmRiskProfiledReturnList frmriskProfileReturnList =
+                new RiskProfile.frmRiskProfiledReturnList();
+            frmriskProfileReturnList.TopLevel = false;
+            this.pnlMain.Controls.Add(frmriskProfileReturnList);
+            frmriskProfileReturnList.Dock = DockStyle.Fill;
+            frmriskProfileReturnList.Show();
         }
     }
 }

@@ -99,5 +99,15 @@ namespace FinancialPlannerClient.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap processing_gif_image_14 {
+            get {
+                object obj = ResourceManager.GetObject("processing-gif-image-14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

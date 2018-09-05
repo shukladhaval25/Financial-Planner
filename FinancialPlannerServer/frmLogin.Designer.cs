@@ -84,7 +84,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(158, 20);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "abcd@1234";
             // 
             // txtUserName
             // 
@@ -92,7 +91,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(158, 20);
             this.txtUserName.TabIndex = 2;
-            this.txtUserName.Text = "Admin";
             // 
             // label2
             // 
@@ -148,6 +146,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.grpUserLogin.ResumeLayout(false);
             this.grpUserLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

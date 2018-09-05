@@ -38,7 +38,12 @@ namespace FinancialPlannerServer.EmailJob
 
         private void EmailScheduleInfo_Load(object sender, EventArgs e)
         {
+            fillupEmailArticleGroup();
+        }
 
+        private void fillupEmailArticleGroup()
+        {
+            
         }
 
         private void lnkArticles_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
